@@ -1,4 +1,4 @@
-package com.heroku.demo;
+package rest;
 
 
 import org.springframework.web.bind.annotation.PathVariable;

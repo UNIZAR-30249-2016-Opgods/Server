@@ -1,4 +1,4 @@
-package com.heroku.demo;
+package rest;
 
 public class Greeting {
 
