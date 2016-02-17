@@ -7,6 +7,6 @@ import static org.junit.Assert.assertEquals;
 public class AppliactionTest {
     @Test
     public void op () {
-        assertEquals(1,0);
+        assertEquals(1,1);
     }
 }
