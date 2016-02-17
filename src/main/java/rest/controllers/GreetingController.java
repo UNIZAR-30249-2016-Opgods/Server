@@ -1,10 +1,13 @@
-package rest;
+package rest.controllers;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import rest.models.User;
+import rest.models.UserDao;
 
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -15,8 +18,16 @@ public class GreetingController {
     private final AtomicLong counter = new AtomicLong();
 
     @RequestMapping(value="/greetings/{name}", method = RequestMethod.GET)
-    public Greeting greeting(@PathVariable("name") String name) {
-        return new Greeting(counter.incrementAndGet(),
-                String.format(template, name));
+    public String greeting(@PathVariable("name") String name) {
+        /*return new Greeting(counter.incrementAndGet(),
+                String.format(template, name));*/
+
+        User user;
+        user = new User("op@op.com", name);
+        userDao.save(user);
+        return "User succesfully updated";
     }
+
+    @Autowired
+    private UserDao userDao;
 }

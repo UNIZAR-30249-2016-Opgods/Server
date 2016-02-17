@@ -1,4 +1,4 @@
-package rest;
+package rest.models;
 
 public class Greeting {
 
