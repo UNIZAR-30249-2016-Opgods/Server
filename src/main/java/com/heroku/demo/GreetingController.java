@@ -1,8 +1,9 @@
 package com.heroku.demo;
 
 
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.concurrent.atomic.AtomicLong;
@@ -13,8 +14,8 @@ public class GreetingController {
     private static final String template = "Hello OP chetao, %s!";
     private final AtomicLong counter = new AtomicLong();
 
-    @RequestMapping("/greetings")
-    public Greeting greeting(@RequestParam(value="name", defaultValue="World") String name) {
+    @RequestMapping(value="/greetings/{name}", method = RequestMethod.GET)
+    public Greeting greeting(@PathVariable("name") String name) {
         return new Greeting(counter.incrementAndGet(),
                 String.format(template, name));
     }
