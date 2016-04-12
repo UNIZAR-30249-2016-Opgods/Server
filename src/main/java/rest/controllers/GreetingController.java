@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import rest.models.User;
+import rest.dominio.Profesor;
 import rest.models.UserDao;
 
 import java.util.concurrent.atomic.AtomicLong;
@@ -21,10 +21,10 @@ public class GreetingController {
     public String greeting(@PathVariable("name") String name) {
         /*return new Greeting(counter.incrementAndGet(),
                 String.format(template, name));*/
-
-        User user;
+        Profesor profesor = new Profesor();
+        /*User user;
         user = new User("op@op.com", name);
-        userDao.save(user);
+        userDao.save(user);*/
         return "User succesfully updated";
     }
 
