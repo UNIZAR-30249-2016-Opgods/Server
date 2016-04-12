@@ -1,4 +1,4 @@
-package rest.controllers;
+package rest.aplicacion;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ public class GreetingController {
         /*User user;
         user = new User("op@op.com", name);
         userDao.save(user);*/
-        return "User succesfully updated";
+        return "<h1>Inicio de app</h1>";
     }
 
     @Autowired
