@@ -1,20 +1,19 @@
 package rest.dominio.objetosvalor;
 
-import javafx.scene.shape.Polyline;
-
 /**
  * Created by phyrion on 12/04/16.
  */
 public class Ruta {
-    private Polyline polyline;
+    //TODO Ver que pasa con la clase Polyline hacer las rutas con googlemaps
+    private int polyline; // Problemas en heroku
     private AccesoParking acceso;
 
-    public Ruta(Polyline polyline, AccesoParking acceso) {
+    public Ruta(int polyline, AccesoParking acceso) {
         this.polyline = polyline;
         this.acceso = acceso;
     }
 
-    public Polyline getPolyline() {
+    public int getPolyline() {
         return polyline;
     }
 
