@@ -1,4 +1,6 @@
-package rest.dominio;
+package rest.dominio.entidades;
+
+import rest.dominio.objetosvalor.Despacho;
 
 /**
  * Created by phyrion on 12/04/16.
