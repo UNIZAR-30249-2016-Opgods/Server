@@ -2,10 +2,13 @@ package rest.dominio.entidades;
 
 import rest.dominio.objetosvalor.Despacho;
 
+import java.util.Observable;
+import java.util.Observer;
+
 /**
  * Created by phyrion on 12/04/16.
  */
-public class Profesor extends Entidad {
+public class Profesor extends Entidad implements Observer {
     private String nombre;
     private boolean disponibilidad;
     private String info;
@@ -40,5 +43,10 @@ public class Profesor extends Entidad {
 
     public Despacho getDespacho() {
         return despacho;
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        System.out.println(arg);
     }
 }

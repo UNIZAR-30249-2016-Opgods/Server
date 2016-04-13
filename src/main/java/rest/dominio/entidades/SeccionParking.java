@@ -10,7 +10,7 @@ import java.util.Observer;
 /**
  * Created by phyrion on 12/04/16.
  */
-public class SeccionParking extends Entidad implements Observer{
+public class SeccionParking extends Entidad implements Observer {
 
     private String nombre;
     private Punto punto;
@@ -34,8 +34,52 @@ public class SeccionParking extends Entidad implements Observer{
         this.ocupacion = ocupacion;
     }
 
+    /**
+     * Pre: n debe ser menor o igual que el número de plazas libres y mayor que 0
+     * Post: ocupa el número de plazas dado como parámetro en la seccion del parking.
+     * @param n número de plazas a ocupar
+     * @throws Exception en caso de introducir un parámetro inválido.
+     */
+    public void ocuparPlazas(int n) throws Exception {
+        if(n < 0 || n > (ocupacion.getnPlazas() - ocupacion.getOcupadas()))
+            throw new Exception("El número de plazas libres es menor que el que se va a ocupar.");
+        for(int i = 0; i < n; i++)
+            ocupacion.ocuparPlaza();
+    }
+
+    /**
+     * Pre: n debe ser menor o igual que el número de plazas ocupadas y mayor que 0
+     * Post: libera el número de plazas dado como parámetro en la seccion del parking.
+     * @param n número de plazas a liberar
+     * @throws Exception en caso de introducir un parámetro inválido.
+     */
+    public void liberarPlazas(int n) throws Exception {
+        if(n < 0 || n > ocupacion.getOcupadas())
+            throw new Exception("El número de plazas libres es menor que el que se va a ocupar.");
+        for(int i = 0; i < n; i++)
+            ocupacion.liberarPlaza();
+    }
+
     @Override
     public void update(Observable o, Object arg) {
         System.out.println(arg);
+        System.out.println(ocupacion.getOcupadas());
+        String actualizar = (String) arg;
+        if(actualizar.contains("ENTRAR")) {
+            int plazasEntrar = Integer.parseInt(actualizar.substring(actualizar.indexOf(":") + 1, actualizar.length()));
+            try {
+                ocuparPlazas(plazasEntrar);
+            } catch (Exception e) {
+                System.err.println(e.getMessage());
+            }
+        } else {
+            int plazasSalir = Integer.parseInt(actualizar.substring(actualizar.indexOf(":") + 1, actualizar.length()));
+            try {
+                ocuparPlazas(plazasSalir);
+            } catch (Exception e) {
+                System.err.println(e.getMessage());
+            }
+        }
+        System.out.println(ocupacion.getOcupadas());
     }
 }

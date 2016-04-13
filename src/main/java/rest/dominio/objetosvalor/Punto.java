@@ -4,19 +4,26 @@ package rest.dominio.objetosvalor;
  * Created by phyrion on 12/04/16.
  */
 public class Punto {
-    private double x;
-    private double y;
+    private int SRC;
+    private double latitud;
+    private double longitud;
 
-    public Punto(double x, double y) {
-        this.x = x;
-        this.y = y;
+    public Punto(int SRC, double latitud, double longitud) {
+        this.SRC = SRC;
+        this.latitud = latitud;
+        this.longitud = longitud;
     }
 
-    public double getX() {
-        return x;
+    public int getSRC() {
+        return SRC;
     }
 
-    public double getY() {
-        return y;
+    public double getLatitud() {
+        return latitud;
     }
+
+    public double getLongitud() {
+        return longitud;
+    }
+
 }

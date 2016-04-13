@@ -25,7 +25,7 @@ public class GreetingController {
         /*return new Greeting(counter.incrementAndGet(),
                 String.format(template, name));*/
         SeccionParking sp = new SeccionParking("Seccion tal",
-                                                new Punto(1,1),
+                                                new Punto(1,1,1),
                                                 null, null,
                                                 new Ocupacion(12,2));
         Sensor sensor = new Sensor();
