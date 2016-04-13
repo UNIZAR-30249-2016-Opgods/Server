@@ -25,4 +25,5 @@ public class Localizacion {
     public int getUtcEdificio() {
         return utcEdificio;
     }
+
 }
