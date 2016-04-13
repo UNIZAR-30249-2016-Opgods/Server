@@ -65,7 +65,7 @@ public class SeccionParking extends Entidad implements Observer {
         if(actualizar.contains("ENTRAR")) {
             try {
                 ocuparPlaza();
-                System.out.println("Se han ocupado una plaza del parking. " +
+                System.out.println("Se han ocupado una plaza del parking [" + nombre + "]. " +
                         "Hay " + ocupacion.getOcupadas() + " plazas ocupadas." );
             } catch (Exception e) {
                 System.err.println(e.getMessage());
@@ -73,7 +73,7 @@ public class SeccionParking extends Entidad implements Observer {
         } else {
             try {
                 liberarPlaza();
-                System.out.println("Se han liberado una plaza del parking. " +
+                System.out.println("Se han liberado una plaza del parking [" + nombre + "]. " +
                         "Hay " + ocupacion.getLibres() + " plazas libres." );
             } catch (Exception e) {
                 System.err.println(e.getMessage());
