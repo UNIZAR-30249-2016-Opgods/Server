@@ -5,7 +5,7 @@ import rest.dominio.simulacion.SimularProfesor;
 
 public class Simulacion extends Thread {
 
-    public static void main(String[] args) {
+    public Simulacion() {
         SimularParking sParking = new SimularParking();
         SimularProfesor sProfesor = new SimularProfesor();
 
