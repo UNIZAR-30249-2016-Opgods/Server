@@ -7,11 +7,9 @@ import rest.dominio.objetosvalor.Punto;
 import rest.infraestructura.ISensor;
 import rest.infraestructura.Sensor;
 
-/**
- * Created by Mario on 13/4/16.
- */
+
 public class Pruebas {
-    public static void main(String[] args) {
+    public Pruebas() {
         SeccionParking sp = new SeccionParking("Seccion tal",
                 new Punto(1,1,1),
                 null, null,
