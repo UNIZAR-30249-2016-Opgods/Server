@@ -5,9 +5,6 @@ import rest.dominio.objetosvalor.Despacho;
 import java.util.Observable;
 import java.util.Observer;
 
-/**
- * Created by phyrion on 12/04/16.
- */
 public class Profesor extends Entidad implements Observer {
     private String nombre;
     private boolean disponibilidad;
@@ -51,10 +48,10 @@ public class Profesor extends Entidad implements Observer {
         String actualizar = (String) arg;
         if (actualizar.contains("ENTRAR")) {
             disponibilidad = true;
-            System.out.println("El profesor está disponible.");
+            System.out.println("El profesor [" + nombre + "] está disponible.");
         } else {
             disponibilidad = false;
-            System.out.println("El profesor está ocupado.");
+            System.out.println("El profesor [" + nombre + "] está ocupado.");
         }
     }
 

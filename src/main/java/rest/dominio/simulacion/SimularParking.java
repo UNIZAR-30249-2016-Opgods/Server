@@ -11,9 +11,6 @@ import rest.infraestructura.Sensor;
 import java.util.ArrayList;
 import java.util.Random;
 
-/**
- * Created by Mario on 13/4/16.
- */
 public class SimularParking implements Runnable{
 
     ISensor sensorParking1;
@@ -21,19 +18,27 @@ public class SimularParking implements Runnable{
     ArrayList<ISensor> sensores;
 
     public SimularParking() {
-        Punto punto1 = new Punto(1,1,1);
-        Punto punto2 = new Punto(2,2,2);
-        Ruta ruta1 = new Ruta(1, new AccesoParking(punto1, 1));
-        Ruta ruta2 = new Ruta(2, new AccesoParking(punto2, 2));
+        Punto puntoRuta1 = new Punto(1,1,1);
+        Punto puntoRuta2 = new Punto(2,2,2);
+        Punto puntoParking = new Punto(3,3,3);
+        AccesoParking ap1 = new AccesoParking(puntoRuta1, 1);
+        AccesoParking ap2 = new AccesoParking(puntoRuta2, 2);
+        Ruta ruta1 = new Ruta(1, ap1);
+        Ruta ruta2 = new Ruta(2, ap2);
         Ruta[] rutas1 = {ruta1, ruta2};
-        SeccionParking sp1 = crearSeccionParking("Seccion1", new Punto(1,1,1), rutas1, new Ocupacion(12,0));
+        Ocupacion ocupacion = new Ocupacion(12, 0);
+        SeccionParking sp1 = crearSeccionParking("Seccion1", puntoParking, rutas1, ocupacion);
 
-        punto1 = new Punto(3,3,3);
-        punto2 = new Punto(4,4,4);
-        ruta1 = new Ruta(1, new AccesoParking(punto1, 1));
-        ruta2 = new Ruta(2, new AccesoParking(punto2, 2));
+        puntoRuta1 = new Punto(1,1,1);
+        puntoRuta2 = new Punto(2,2,2);
+        puntoParking = new Punto(3,3,3);
+        ap1 = new AccesoParking(puntoRuta1, 1);
+        ap2 = new AccesoParking(puntoRuta2, 2);
+        ruta1 = new Ruta(1, ap1);
+        ruta2 = new Ruta(2, ap2);
         Ruta[] rutas2 = {ruta1, ruta2};
-        SeccionParking sp2 = crearSeccionParking("Seccion2", new Punto(1,1,1), rutas2, new Ocupacion(15,0));
+        ocupacion = new Ocupacion(12, 0);
+        SeccionParking sp2 = crearSeccionParking("Seccion2", puntoParking, rutas2, ocupacion);
 
         sensores = new ArrayList<>();
 
@@ -71,11 +76,11 @@ public class SimularParking implements Runnable{
         }
     }
 
-    public void llenarPlaza(ISensor sensor){
+    private void llenarPlaza(ISensor sensor){
         sensor.entrar();
     }
 
-    public void liberarPlaza(ISensor sensor){
+    private void liberarPlaza(ISensor sensor){
         sensor.salir();
     }
 
