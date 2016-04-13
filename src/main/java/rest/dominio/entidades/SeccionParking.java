@@ -62,13 +62,13 @@ public class SeccionParking extends Entidad implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        System.out.println(arg);
-        System.out.println(ocupacion.getOcupadas());
         String actualizar = (String) arg;
         if(actualizar.contains("ENTRAR")) {
             int plazasEntrar = Integer.parseInt(actualizar.substring(actualizar.indexOf(":") + 1, actualizar.length()));
             try {
                 ocuparPlazas(plazasEntrar);
+                System.out.println("Se han ocupado " + plazasEntrar + " plazas. " +
+                        "Hay " + ocupacion.getOcupadas() + " plazas ocupadas." );
             } catch (Exception e) {
                 System.err.println(e.getMessage());
             }
@@ -76,10 +76,11 @@ public class SeccionParking extends Entidad implements Observer {
             int plazasSalir = Integer.parseInt(actualizar.substring(actualizar.indexOf(":") + 1, actualizar.length()));
             try {
                 liberarPlazas(plazasSalir);
+                System.out.println("Se han liberado " + plazasSalir + " plazas. " +
+                        "Hay " + ocupacion.getOcupadas() + " plazas ocupadas." );
             } catch (Exception e) {
                 System.err.println(e.getMessage());
             }
         }
-        System.out.println(ocupacion.getOcupadas());
     }
 }
