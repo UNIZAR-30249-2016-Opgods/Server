@@ -1,3 +1,5 @@
+package rest.dominio.simulacion;
+
 import rest.dominio.entidades.Profesor;
 import rest.dominio.entidades.SeccionParking;
 import rest.dominio.objetosvalor.Ocupacion;
