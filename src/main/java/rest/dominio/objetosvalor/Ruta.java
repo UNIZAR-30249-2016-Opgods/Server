@@ -1,8 +1,5 @@
 package rest.dominio.objetosvalor;
 
-/**
- * Created by phyrion on 12/04/16.
- */
 public class Ruta {
     //TODO Ver que pasa con la clase Polyline hacer las rutas con googlemaps
     private int polyline; // Problemas en heroku

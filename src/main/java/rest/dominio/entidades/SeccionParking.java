@@ -7,9 +7,6 @@ import rest.dominio.objetosvalor.Ruta;
 import java.util.Observable;
 import java.util.Observer;
 
-/**
- * Created by phyrion on 12/04/16.
- */
 public class SeccionParking extends Entidad implements Observer {
 
     private String nombre;

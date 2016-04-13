@@ -2,9 +2,6 @@ package rest.dominio.entidades;
 
 import java.util.UUID;
 
-/**
- * Created by phyrion on 12/04/16.
- */
 public abstract class Entidad {
     private String id;
 

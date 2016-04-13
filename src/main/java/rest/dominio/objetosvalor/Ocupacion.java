@@ -1,8 +1,6 @@
 package rest.dominio.objetosvalor;
 
-/**
- *
- */
+
 public class Ocupacion {
     private int nPlazas;
     private int ocupadas;

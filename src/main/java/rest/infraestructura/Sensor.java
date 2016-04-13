@@ -2,9 +2,6 @@ package rest.infraestructura;
 
 import java.util.Observable;
 
-/**
- * Created by Mario on 13/4/16.
- */
 public class Sensor extends Observable implements ISensor {
 
     public void entrar() {

@@ -1,8 +1,5 @@
 package rest.dominio.objetosvalor;
 
-/**
- * Created by phyrion on 12/04/16.
- */
 public class Localizacion {
     private Punto punto;
     private int utcPlanta;
