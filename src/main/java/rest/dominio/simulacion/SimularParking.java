@@ -26,14 +26,14 @@ public class SimularParking implements Runnable{
         Ruta ruta1 = new Ruta(1, new AccesoParking(punto1, 1));
         Ruta ruta2 = new Ruta(2, new AccesoParking(punto2, 2));
         Ruta[] rutas1 = {ruta1, ruta2};
-        SeccionParking sp1 = crearSeccionParking("Seccion1", new Punto(1,1,1), rutas1, new Ocupacion(12,12));
+        SeccionParking sp1 = crearSeccionParking("Seccion1", new Punto(1,1,1), rutas1, new Ocupacion(12,0));
 
         punto1 = new Punto(3,3,3);
         punto2 = new Punto(4,4,4);
         ruta1 = new Ruta(1, new AccesoParking(punto1, 1));
         ruta2 = new Ruta(2, new AccesoParking(punto2, 2));
         Ruta[] rutas2 = {ruta1, ruta2};
-        SeccionParking sp2 = crearSeccionParking("Seccion2", new Punto(1,1,1), rutas2, new Ocupacion(12,12));
+        SeccionParking sp2 = crearSeccionParking("Seccion2", new Punto(1,1,1), rutas2, new Ocupacion(15,0));
 
         sensores = new ArrayList<>();
 
