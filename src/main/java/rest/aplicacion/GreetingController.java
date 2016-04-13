@@ -6,10 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import rest.dominio.entidades.SeccionParking;
+import rest.dominio.infraestructura.Sensor;
 import rest.dominio.objetosvalor.Ocupacion;
 import rest.dominio.objetosvalor.Punto;
-import rest.infraestructura.ISensor;
-import rest.infraestructura.Sensor;
 
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -37,4 +36,6 @@ public class GreetingController {
         return "<h1>Inicio de app</h1>";
     }
 
+    @Autowired
+    private UserDao userDao;
 }
