@@ -1,7 +1,6 @@
 package rest.aplicacion;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -10,7 +9,6 @@ import rest.dominio.entidades.SeccionParking;
 import rest.dominio.objetosvalor.Ocupacion;
 import rest.dominio.objetosvalor.Punto;
 import rest.infraestructura.Sensor;
-import rest.models.UserDao;
 
 import java.util.concurrent.atomic.AtomicLong;
 

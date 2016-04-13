@@ -83,4 +83,5 @@ public class SeccionParking extends Entidad implements Observer {
             }
         }
     }
+
 }
