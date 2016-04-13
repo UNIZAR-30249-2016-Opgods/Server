@@ -46,7 +46,16 @@ public class Profesor extends Entidad implements Observer {
     }
 
     @Override
+    //TODO: Cambiar try catch por throws. Esto es solo para probar
     public void update(Observable o, Object arg) {
-        System.out.println(arg);
+        String actualizar = (String) arg;
+        if (actualizar.contains("ENTRAR")) {
+            disponibilidad = true;
+            System.out.println("El profesor está disponible.");
+        } else {
+            disponibilidad = false;
+            System.out.println("El profesor está ocupado.");
+        }
     }
+
 }

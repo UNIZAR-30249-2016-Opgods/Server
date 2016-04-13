@@ -5,19 +5,21 @@ import java.util.Observable;
 /**
  * Created by Mario on 13/4/16.
  */
-public class Sensor extends Observable {
+public class Sensor extends Observable implements ISensor {
 
-    public void entrar(int plazasOcupar) {
+    public void entrar() {
         // Marca el objeto observable como un objeto que ha cambiado
         setChanged();
         // Notificamos a los observadores y le enviamos el nuevo valor
-        notifyObservers("ENTRAR:" + plazasOcupar);
+        notifyObservers("ENTRAR");
     }
 
-    public void salir(int plazasLiberar) {
+    public void salir() {
         // Marca el objeto observable como un objeto que ha cambiado
         setChanged();
         // Notificamos a los observadores y le enviamos el nuevo valor
-        notifyObservers("SALIR:" + plazasLiberar);
+        notifyObservers("SALIR");
     }
+
+
 }

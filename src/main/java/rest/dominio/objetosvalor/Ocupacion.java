@@ -20,6 +20,8 @@ public class Ocupacion {
         return ocupadas;
     }
 
+    public int getLibres() { return nPlazas - ocupadas; }
+
     public void ocuparPlaza() {
         if (ocupadas < nPlazas) {
             ocupadas++;

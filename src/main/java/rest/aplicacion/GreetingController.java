@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import rest.dominio.entidades.SeccionParking;
 import rest.dominio.objetosvalor.Ocupacion;
 import rest.dominio.objetosvalor.Punto;
+import rest.infraestructura.ISensor;
 import rest.infraestructura.Sensor;
 
 import java.util.concurrent.atomic.AtomicLong;
@@ -26,9 +27,9 @@ public class GreetingController {
                                                 new Punto(1,1,1),
                                                 null, null,
                                                 new Ocupacion(12,2));
-        Sensor sensor = new Sensor();
+        ISensor sensor = new Sensor();
         sensor.addObserver(sp);
-        sensor.entrar(1);
+        sensor.entrar();
 
         /*User user;
         user = new User("op@op.com", name);
