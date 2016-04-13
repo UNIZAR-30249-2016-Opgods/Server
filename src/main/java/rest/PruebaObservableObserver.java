@@ -21,10 +21,10 @@ public class PruebaObservableObserver {
         //Observador
         SeccionParking sp = new SeccionParking("seccion1", punto, ruta1, ruta2, ocupacion);
         //Observado
-        Sensor sensor = new Sensor(0, 0);
+        Sensor sensor = new Sensor();
 
         sensor.addObserver(sp);
 
-        sensor.entrar(10);
+        sensor.salir(10);
     }
 }

@@ -75,7 +75,7 @@ public class SeccionParking extends Entidad implements Observer {
         } else {
             int plazasSalir = Integer.parseInt(actualizar.substring(actualizar.indexOf(":") + 1, actualizar.length()));
             try {
-                ocuparPlazas(plazasSalir);
+                liberarPlazas(plazasSalir);
             } catch (Exception e) {
                 System.err.println(e.getMessage());
             }
