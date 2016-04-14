@@ -2,13 +2,8 @@ package rest.aplicacion.facade;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import rest.dominio.entidades.Profesor;
-import rest.dominio.modelo.RepositorioProfesores;
-import rest.dominio.modelo.RepositorioProfesoresImpl;
 import rest.infraestructura.BBDD.HibernateUtils;
 import rest.infraestructura.BBDD.ProfesorDTO;
-
-import java.util.ArrayList;
 
 /**
  * Created by Mario on 14/04/2016.
@@ -16,7 +11,7 @@ import java.util.ArrayList;
 public class prueba {
 
 
-    public static void main(String[] args) {
+    public prueba() {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
         ProfesorManager profesorManager = (ProfesorManager) context.getBean("profesorManager");
 
