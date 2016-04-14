@@ -50,7 +50,6 @@ public class RepositorioProfesoresImpl implements RepositorioProfesores {
                 setParameter("id", id).
                 uniqueResult();
     }*/
-
     @Override
     public ArrayList<ProfesorDTO> fuzzyFind(String nombre) {
         return null;
