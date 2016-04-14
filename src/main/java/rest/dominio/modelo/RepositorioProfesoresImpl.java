@@ -1,17 +1,16 @@
 package rest.dominio.modelo;
 
+import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
-
+import rest.dominio.entidades.Profesor;
 import rest.infraestructura.BBDD.ProfesorDTO;
 
 import java.util.ArrayList;
-
-/**
- * Created by Mario on 14/04/2016.
- */
 
 @Repository
 public class RepositorioProfesoresImpl implements RepositorioProfesores {
@@ -32,24 +31,21 @@ public class RepositorioProfesoresImpl implements RepositorioProfesores {
         session.beginTransaction();
         session.save(profesor);
         session.getTransaction().commit();
+        session.flush();
     }
 
     @Override
     public ProfesorDTO findOne(String id) {
+        ProfesorDTO profesor = null;
         Session session = this.sessionFactory.getCurrentSession();
-        ProfesorDTO profesor = (ProfesorDTO) session.load(ProfesorDTO.class, id);
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(ProfesorDTO.class).add(Restrictions.eq("id", id));
+        profesor = (ProfesorDTO) criteria.uniqueResult();
+        session.flush();
+
         return profesor;
     }
 
-  /*
-    @Override
-    public Profesor findOne(String id) {
-        return (Profesor) getSessionFactory()
-                .openSession().
-                createQuery("from PROFESOR where id = :id").
-                setParameter("id", id).
-                uniqueResult();
-    }*/
     @Override
     public ArrayList<ProfesorDTO> fuzzyFind(String nombre) {
         return null;

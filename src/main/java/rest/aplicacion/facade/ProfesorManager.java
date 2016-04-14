@@ -23,8 +23,8 @@ public class ProfesorManager {
     @Transactional
     public void addTeacher(ProfesorDTO profesor) {
         getRepositorioProfesores().addTeacher(profesor);
-
     }
+
     @Transactional
     public ProfesorDTO findOne(String id) {
         ProfesorDTO profesor = getRepositorioProfesores().findOne(id);

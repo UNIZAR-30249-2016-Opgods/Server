@@ -25,6 +25,8 @@ public class ProfesorDTO {
     @Column(name="info", unique = false, nullable = false)
     private String info;
 
+    public ProfesorDTO() {}
+
     public ProfesorDTO(String id, String nombre, boolean disponibilidad, String info) {
         this.id = id;
         this.nombre = nombre;
