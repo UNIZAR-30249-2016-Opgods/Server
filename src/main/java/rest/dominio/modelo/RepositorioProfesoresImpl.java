@@ -29,7 +29,9 @@ public class RepositorioProfesoresImpl implements RepositorioProfesores {
     @Override
     public void addTeacher(ProfesorDTO profesor) {
         Session session = getSessionFactory().getCurrentSession();
+        session.beginTransaction();
         session.save(profesor);
+        session.getTransaction().commit();
     }
 
     @Override

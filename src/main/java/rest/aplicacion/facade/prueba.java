@@ -19,7 +19,6 @@ public class prueba {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
         ProfesorManager profesorManager = (ProfesorManager) context.getBean("profesorManager");
-        HibernateUtils hu = new HibernateUtils();
 
         ProfesorDTO profesor = new ProfesorDTO("id", "javier", true, "info");
         profesorManager.addTeacher(profesor);

@@ -67,7 +67,7 @@ public class HibernateUtils {
         sessionFactory.close();
     }
 
-     /*
+/*
     public static void main(String[] args) {
         Connection conn = getConnection();
         Preparar();
@@ -80,8 +80,16 @@ public class HibernateUtils {
                     .prepareStatement("CREATE TABLE PROFESOR(" +
                             "id VARCHAR(100) NOT NULL UNIQUE," +
                             "nombre VARCHAR(100) NOT NULL," +
-                            "disponibilidad VARCHAR(100) NOT NULL," +
-                            "info CHAR(1) NOT NULL," +
+                            "disponibilidad CHAR(1) NOT NULL," +
+                            "info VARCHAR(100) NOT NULL," +
+                            "PRIMARY KEY(id))");
+
+            preparedStatement.executeUpdate();
+
+            PreparedStatement preparedStatement = connection
+                    .prepareStatement("CREATE TABLE SECCIONPARKING(" +
+                            "id VARCHAR(100) NOT NULL UNIQUE," +
+                            "nombre VARCHAR(100) NOT NULL," +
                             "PRIMARY KEY(id))");
 
             preparedStatement.executeUpdate();
@@ -91,5 +99,5 @@ public class HibernateUtils {
             System.err.println("Error: " + e.getMessage());
         }
     }
-    */
+*/
 }
