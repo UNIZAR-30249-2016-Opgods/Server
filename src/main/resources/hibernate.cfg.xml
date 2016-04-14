@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+        <property name="hbm2ddl.auto">update</property>
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="connection.url">jdbc:mysql://db4free.net:3306/labis</property>
+        <property name="connection.username">labis_user</property>
+        <property name="connection.password">labis_pass</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+
+
+        <property name="hibernate.cache.use_second_level_cache">false</property>
+        <property name="hibernate.cache.use_query_cache">false</property>
+        <property name="hibernate.c3p0.max_statements">0</property>
+
+        <mapping class="rest.infraestructura.BBDD.ProfesorDTO" />
+    </session-factory>
+</hibernate-configuration>
