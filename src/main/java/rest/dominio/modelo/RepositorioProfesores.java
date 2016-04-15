@@ -2,7 +2,7 @@ package rest.dominio.modelo;
 
 import rest.infraestructura.BBDD.ProfesorDTO;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Mario on 13/04/2016.
@@ -11,13 +11,13 @@ public interface RepositorioProfesores {
 
     void addTeacher(ProfesorDTO profesor);
 
-    ProfesorDTO findOne(String id);
+    ProfesorDTO findById(String id);
 
-    ArrayList<ProfesorDTO> fuzzyFind(String nombre);
+    List<ProfesorDTO> fuzzyFind(String nombre);
 
-    ArrayList<ProfesorDTO> findAll();
+    List<ProfesorDTO> findAll();
 
-    ArrayList<ProfesorDTO> findFloor(int UTCplanta);
+    List<ProfesorDTO> findFloor(int UTCplanta);
 
     void modificarDisponibilidad(String id);
 

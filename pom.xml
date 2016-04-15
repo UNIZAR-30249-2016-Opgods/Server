@@ -28,6 +28,18 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
+        <!-- MySQL database driver -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
+        <!-- Hibernate -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
 
     </dependencies>
 
