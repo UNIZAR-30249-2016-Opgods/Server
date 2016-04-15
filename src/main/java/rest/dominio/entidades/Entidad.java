@@ -1,8 +1,15 @@
 package rest.dominio.entidades;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.UUID;
 
+@Entity
 public abstract class Entidad {
+
+    @Id
+    @Column(name="id", unique = true, nullable = false)
     private String id;
 
     public Entidad () {

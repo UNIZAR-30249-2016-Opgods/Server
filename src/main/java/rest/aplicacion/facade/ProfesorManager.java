@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import rest.dominio.entidades.Profesor;
 import rest.dominio.modelo.RepositorioProfesores;
-import rest.infraestructura.BBDD.ProfesorDTO;
 
 import java.util.List;
 
@@ -21,33 +20,34 @@ public class ProfesorManager {
         return repositorioProfesores;
     }
 
-    public void addTeacher(ProfesorDTO profesor) {
+    public void addTeacher(Profesor profesor) {
         repositorioProfesores.addTeacher(profesor);
     }
 
     @Transactional
-    public ProfesorDTO findById(String id) {
+    public Profesor findById(String id) {
         return repositorioProfesores.findById(id);
     }
 
     @Transactional
-    public List<ProfesorDTO> fuzzyFind(String nombre) {
+    public List<Profesor> fuzzyFind(String nombre) {
         return repositorioProfesores.fuzzyFind(nombre);
     }
 
     @Transactional
-    public List<ProfesorDTO> findAll() {
+    public List<Profesor> findAll() {
         return repositorioProfesores.findAll();
     }
 
     @Transactional
-    public ProfesorDTO findOne(String id) {
-        ProfesorDTO profesor = repositorioProfesores.findById(id);
-        ProfesorDTO profesorDTO = new ProfesorDTO(
+    public Profesor findOne(String id) {
+        Profesor profesor = repositorioProfesores.findById(id);
+        Profesor profesorDTO = new Profesor(
                 profesor.getId(),
                 profesor.getNombre(),
-                profesor.getDisponibilidad(),
-                profesor.getInfo());
+                profesor.isDisponibilidad(),
+                profesor.getInfo(),
+                profesor.getDespacho());
 
         return profesorDTO;
     }

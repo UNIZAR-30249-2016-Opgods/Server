@@ -5,8 +5,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
-
-import rest.infraestructura.BBDD.ProfesorDTO;
+import rest.dominio.entidades.Profesor;
 
 import java.util.List;
 
@@ -24,7 +23,7 @@ public class RepositorioProfesoresImpl implements RepositorioProfesores {
     }
 
     @Override
-    public void addTeacher(ProfesorDTO profesor) {
+    public void addTeacher(Profesor profesor) {
         Session session = this.sessionFactory.openSession();
         session.beginTransaction();
         session.save(profesor);
@@ -34,12 +33,12 @@ public class RepositorioProfesoresImpl implements RepositorioProfesores {
     }
 
     @Override
-    public ProfesorDTO findById(String id) {
-        ProfesorDTO profesor;
+    public Profesor findById(String id) {
+        Profesor profesor;
         Session session = this.sessionFactory.openSession();
         session.beginTransaction();
-        Criteria criteria = session.createCriteria(ProfesorDTO.class).add(Restrictions.eq("id", id));
-        profesor = (ProfesorDTO) criteria.uniqueResult();
+        Criteria criteria = session.createCriteria(Profesor.class).add(Restrictions.eq("id", id));
+        profesor = (Profesor) criteria.uniqueResult();
         session.flush();
         session.close();
 
@@ -48,11 +47,11 @@ public class RepositorioProfesoresImpl implements RepositorioProfesores {
 
     @Override
     @SuppressWarnings("unchecked")
-    public List<ProfesorDTO> fuzzyFind(String nombre) {
+    public List<Profesor> fuzzyFind(String nombre) {
         Session session = this.sessionFactory.openSession();
         session.beginTransaction();
-        Criteria criteria = session.createCriteria(ProfesorDTO.class).add(Restrictions.eq("nombre", nombre));
-        List<ProfesorDTO> teachers = (List<ProfesorDTO>) criteria.list();
+        Criteria criteria = session.createCriteria(Profesor.class).add(Restrictions.eq("nombre", nombre));
+        List<Profesor> teachers = (List<Profesor>) criteria.list();
         session.flush();
         session.close();
 
@@ -61,11 +60,11 @@ public class RepositorioProfesoresImpl implements RepositorioProfesores {
 
     @Override
     @SuppressWarnings("unchecked")
-    public List<ProfesorDTO> findAll() {
+    public List<Profesor> findAll() {
         Session session = this.sessionFactory.openSession();
         session.beginTransaction();
-        Criteria criteria = session.createCriteria(ProfesorDTO.class);
-        List<ProfesorDTO> teachers = (List<ProfesorDTO>) criteria.list();
+        Criteria criteria = session.createCriteria(Profesor.class);
+        List<Profesor> teachers = (List<Profesor>) criteria.list();
         session.flush();
         session.close();
 
@@ -73,20 +72,21 @@ public class RepositorioProfesoresImpl implements RepositorioProfesores {
     }
 
     @Override
-    public List<ProfesorDTO> findFloor(int UTCplanta) {
+    public List<Profesor> findFloor(int UTCplanta) {
         return null;
     }
 
     @Override
     public void modificarDisponibilidad(String id) {
-        ProfesorDTO profesor = findById(id);
+        Profesor profesor = findById(id);
         if (profesor != null) {
-            boolean disponibilidad = !profesor.getDisponibilidad();
-            ProfesorDTO profesorAct = new ProfesorDTO(
+            boolean disponibilidad = !profesor.isDisponibilidad();
+            Profesor profesorAct = new Profesor(
                     profesor.getId(),
                     profesor.getNombre(),
                     disponibilidad,
-                    profesor.getInfo());
+                    profesor.getInfo(),
+                    profesor.getDespacho());
 
             Session session = this.sessionFactory.openSession();
             session.beginTransaction();

@@ -27,7 +27,7 @@
         <property name="dataSource" ref="dataSource" />
         <property name="annotatedClasses">
             <list>
-                <value>rest.infraestructura.BBDD.ProfesorDTO</value>
+                <value>rest.dominio.entidades.Profesor</value>
             </list>
         </property>
         <property name="hibernateProperties">

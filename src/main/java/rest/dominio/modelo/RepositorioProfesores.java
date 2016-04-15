@@ -1,6 +1,6 @@
 package rest.dominio.modelo;
 
-import rest.infraestructura.BBDD.ProfesorDTO;
+import rest.dominio.entidades.Profesor;
 
 import java.util.List;
 
@@ -9,15 +9,15 @@ import java.util.List;
  */
 public interface RepositorioProfesores {
 
-    void addTeacher(ProfesorDTO profesor);
+    void addTeacher(Profesor profesor);
 
-    ProfesorDTO findById(String id);
+    Profesor findById(String id);
 
-    List<ProfesorDTO> fuzzyFind(String nombre);
+    List<Profesor> fuzzyFind(String nombre);
 
-    List<ProfesorDTO> findAll();
+    List<Profesor> findAll();
 
-    List<ProfesorDTO> findFloor(int UTCplanta);
+    List<Profesor> findFloor(int UTCplanta);
 
     void modificarDisponibilidad(String id);
 
