@@ -28,6 +28,7 @@ public class RepositorioProfesoresImpl implements RepositorioProfesores {
         session.beginTransaction();
         session.save(profesor);
         session.getTransaction().commit();
+        session.flush();
         session.close();
 
     }

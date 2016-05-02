@@ -1,9 +1,14 @@
 package rest.aplicacion.facade;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import rest.dominio.entidades.Profesor;
 import rest.dominio.modelo.RepositorioProfesores;
+import rest.dominio.objetosvalor.Despacho;
+import rest.dominio.objetosvalor.Localizacion;
+import rest.dominio.objetosvalor.Punto;
 
 import java.util.List;
 
@@ -20,40 +25,58 @@ public class ProfesorManager {
         return repositorioProfesores;
     }
 
-    public void addTeacher(Profesor profesor) {
-        repositorioProfesores.addTeacher(profesor);
-    }
 
     @Transactional
-    public Profesor findById(String id) {
-        return repositorioProfesores.findById(id);
-    }
-
-    @Transactional
-    public List<Profesor> fuzzyFind(String nombre) {
-        return repositorioProfesores.fuzzyFind(nombre);
-    }
-
-    @Transactional
-    public List<Profesor> findAll() {
-        return repositorioProfesores.findAll();
-    }
-
-    @Transactional
-    public Profesor findOne(String id) {
+    public String findById(String id) {
         Profesor profesor = repositorioProfesores.findById(id);
-        Profesor profesorDTO = new Profesor(
-                profesor.getId(),
-                profesor.getNombre(),
-                profesor.isDisponibilidad(),
-                profesor.getInfo(),
-                profesor.getDespacho());
+        return getJson(profesor);
+    }
 
-        return profesorDTO;
+    @Transactional
+    public String fuzzyFind(String nombre) {
+        List<Profesor> profesores = repositorioProfesores.fuzzyFind(nombre);
+        return getJson(profesores);
+    }
+
+    @Transactional
+    public String findAll() {
+        List<Profesor> profesores = repositorioProfesores.findAll();
+        return getJson(profesores);
+    }
+
+    @Transactional
+    public String findOne(String id) {
+        Profesor profesor = repositorioProfesores.findById(id);
+        return getJson(profesor);
+    }
+
+    private String getJson(Profesor profesor) {
+        ObjectMapper mapper = new ObjectMapper();
+        String jsonInString = "";
+        try {
+            jsonInString = mapper.writeValueAsString(profesor);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return jsonInString;
+    }
+    private String getJson(List<Profesor> profesor) {
+        ObjectMapper mapper = new ObjectMapper();
+        String jsonInString = "";
+        try {
+            jsonInString = mapper.writeValueAsString(profesor);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return jsonInString;
     }
 
     @Transactional
     public void cambiarDisponibilidad(String id) {
         repositorioProfesores.modificarDisponibilidad(id);
+    }
+
+    public static void main(String[] args) {
+        Profesor p = new Profesor("idprofe", "nombre",true,"informacion",new Despacho(new Localizacion(new Punto(2,2,2),1,1), "codigo"));
     }
 }
