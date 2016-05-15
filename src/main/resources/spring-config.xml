@@ -10,8 +10,6 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-
-
     <bean id="profesorManager"
           class="rest.aplicacion.facade.ProfesorManager">
         <property name="repositorioProfesores" ref="repositorioProfesores" />
@@ -35,18 +33,15 @@
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
                 <prop key="hbm2ddl.auto">update</prop>
                 <prop key="hibernate.current_session_context_class">thread</prop>
-
             </props>
         </property>
-
     </bean>
 
     <bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://db4free.net:3306/labis" />
-        <property name="username" value="labis_user" />
-        <property name="password" value="labis_pass" />
+        <property name="driverClassName" value="org.postgresql.Driver" />
+        <property name="url" value="jdbc:postgresql://geoserver.cuobtic26knt.eu-west-1.rds.amazonaws.com:5432/proyectodb" />
+        <property name="username" value="labis" />
+        <property name="password" value="geoserver" />
     </bean>
-
 </beans>

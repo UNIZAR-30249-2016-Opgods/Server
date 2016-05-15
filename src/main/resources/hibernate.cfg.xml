@@ -8,10 +8,10 @@
     <session-factory>
         <property name="hbm2ddl.auto">update</property>
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="connection.url">jdbc:mysql://db4free.net:3306/labis</property>
-        <property name="connection.username">labis_user</property>
-        <property name="connection.password">labis_pass</property>
-        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:postgresql://geoserver.cuobtic26knt.eu-west-1.rds.amazonaws.com:5432/proyectodb</property>
+        <property name="connection.username">labis</property>
+        <property name="connection.password">geoserver</property>
+        <property name="connection.driver_class">org.postgresql.Driver</property>
 
 
         <property name="hibernate.cache.use_second_level_cache">false</property>

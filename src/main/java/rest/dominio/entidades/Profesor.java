@@ -9,17 +9,24 @@ import javax.persistence.Table;
 import java.util.Observable;
 import java.util.Observer;
 
-
 @Table(name="PROFESOR")
 public class Profesor extends Entidad implements Observer {
-    @Column(name="nombre", unique = false, nullable = false)
+    @Column(name="nombre", unique=false, nullable=false)
     private String nombre;
-    @Column(name="disponibilidad", unique = false, nullable = false, columnDefinition = "TINYINT(1)")
+    @Column(name="disponibilidad", unique=false, nullable=false, columnDefinition="TINYINT(1)")
     @Type(type = "org.hibernate.type.NumericBooleanType")
     private boolean disponibilidad;
-    @Column(name="info", unique = false, nullable = false)
+    @Column(name="info", unique=false, nullable=false)
     private String info;
     private Despacho despacho;
+
+    // Para inserciones en BBDD
+    public Profesor(String id, String nombre, boolean disponibilidad, String info) {
+        super(id);
+        this.nombre = nombre;
+        this.disponibilidad = disponibilidad;
+        this.info = info;
+    }
 
     public Profesor(String nombre, boolean disponibilidad, String info, Despacho despacho) {
         this.nombre = nombre;

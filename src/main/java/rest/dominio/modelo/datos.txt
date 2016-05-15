@@ -1,0 +1,109 @@
+Abadía Gallego, David;ISA;dabadia@unizar.es;845079;876555079;D.1.00
+Abellanas Sánchez, Andrés;ISA;andresas@unizar.es;845079;876555079;D.1.00
+Alastruey Benedé, Jesús;ATC;jalastru@unizar.es;842339;976762339;D.0.13
+Albiol Pérez, Sergio;ATC;salbiol@unizar.es;861172;978618172;D.3.2
+Alvarez Pérez-Aradros, Pedro Javier;LSI;alvaper@unizar.es;845541;876555541;D.2.16
+Aparicio Cardiel, Luis Carlos;ATC;luisapa@unizar.es;861172;978618172;D.3.2
+Arronategui Arribalzaga, Unai;ATC;unai@unizar.es;841933;976761933;D.1.02
+Asensio Diago, José Ramón;ISA;jrasensi@unizar.es;842345;976762345;D.0.10
+Ayuso Escuer, Natalia;ATC;nayuso@unizar.es;845548;876555548;D.0.13
+Baldassarri , Sandra;LSI;sandra@unizar.es;842357;976762357;D.2.17
+Bañares Bañares, José Angel;LSI;banares@unizar.es;841928;976761928;D.2.21
+Béjar Hernández, Rubén;LSI;rbejar@unizar.es;845534;876555534;D.2.23
+Bernad Lusilla, Jorge;LSI;jbernad@unizar.es;842383;976762383;D.0.07
+Bobillo Ortega, Fernando;LSI;fbobillo@unizar.es;845546;876555546;D.0.09
+Bolea Bolea, Juan Ramón;ISA;jbolea@unizar.es;845079;876555079;D.1.00
+Briz Velasco, José Luis;ATC;briz@unizar.es;842106;976762106;D.0.20
+Campos Laclaustra, Fco. Javier;LSI;jcampos@unizar.es;842348;976762348;D.1.12
+Castellanos Gómez, José Angel;ISA;jacaste@unizar.es;842105;976762105;D.1.03
+Catalán Cantero, Carlos;LSI;ccatalan@unizar.es;861152;978618152;D.3.6 EUPT
+Cerezo Bagdasari, Eva;LSI;ecerezo@unizar.es;842356;976762356;D.2.16
+Ciria Cosculluela, José Carlos;CCIA;jcciria@unizar.es;841131;976761131;D.0.2-FC
+Ciriano Sebastián, Alberto;LSI;aciriano@unizar.es;842346;976762346;D.1.05
+Civera Sancho, Javier;ISA;jcivera@unizar.es;845554;876555554;D.0.10
+Colom Piazuelo, José Manuel;LSI;jm@unizar.es;842351;976762351;D.1.15
+De Miguel Casado, Gregorio;LSI;gmiguel@unizar.es;842874;976762874;D.3.01
+Domínguez Murillo, Eladio;CCIA;noesis@unizar.es;841130;976761130;D 0.1-FC
+Escario Jover, Inés;LSI;escario@unizar.es;841030;976761030;FCST
+Estrada Collado, Carlos;ISA;cestrada@unizar.es;842337;976762337;D.0.09
+Ezpeleta Mateo, Joaquín;LSI;ezpeleta@unizar.es;841955;976761955;D.1.17
+Fabra Caro, Francisco Javier;LSI;jfabra@unizar.es;842338;976762338;D.3.01
+Falco Boudet, José María;LSI;chefalco@unizar.es;845079;876555079;D.1.00
+Ferrerón Labari, Alexandra;ATC;ferreron@unizar.es;845475;876555475;D 6.1.11 I3A-GaZ
+Fogué Cortés, Manuel;LSI;mfogue@unizar.es;845557;876555557;D.0.06
+Francés Román, Angel Ramón;CCIA;afrances@unizar.es;841133;976761133;D.0.0-FC
+Franco Gutiérrez, Carlos;ISA;cfranco@unizar.es;845079;876555079;D.1.00
+Gallardo Casero, Jesús;LSI;jesusgal@unizar.es;861387;978645387;D 3.1 EUPT
+Gambau Rodriguez, Luis;LSI;gambau@unizar.es;845277;876555277;D.1.05
+García López, Juan Carlos;LSI;jcgarcia@unizar.es;861110;-;EUPT
+García Vallés, Fernando;ATC;gvalles@unizar.es;842359;976762359;D.2.19
+García-Magariño García, Ivan;LSI;ivangmg@unizar.es;861348;978645348;D 3.7 EUPT
+Garrido Picazo, Piedad;LSI;piedad@unizar.es;861173;978618173;D.3.7
+Gil Herrando, Eduardo;ISA;edugilh@unizar.es;861336;978645336;D 2.6 EUPT
+González Bedia, Manuel;LSI;mgbedia@unizar.es;845497;876555497;D.2.14
+González Sorribes, Antonio;ISA;angonsor@unizar.es;841941;976761941;D.2.12
+Gran Tejero, Rubén;ATC;rgran@unizar.es;845540;876555540;D.0.18
+Guerrero Campo, José Jesús;ISA;jguerrer@unizar.es;842349;976762349;D.1.13
+Gutiérrez Pérez, Diego;LSI;diegog@unizar.es;842354;976762354;D.2.14
+Hermoso Traba, Ramón;LSI;rhermoso@unizar.es;841030;976761030;FCST
+Hernández Giménez, Mónica;LSI;mhg@unizar.es;845544;876555544;D.0.07
+Ibáñez Marín, Pablo Enrique;ATC;imarin@unizar.es;842107;976762107;D.0.21
+Ilarri Artigas, Sergio;LSI;silarri@unizar.es;845262;876555262;D.0.17
+Júlvez Bueno, Jorge;LSI;julvez@unizar.es;842336;976762336;D.0.08
+Lacasta Miguel, Javier;LSI;jlacasta@unizar.es;845538;876555538;D.2.19
+Lacuesta Gilaberte, Raquel;LSI;lacuesta@unizar.es;861262;978618262;D.3.1
+Lapeña Marcos, Mª Jesús;LSI;mlape@unizar.es;844964;876554964;D.0.0
+Latorre Andrés, Pedro Miguel;LSI;platorre@unizar.es;842355;976762355;D.2.14
+Latre Abadía, Miguel Angel;LSI;latre@unizar.es;842331;976762331;D.2.22
+Lloret Gazo, Jorge;CCIA;jlloret@unizar.es;842779;976762779;D.0.3-FC
+López Nicolas, Gonzalo;ISA;gonlopez@unizar.es;845556;876555556;D.0.12
+López Pellicer, Francisco Javier;LSI;fjlopez@unizar.es;845552;876555552;D.2.22
+López Ruiz, Ricardo;CCIA;rilopez@unizar.es;841134;976761134;D.0.4-FC
+Magallón Lacarta, Juan Antonio;LSI;magallon@unizar.es;845547;876555547;D.2.13
+Mahulea , Cristian;ISA;cmahulea@unizar.es;842517;976762517;D.0.01
+Martínez Domínguez, Francisco José;ATC;f.martinez@unizar.es;861156;978618156;D.3.3
+Martínez Montiel, José María;ISA;josemari@unizar.es;841975;976761975;D.1.04
+Martínez Rodríguez, Javier;LSI;jamarro@unizar.es;841953;976761953;D.1.08
+Masiá Corcoy, Belén;LSI;bmasia@unizar.es;842355;976762355;D.2.13
+Mayordomo Cámara, Elvira;LSI;elvira@unizar.es;841918;976761918;D.1.06
+Mena Nieto, Eduardo;LSI;emena@unizar.es;842340;976762340;D.0.17
+Merseguer Hernáiz, José Javier;LSI;jmerse@unizar.es;845550;876555550;D.0.08
+Montano Gella, Luis;ISA;montano@unizar.es;841954;976761954;D.1.09
+Montesano Del Campo, Luis;LSI;lmontesa@unizar.es;845280;876555280;D.0.15
+Muñoz Orbañanos, Adolfo;LSI;adolfo@unizar.es;845537;876555537;D.2.17
+Murillo Arnal, Ana Cristina;ISA;acm@unizar.es;842867;976762867;D.0.12
+Naranjo Palomino, Fernando;LSI;fnaranjo@unizar.es;861265;978618265;D.3.5 EUPT
+Neira Parra, José;LSI;jneira@unizar.es;841947;976761947;D.1.19
+Nogueras Iso, Fco. Javier;LSI;jnog@unizar.es;845533;876555533;D.2.18
+Pérez Jiménez, Carlos Jose;ATC;cjperez@unizar.es;841941;976761941;D.2.12
+Piedrafita Moreno, Ramón;ISA;piedrafi@unizar.es;842335;976762335;D.0.11
+Ramos Martínez, Luis Manuel;ATC;luisma@unizar.es;842341;976762341;D.0.18
+Resano Ezcaray, Jesús Javier;ATC;jresano@unizar.es;845542;876555542;D.0.20
+Rodríguez Fernández, Ricardo J.;LSI;rjrodriguez@unizar.es;845531;876555531;D.0.05
+Romeo Tello, Antonio;ISA;romeo@unizar.es;842332;976762332;D.2.23
+Romero Martín, Francisco Pedro;ATC;-;-;-;D 2.6 EUPT
+Roy Golet, Alfredo;LSI;argolet@unizar.es;841951;976761951;D.1.10
+Sagüés Blázquiz, Carlos;ISA;csagues@unizar.es;841940;976761940;D.1.07
+Sanchez Tapia, Carlos;ISA;cstapia@unizar.es;841950;976761950;D.2.20
+Segarra Flor, Juan;ATC;jsegarra@unizar.es;842109;976762109;D.0.16
+Serna Fortea, Félix;LSI;fserna@unizar.es;861151;978618151;D.3.6 EUPT
+Serón Arbeloa, Francisco José;LSI;seron@unizar.es;841939;976761939;D.2.15
+Silva Suárez, Manuel;ISA;silva@unizar.es;841952;976761952;D.1.01
+Suárez García, Darío;ATC;dario@unizar.es;845549;876555549;D.0.14
+Suberviola Zúñiga, Aaron;ISA;aaronsuberbiola@gmail.com;845079;876555079;D.1.00
+Tabik , Siham;ATC;siham@unizar.es;845545;876555545;D.0.01
+Tardós Solano, Juan Domingo;ISA;tardos@unizar.es;842104;976762104;D.1.16
+Teruel Doñate, Enrique;ISA;eteruel@unizar.es;842352;976762352;D.1.18
+Tolosana Calasanz, Rafael;LSI;rafaelt@unizar.es;842344;976762344;D.0.05
+Torres Moreno, Enrique;ATC;enrique.torres@unizar.es;842102;976762102;D.0.15
+Tricas García, Fernando;LSI;ftricas@unizar.es;845536;876555536;D.1.14
+Trillo Lado, Raquel;LSI;raqueltl@unizar.es;845539;876555539;D.0.16
+Urcelai Martínez de Iturrate, Karmelo;LSI;karmelo@unizar.es;-;-;D.2.20
+Valiño García, Juan;LSI;juanv@unizar.es;851568;974292568;D.48 FEGPH
+Velilla Marco, Santiago;LSI;svelilla@unizar.es;841951;976761951;D.1.10
+Villarroel Salcedo, José Luis;ISA;jlvilla@unizar.es;845308;876555308;D.1.11
+Villarroya Gaudó, María;ATC;maria.villarroya@unizar.es;842103;976762103;D.0.14
+Villate Pérez, Yolanda;LSI;yvillate@unizar.es;842516;976762516;D.0.06
+Viñals Yúfera, Victor;ATC;victor@unizar.es;842108;976762108;D.0.19
+Zapata Abad, Mª Antonia;CCIA;mazapata@unizar.es;841131;976761131;D 36 Mat FC
+Zarazaga Soria, Javier;LSI;javy@unizar.es;842358;976762358;D.2.18

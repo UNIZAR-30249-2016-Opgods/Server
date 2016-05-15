@@ -75,8 +75,4 @@ public class ProfesorManager {
     public void cambiarDisponibilidad(String id) {
         repositorioProfesores.modificarDisponibilidad(id);
     }
-
-    public static void main(String[] args) {
-        Profesor p = new Profesor("idprofe", "nombre",true,"informacion",new Despacho(new Localizacion(new Punto(2,2,2),1,1), "codigo"));
-    }
 }
