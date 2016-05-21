@@ -9,8 +9,6 @@ import java.util.List;
  */
 public interface RepositorioProfesores {
 
-    void addTeacher(Profesor profesor);
-
     Profesor findById(String id);
 
     List<Profesor> fuzzyFind(String nombre);

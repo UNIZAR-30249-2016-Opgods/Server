@@ -17,17 +17,6 @@ public class RepositorioProfesoresImpl implements RepositorioProfesores {
     }
 
     @Override
-    public void addTeacher(Profesor profesor) {
-//        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-//        Session session = sessionFactory.openSession();
-//        session.beginTransaction();
-//        session.save(profesor);
-//        session.getTransaction().commit();
-//        session.flush();
-//        session.close();
-    }
-
-    @Override
     public Profesor findById(String id) {
         return null;
     }
@@ -110,7 +99,6 @@ public class RepositorioProfesoresImpl implements RepositorioProfesores {
         }
         return profesores;
     }
-
 
     @Override
     public void modificarDisponibilidad(String id) {
