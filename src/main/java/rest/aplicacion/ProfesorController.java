@@ -1,6 +1,8 @@
 package rest.aplicacion;
 
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -10,12 +12,7 @@ import rest.dominio.entidades.Profesor;
 import rest.dominio.entidades.SeccionParking;
 import rest.dominio.modelo.ConexionBBDD;
 import rest.dominio.modelo.RepositorioProfesoresImpl;
-import rest.dominio.objetosvalor.Despacho;
-import rest.dominio.objetosvalor.Localizacion;
-import rest.dominio.objetosvalor.Ocupacion;
-import rest.dominio.objetosvalor.Punto;
-import rest.infraestructura.ISensor;
-import rest.infraestructura.Sensor;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,10 +32,11 @@ public class ProfesorController {
     }
 
     @RequestMapping(value = "/profesores/{planta}", method = RequestMethod.GET)
-    public JsonArrayDTO greeting(@PathVariable("planta") int planta) {
+    public ResponseEntity greeting(@PathVariable("planta") int planta) {
         RepositorioProfesoresImpl repProf = new RepositorioProfesoresImpl();
 
-        return new JsonArrayDTO(false, "Información de Profesores por planta", repProf.findFloor(planta));
+        return new ResponseEntity<JsonArrayDTO>(new JsonArrayDTO(false, "Información de Profesores por planta", repProf.findFloor(planta)),
+                                    HttpStatus.OK);
     }
 
 }
