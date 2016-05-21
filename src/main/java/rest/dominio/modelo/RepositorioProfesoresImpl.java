@@ -5,10 +5,7 @@ import rest.dominio.objetosvalor.Despacho;
 import rest.dominio.objetosvalor.Localizacion;
 import rest.dominio.objetosvalor.Punto;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,14 +68,6 @@ public class RepositorioProfesoresImpl implements RepositorioProfesores {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-//        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-//        Session session = sessionFactory.openSession();
-//        session.beginTransaction();
-//        Criteria criteria = session.createCriteria(Profesor.class);
-//        List<Profesor> teachers = (List<Profesor>) criteria.list();
-//        session.flush();
-//        session.close();
-
         return null;
     }
 
@@ -136,21 +125,17 @@ public class RepositorioProfesoresImpl implements RepositorioProfesores {
     public void modificarDisponibilidad(String id) {
         Profesor profesor = findById(id);
         if (profesor != null) {
-            boolean disponibilidad = !profesor.isDisponibilidad();
-            Profesor profesorAct = new Profesor(
-                    profesor.getId(),
-                    profesor.getNombre(),
-                    disponibilidad,
-                    profesor.getInfo()
-                    );
+            int disponibilidadInt = profesor.isDisponibilidad() ? 0 : 1;
 
-//            SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-//            Session session = sessionFactory.openSession();
-//            session.beginTransaction();
-//            session.update(profesorAct);
-//            session.getTransaction().commit();
-//            session.flush();
-//            session.close();
+            PreparedStatement preparedStmt;
+            try {
+                String query = "UPDATE proyecto.profesor SET disponibilidad = '" + disponibilidadInt  + "' where id = '" + id + "'";
+
+                preparedStmt = conexion.prepareStatement(query);
+                preparedStmt.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 
