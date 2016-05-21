@@ -1,6 +1,10 @@
 package rest.aplicacion;
 
+import rest.dominio.entidades.Profesor;
 import rest.dominio.modelo.RepositorioProfesoresImpl;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Mario on 21/05/2016.
