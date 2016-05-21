@@ -1,7 +1,7 @@
 package rest.dominio.objetosvalor;
 
 public class Punto {
-    private int SRC;
+    private int SRC = 4237;
     private double latitud;
     private double longitud;
 

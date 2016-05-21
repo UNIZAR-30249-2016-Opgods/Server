@@ -5,9 +5,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import rest.dominio.entidades.JsonArrayDTO;
 import rest.dominio.entidades.Profesor;
 import rest.dominio.entidades.SeccionParking;
-import rest.dominio.modelo.RepositorioProfesores;
+import rest.dominio.modelo.ConexionBBDD;
 import rest.dominio.modelo.RepositorioProfesoresImpl;
 import rest.dominio.objetosvalor.Despacho;
 import rest.dominio.objetosvalor.Localizacion;
@@ -16,6 +17,7 @@ import rest.dominio.objetosvalor.Punto;
 import rest.infraestructura.ISensor;
 import rest.infraestructura.Sensor;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -26,10 +28,10 @@ public class GreetingController {
     private final AtomicLong counter = new AtomicLong();
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public Profesor index() {
+    public JsonArrayDTO index() {
         RepositorioProfesoresImpl repProf = new RepositorioProfesoresImpl();
-        Profesor prof = new Profesor("Ruben Bejar", false, "Es muy guay", new Despacho(new Localizacion(new Punto(25,20,50.0),212,22), "op"));
-        return prof;
+
+        return new JsonArrayDTO(false, "Información de Profesores por planta", repProf.findFloor(0));
     }
 
     @RequestMapping(value = "/greetings/{name}", method = RequestMethod.GET)
