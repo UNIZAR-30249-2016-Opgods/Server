@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
-public class GreetingController {
+public class ProfesorController {
 
     private static final String template = "Hello OP chetao Bien formado, %s!";
     private final AtomicLong counter = new AtomicLong();
@@ -34,19 +34,11 @@ public class GreetingController {
         return new JsonArrayDTO(false, "Información de Profesores por planta", repProf.findFloor(0));
     }
 
-    @RequestMapping(value = "/greetings/{name}", method = RequestMethod.GET)
-    public String greeting(@PathVariable("name") String name) {
-        /*return new Greeting(counter.incrementAndGet(),
-                String.format(template, name));*/
-        SeccionParking sp = new SeccionParking("Seccion tal",
-                new Punto(1, 1, 1),
-                null, null,
-                new Ocupacion(12, 2));
-        ISensor sensor = new Sensor();
-        sensor.addObserver(sp);
-        sensor.entrar();
+    @RequestMapping(value = "/profesores/{planta}", method = RequestMethod.GET)
+    public JsonArrayDTO greeting(@PathVariable("planta") int planta) {
+        RepositorioProfesoresImpl repProf = new RepositorioProfesoresImpl();
 
-        return "<h1>Inicio de app</h1>";
+        return new JsonArrayDTO(false, "Información de Profesores por planta", repProf.findFloor(planta));
     }
 
 }
