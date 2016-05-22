@@ -1,6 +1,4 @@
-package rest.dominio.modelo;
-
-import rest.dominio.entidades.Profesor;
+package rest.profesores;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
-package rest.dominio.modelo;
+package rest.seccionesparking;
 
-import rest.dominio.entidades.SeccionParking;
+import rest.seccionesparking.SeccionParking;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package rest.dominio.modelo;
+package rest.common;
 
 /**
  * Created by phyrion on 21/05/16.

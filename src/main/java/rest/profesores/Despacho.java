@@ -1,4 +1,6 @@
-package rest.dominio.objetosvalor;
+package rest.profesores;
+
+import rest.common.Localizacion;
 
 public class Despacho {
     private Localizacion localizacion;

@@ -1,4 +1,4 @@
-package rest.dominio.objetosvalor;
+package rest.common;
 
 public class Localizacion {
     private Punto punto;

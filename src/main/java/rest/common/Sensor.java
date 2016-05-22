@@ -1,8 +1,8 @@
-package rest.infraestructura;
+package rest.common;
 
 import java.util.Observable;
 
-public class Sensor extends Observable implements ISensor {
+public class Sensor extends Observable {
 
     public void entrar() {
         // Marca el objeto observable como un objeto que ha cambiado

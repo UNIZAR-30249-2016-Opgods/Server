@@ -1,4 +1,4 @@
-package rest.dominio.objetosvalor;
+package rest.common;
 
 public class Punto {
     private int SRC = 4237;

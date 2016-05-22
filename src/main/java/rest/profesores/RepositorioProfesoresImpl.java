@@ -1,9 +1,8 @@
-package rest.dominio.modelo;
+package rest.profesores;
 
-import rest.dominio.entidades.Profesor;
-import rest.dominio.objetosvalor.Despacho;
-import rest.dominio.objetosvalor.Localizacion;
-import rest.dominio.objetosvalor.Punto;
+import rest.common.ConexionBBDD;
+import rest.common.Localizacion;
+import rest.common.Punto;
 
 import java.sql.*;
 import java.util.ArrayList;

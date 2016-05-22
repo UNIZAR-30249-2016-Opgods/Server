@@ -1,4 +1,6 @@
-package rest.dominio.objetosvalor;
+package rest.seccionesparking;
+
+import rest.common.Punto;
 
 public class AccesoParking {
     private Punto punto;

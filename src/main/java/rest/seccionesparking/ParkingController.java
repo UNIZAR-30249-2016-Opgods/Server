@@ -1,4 +1,4 @@
-package rest.aplicacion;
+package rest.seccionesparking;
 
 
 import org.springframework.http.HttpStatus;
@@ -7,16 +7,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import rest.dominio.entidades.JsonArrayDTO;
-import rest.dominio.modelo.RepositorioSeccionParkingImpl;
-
-import java.util.concurrent.atomic.AtomicLong;
+import rest.common.JsonArrayDTO;
 
 @RestController
 public class ParkingController {
-
-    private static final String template = "Hello OP chetao Bien formado, %s!";
-    private final AtomicLong counter = new AtomicLong();
 
 
     @RequestMapping(value = "/parking/secciones", method = RequestMethod.GET)

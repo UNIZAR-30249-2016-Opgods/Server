@@ -1,4 +1,4 @@
-package rest.dominio.entidades;
+package rest.common;
 
 import java.util.List;
 

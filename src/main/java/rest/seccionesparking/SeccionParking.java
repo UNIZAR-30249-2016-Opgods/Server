@@ -1,8 +1,7 @@
-package rest.dominio.entidades;
+package rest.seccionesparking;
 
-import rest.dominio.objetosvalor.Ocupacion;
-import rest.dominio.objetosvalor.Punto;
-import rest.dominio.objetosvalor.Ruta;
+import rest.common.Punto;
+import rest.common.Entidad;
 
 import java.util.Observable;
 import java.util.Observer;

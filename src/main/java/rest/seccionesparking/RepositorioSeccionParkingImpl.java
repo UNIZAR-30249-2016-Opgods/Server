@@ -1,8 +1,7 @@
-package rest.dominio.modelo;
+package rest.seccionesparking;
 
-import rest.dominio.entidades.SeccionParking;
-import rest.dominio.objetosvalor.Ocupacion;
-import rest.dominio.objetosvalor.Punto;
+import rest.common.ConexionBBDD;
+import rest.common.Punto;
 
 import java.sql.*;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package rest.dominio.objetosvalor;
+package rest.seccionesparking;
 
 public class Ruta {
     //TODO Ver que pasa con la clase Polyline hacer las rutas con googlemaps

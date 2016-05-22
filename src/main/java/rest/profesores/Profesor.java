@@ -1,9 +1,6 @@
-package rest.dominio.entidades;
+package rest.profesores;
 
-import rest.dominio.objetosvalor.Despacho;
-
-import java.util.Observable;
-import java.util.Observer;
+import rest.common.Entidad;
 
 public class Profesor extends Entidad {
 
@@ -48,5 +45,18 @@ public class Profesor extends Entidad {
     public Despacho getDespacho() {
         return despacho;
     }
+
+//    @Override
+//    //TODO: Cambiar try catch por throws. Esto es solo para probar
+//    public void update(Observable o, Object arg) {
+//        String actualizar = (String) arg;
+//        if (actualizar.contains("ENTRAR")) {
+//            disponibilidad = true;
+//            System.out.println("El profesor [" + nombre + "] está disponible.");
+//        } else {
+//            disponibilidad = false;
+//            System.out.println("El profesor [" + nombre + "] está ocupado.");
+//        }
+//    }
 
 }

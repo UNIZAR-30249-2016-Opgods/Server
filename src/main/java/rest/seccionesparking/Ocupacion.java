@@ -1,4 +1,4 @@
-package rest.dominio.objetosvalor;
+package rest.seccionesparking;
 
 
 public class Ocupacion {
