@@ -31,7 +31,7 @@ public class RepositorioSeccionParkingImpl implements RepositorioSeccionParking 
                         rs.getString("id_seccion"),
                         rs.getString("id_centro"),
                         new Punto(1, rs.getDouble("LOCATIONX"), rs.getDouble("LOCATIONY")),
-                        new Ocupacion(rs.getInt("numplazas"), rs.getInt("plazasocupadas")));
+                        new Ocupacion(rs.getInt("numplazas"), rs.getInt("plazasocupadas")),null,null);
                 seccionParking = sptemp;
             }
         } catch (SQLException e) {
@@ -55,7 +55,7 @@ public class RepositorioSeccionParkingImpl implements RepositorioSeccionParking 
                         rs.getString("id_seccion"),
                         rs.getString("id_centro"),
                         new Punto(1, rs.getDouble("LOCATIONX"), rs.getDouble("LOCATIONY")),
-                        new Ocupacion(rs.getInt("numplazas"), rs.getInt("plazasocupadas")));
+                        new Ocupacion(rs.getInt("numplazas"), rs.getInt("plazasocupadas")), null, null);
 
                 System.out.println(rs.getString("id_seccion") + " " + rs.getString("id_centro"));
                 System.out.println(rs.getString("LOCATIONX"));

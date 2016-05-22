@@ -3,6 +3,8 @@ package rest.seccionesparking;
 import rest.common.Punto;
 import rest.common.Entidad;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -11,18 +13,25 @@ public class SeccionParking extends Entidad implements Observer {
     private String nombre;
     private Punto punto;
     private Ocupacion ocupacion;
+    private List<Punto> accesos;
 
-    public SeccionParking(String nombre, Punto punto, Ocupacion ocupacion) {
+    public SeccionParking(String nombre, Punto punto, Ocupacion ocupacion, Punto acceso1, Punto acceso2) {
         this.nombre = nombre;
         this.punto = punto;
         this.ocupacion = ocupacion;
+        this.accesos = new ArrayList<>();
+        this.accesos.add(acceso1);
+        this.accesos.add(acceso2);
     }
 
-    public SeccionParking(String id, String nombre, Punto punto, Ocupacion ocupacion) {
+    public SeccionParking(String id, String nombre, Punto punto, Ocupacion ocupacion, Punto acceso1, Punto acceso2) {
         super(id);
         this.nombre = nombre;
         this.punto = punto;
         this.ocupacion = ocupacion;
+        this.accesos = new ArrayList<>();
+        this.accesos.add(acceso1);
+        this.accesos.add(acceso2);
     }
 
     /**
