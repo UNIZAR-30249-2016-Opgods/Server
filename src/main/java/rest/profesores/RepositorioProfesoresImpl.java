@@ -7,6 +7,7 @@ import rest.common.Punto;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RepositorioProfesoresImpl implements RepositorioProfesores {
     private Connection conexion;
@@ -34,17 +35,13 @@ public class RepositorioProfesoresImpl implements RepositorioProfesores {
                     profesoresParcial.add(profesorTemp);
                 }
             }
-            for(Profesor profesor : profesoresParcial) {
-                if(profesor.getNombre().contains(nombre))
-                    profesores.add(profesor);
-            }
+            profesores.addAll(profesoresParcial.stream().filter(p -> p.getNombre().toUpperCase().contains(nombre.toUpperCase())).collect(Collectors.toList()));
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return profesores;
     }
-
 
     @Override
     public List<Profesor> findFloor(int utcPlanta) {
