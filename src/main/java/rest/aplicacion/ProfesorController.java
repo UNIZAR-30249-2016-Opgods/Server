@@ -39,8 +39,7 @@ public class ProfesorController {
                                     HttpStatus.OK);
     }
 
-
-    @RequestMapping(value = "/profesores/{id}/cambiarDisponibilidad", method = RequestMethod.GET)
+    @RequestMapping(value = "/profesores/{id}", method = RequestMethod.PUT)
     public void switchAvailability(@PathVariable("id") String id) {
         RepositorioProfesoresImpl repProf = new RepositorioProfesoresImpl();
         repProf.modificarDisponibilidad(id);
