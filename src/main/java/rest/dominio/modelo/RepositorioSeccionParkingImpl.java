@@ -38,7 +38,7 @@ public class RepositorioSeccionParkingImpl implements RepositorioSeccionParking 
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
                 SeccionParking sptemp = new SeccionParking(
-                        Integer.toString((Integer)rs.getInt("id_seccion")),
+                        rs.getString("id_seccion"),
                         new Punto(1, rs.getDouble("LocationX"), rs.getDouble("LOCATIONY")),
                         new Ocupacion(rs.getInt("numplazas"), rs.getInt("plazaslibres")));
 
