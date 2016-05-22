@@ -8,14 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import rest.dominio.entidades.JsonArrayDTO;
-import rest.dominio.entidades.Profesor;
-import rest.dominio.entidades.SeccionParking;
-import rest.dominio.modelo.ConexionBBDD;
 import rest.dominio.modelo.RepositorioProfesoresImpl;
 
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
