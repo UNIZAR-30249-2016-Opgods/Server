@@ -56,11 +56,6 @@ public class RepositorioSeccionParkingImpl implements RepositorioSeccionParking 
         return secciones;
     }
 
-    public static void main(String[] args) {
-        RepositorioSeccionParkingImpl rep = new RepositorioSeccionParkingImpl();
-        List<SeccionParking> secciones = rep.obtenerSecciones();
-    }
-
     @Override
     public void ocuparPlaza(String id) throws Exception {
 //        SeccionParking seccionParking = findById(id);
