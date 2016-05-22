@@ -36,7 +36,7 @@ public class Profesor extends Entidad {
         return nombre;
     }
 
-    public boolean isAvailable() { return disponibilidad; }
+    public boolean isDisponibilidad() { return disponibilidad; }
 
     public String getInfo() {
         return info;
