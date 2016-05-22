@@ -24,15 +24,27 @@ public class RepositorioProfesoresImpl implements RepositorioProfesores {
     @Override
     @SuppressWarnings("unchecked")
     public List<Profesor> fuzzyFind(String nombre) {
-//        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-//        Session session = sessionFactory.openSession();
-//        session.beginTransaction();
-//        Criteria criteria = session.createCriteria(Profesor.class).add(Restrictions.eq("nombre", nombre));
-//        List<Profesor> teachers = (List<Profesor>) criteria.list();
-//        session.flush();
-//        session.close();
+        List<Profesor> profesores = new ArrayList<>();
 
-        return null;
+        try {
+            String sql = "SELECT p.id AS id_profesor, nombre, disponibilidad, info, id_centro, ST_Y(ST_PointOnSurface(geom)) AS LOCATIONX, ST_X(ST_PointOnSurface(geom)) AS LOCATIONY FROM proyecto.profesor p, proyecto." + " pl WHERE p.utcdespacho=pl.id_utc";
+            Statement stmt = conexion.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                Profesor profesorTemp = new Profesor(rs.getString("id_profesor"),
+                        rs.getString("nombre"),
+                        rs.getBoolean("disponibilidad"),
+                        rs.getString("info"),
+                        new Despacho(new Localizacion(new Punto(1, rs.getDouble("LocationX"), rs.getDouble("LOCATIONY")), 1, 2), rs.getString("id_centro")));
+                System.out.println(rs.getString("nombre") + " " + rs.getString("id_profesor"));
+                System.out.println(rs.getString("LOCATIONX"));
+                System.out.println(rs.getString("LOCATIONY"));
+                profesores.add(profesorTemp);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return profesores;
     }
 
     @Override

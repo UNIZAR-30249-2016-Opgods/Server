@@ -17,6 +17,4 @@ public interface RepositorioSeccionParking {
 
     SeccionParking findById(String id);
 
-    void addSeccionParking(SeccionParking seccionParking);
-
 }

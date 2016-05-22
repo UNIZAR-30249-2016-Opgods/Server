@@ -23,22 +23,17 @@ public class SimularParking implements Runnable{
         Punto puntoParking = new Punto(3,3,3);
         AccesoParking ap1 = new AccesoParking(puntoRuta1, 1);
         AccesoParking ap2 = new AccesoParking(puntoRuta2, 2);
-        Ruta ruta1 = new Ruta(1, ap1);
-        Ruta ruta2 = new Ruta(2, ap2);
-        Ruta[] rutas1 = {ruta1, ruta2};
         Ocupacion ocupacion = new Ocupacion(12, 0);
-        SeccionParking sp1 = crearSeccionParking("Seccion1", puntoParking, rutas1, ocupacion);
+        SeccionParking sp1 = crearSeccionParking("Seccion1", puntoParking, ocupacion);
 
         puntoRuta1 = new Punto(1,1,1);
         puntoRuta2 = new Punto(2,2,2);
         puntoParking = new Punto(3,3,3);
         ap1 = new AccesoParking(puntoRuta1, 1);
         ap2 = new AccesoParking(puntoRuta2, 2);
-        ruta1 = new Ruta(1, ap1);
-        ruta2 = new Ruta(2, ap2);
-        Ruta[] rutas2 = {ruta1, ruta2};
+
         ocupacion = new Ocupacion(12, 0);
-        SeccionParking sp2 = crearSeccionParking("Seccion2", puntoParking, rutas2, ocupacion);
+        SeccionParking sp2 = crearSeccionParking("Seccion2", puntoParking, ocupacion);
 
         sensores = new ArrayList<>();
 
@@ -84,8 +79,8 @@ public class SimularParking implements Runnable{
         sensor.salir();
     }
 
-    private SeccionParking crearSeccionParking(String nombre, Punto punto, Ruta[] rutas, Ocupacion ocupacion) {
-        return new SeccionParking(nombre, punto, rutas[0], rutas[1], ocupacion);
+    private SeccionParking crearSeccionParking(String nombre, Punto punto, Ocupacion ocupacion) {
+        return new SeccionParking(nombre, punto, ocupacion);
     }
 
 }
