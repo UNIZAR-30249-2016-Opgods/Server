@@ -9,11 +9,7 @@ import java.util.List;
  */
 public interface RepositorioProfesores {
 
-    Profesor findById(String id);
-
     List<Profesor> fuzzyFind(String nombre);
-
-    List<Profesor> findAll();
 
     List<Profesor> findFloor(int UTCplanta);
 

@@ -1,4 +1,4 @@
-package rest.dominio.simulacion;
+package rest.aplicacion.simulacion;
 
 import rest.dominio.entidades.SeccionParking;
 import rest.dominio.objetosvalor.AccesoParking;

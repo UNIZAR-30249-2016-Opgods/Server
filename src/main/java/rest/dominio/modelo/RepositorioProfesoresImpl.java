@@ -17,51 +17,35 @@ public class RepositorioProfesoresImpl implements RepositorioProfesores {
     }
 
     @Override
-    public Profesor findById(String id) {
-        return null;
-    }
-
-    @Override
-    @SuppressWarnings("unchecked")
     public List<Profesor> fuzzyFind(String nombre) {
         List<Profesor> profesores = new ArrayList<>();
-
         try {
-            String sql = "SELECT p.id AS id_profesor, nombre, disponibilidad, info, id_centro, ST_Y(ST_PointOnSurface(geom)) AS LOCATIONX, ST_X(ST_PointOnSurface(geom)) AS LOCATIONY FROM proyecto.profesor p, proyecto." + " pl WHERE p.utcdespacho=pl.id_utc";
-            Statement stmt = conexion.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
-            while (rs.next()) {
-                Profesor profesorTemp = new Profesor(rs.getString("id_profesor"),
-                        rs.getString("nombre"),
-                        rs.getBoolean("disponibilidad"),
-                        rs.getString("info"),
-                        new Despacho(new Localizacion(new Punto(1, rs.getDouble("LocationX"), rs.getDouble("LOCATIONY")), 1, 2), rs.getString("id_centro")));
-                System.out.println(rs.getString("nombre") + " " + rs.getString("id_profesor"));
-                System.out.println(rs.getString("LOCATIONX"));
-                System.out.println(rs.getString("LOCATIONY"));
-                profesores.add(profesorTemp);
+            List<Profesor> profesoresParcial = new ArrayList<>();
+            for(int i = 0; i < 5; i++) {
+                String sql = "SELECT p.id AS id_profesor, nombre, disponibilidad, info, id_centro, ST_Y(ST_PointOnSurface(geom)) AS LOCATIONX, " +
+                        "ST_X(ST_PointOnSurface(geom)) AS LOCATIONY FROM proyecto.profesor p, proyecto.planta_"+i+" pl WHERE p.utcdespacho=pl.id_utc";
+                Statement stmt = conexion.createStatement();
+                ResultSet rs = stmt.executeQuery(sql);
+                while (rs.next()) {
+                    Profesor profesorTemp = new Profesor(rs.getString("id_profesor"),
+                            rs.getString("nombre"),
+                            rs.getBoolean("disponibilidad"),
+                            rs.getString("info"),
+                            new Despacho(new Localizacion(new Punto(1, rs.getDouble("LocationX"), rs.getDouble("LOCATIONY")), 1, 2), rs.getString("id_centro")));
+                    profesoresParcial.add(profesorTemp);
+                }
             }
+            for(Profesor profesor : profesoresParcial) {
+                if(profesor.getNombre().contains(nombre))
+                    profesores.add(profesor);
+            }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return profesores;
     }
 
-    @Override
-    @SuppressWarnings("unchecked")
-    public List<Profesor> findAll() {
-        try {
-            String sql = "SELECT * FROM proyecto.profesor";
-            Statement stmt = conexion.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
-            while (rs.next()) {
-                System.out.println(rs.getString("nombre"));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
 
     @Override
     public List<Profesor> findFloor(int utcPlanta) {
@@ -101,9 +85,6 @@ public class RepositorioProfesoresImpl implements RepositorioProfesores {
                         rs.getBoolean("disponibilidad"),
                         rs.getString("info"),
                         new Despacho(new Localizacion(new Punto(1, rs.getDouble("LocationX"), rs.getDouble("LOCATIONY")), 1, 2), rs.getString("id_centro")));
-                System.out.println(rs.getString("nombre") + " " + rs.getString("id_profesor"));
-                System.out.println(rs.getString("LOCATIONX"));
-                System.out.println(rs.getString("LOCATIONY"));
                 profesores.add(profesorTemp);
             }
         } catch (SQLException e) {
