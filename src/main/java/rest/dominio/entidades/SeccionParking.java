@@ -50,6 +50,10 @@ public class SeccionParking extends Entidad implements Observer {
         ocupacion.liberarPlaza();
     }
 
+    public Ocupacion obtenerOcupacion() {
+        return ocupacion;
+    }
+
     @Override
     //TODO: Cambiar try catch por throws. Esto es solo para probar
     public void update(Observable o, Object arg) {
