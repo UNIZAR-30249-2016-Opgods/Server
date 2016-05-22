@@ -9,21 +9,26 @@ import java.util.List;
 
 public class RepositorioSeccionParkingImpl implements RepositorioSeccionParking {
 
-
     private Connection conexion;
+    private final List<Punto> puntosDeAcceso = new ArrayList<>();
 
     public RepositorioSeccionParkingImpl() {
         conexion = ConexionBBDD.conectar();
+        inicializarAccesos();
     }
 
+    private void inicializarAccesos() {
+        this.puntosDeAcceso.clear();
+        this.puntosDeAcceso.add(new Punto(1, 41.681002, -0.889112));
+        this.puntosDeAcceso.add(new Punto(1, 41.682468, -0.889666));
+    }
 
     @Override
     public SeccionParking findById(String id) {
-
         SeccionParking seccionParking = null;
         try {
             String sql = "SELECT p.id_1 AS id_seccion, id_centro, ST_Y(ST_PointOnSurface(geom)) AS LOCATIONX, ST_X(ST_PointOnSurface(geom)) AS LOCATIONY," +
-                    " numplazas, plazasocupadas FROM proyecto.plazas p, proyecto.secciones_parking sp WHERE p.id_1=sp.id AND p.id_1='" + id + "'";
+                    " numplazas, plazasocupadas FROM proyecto.plazas p, proyecto.seccion_parking sp WHERE p.id_1=sp.id AND p.id_1='" + id + "'";
             Statement stmt = conexion.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
@@ -31,7 +36,8 @@ public class RepositorioSeccionParkingImpl implements RepositorioSeccionParking 
                         rs.getString("id_seccion"),
                         rs.getString("id_centro"),
                         new Punto(1, rs.getDouble("LOCATIONX"), rs.getDouble("LOCATIONY")),
-                        new Ocupacion(rs.getInt("numplazas"), rs.getInt("plazasocupadas")),null,null);
+                        new Ocupacion(rs.getInt("numplazas"), rs.getInt("plazasocupadas")),
+                        puntosDeAcceso);
                 seccionParking = sptemp;
             }
         } catch (SQLException e) {
@@ -40,14 +46,13 @@ public class RepositorioSeccionParkingImpl implements RepositorioSeccionParking 
         return seccionParking;
     }
 
-
     @Override
     public List<SeccionParking> obtenerSecciones() {
         List<SeccionParking> secciones = new ArrayList<>();
 
         try {
             String sql = "SELECT p.id_1 AS id_seccion, id_centro, ST_Y(ST_PointOnSurface(geom)) AS LOCATIONX, ST_X(ST_PointOnSurface(geom)) AS LOCATIONY," +
-                    " numplazas, plazasocupadas FROM proyecto.plazas p, proyecto.secciones_parking sp WHERE p.id_1=sp.id";
+                    " numplazas, plazasocupadas FROM proyecto.plazas p, proyecto.seccion_parking sp WHERE p.id_1=sp.id";
             Statement stmt = conexion.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
@@ -55,14 +60,8 @@ public class RepositorioSeccionParkingImpl implements RepositorioSeccionParking 
                         rs.getString("id_seccion"),
                         rs.getString("id_centro"),
                         new Punto(1, rs.getDouble("LOCATIONX"), rs.getDouble("LOCATIONY")),
-                        new Ocupacion(rs.getInt("numplazas"), rs.getInt("plazasocupadas")), null, null);
-
-                System.out.println(rs.getString("id_seccion") + " " + rs.getString("id_centro"));
-                System.out.println(rs.getString("LOCATIONX"));
-                System.out.println(rs.getString("LOCATIONY"));
-                System.out.println("Plazas totales: " + rs.getInt("numPlazas")+ ", Libres: " + rs.getInt("plazasocupadas"));
-                System.out.println();
-
+                        new Ocupacion(rs.getInt("numplazas"), rs.getInt("plazasocupadas")),
+                        puntosDeAcceso);
                 secciones.add(sptemp);
             }
         } catch (SQLException e) {
@@ -78,7 +77,7 @@ public class RepositorioSeccionParkingImpl implements RepositorioSeccionParking 
             seccionParking.ocuparPlaza();
 
             PreparedStatement preparedStmt;
-            String query = "UPDATE proyecto.secciones_parking SET plazasocupadas = '"
+            String query = "UPDATE proyecto.seccion_parking SET plazasocupadas = '"
                     + seccionParking.obtenerOcupacion().getOcupadas() + "' where id = '" + id + "'";
 
             preparedStmt = conexion.prepareStatement(query);
@@ -93,7 +92,7 @@ public class RepositorioSeccionParkingImpl implements RepositorioSeccionParking 
             seccionParking.liberarPlaza();
 
             PreparedStatement preparedStmt;
-            String query = "UPDATE proyecto.secciones_parking SET plazasocupadas = '"
+            String query = "UPDATE proyecto.seccion_parking SET plazasocupadas = '"
                     + seccionParking.obtenerOcupacion().getOcupadas() + "' where id = '" + id + "'";
 
             preparedStmt = conexion.prepareStatement(query);
@@ -101,4 +100,8 @@ public class RepositorioSeccionParkingImpl implements RepositorioSeccionParking 
         }
     }
 
+    @Override
+    public List<Punto> obtenerPuntosAcceso() {
+        return puntosDeAcceso;
+    }
 }

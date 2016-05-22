@@ -15,23 +15,21 @@ public class SeccionParking extends Entidad implements Observer {
     private Ocupacion ocupacion;
     private List<Punto> accesos;
 
-    public SeccionParking(String nombre, Punto punto, Ocupacion ocupacion, Punto acceso1, Punto acceso2) {
+    public SeccionParking(String nombre, Punto punto, Ocupacion ocupacion, List<Punto> accesos) {
         this.nombre = nombre;
         this.punto = punto;
         this.ocupacion = ocupacion;
         this.accesos = new ArrayList<>();
-        this.accesos.add(acceso1);
-        this.accesos.add(acceso2);
+        this.accesos = accesos;
     }
 
-    public SeccionParking(String id, String nombre, Punto punto, Ocupacion ocupacion, Punto acceso1, Punto acceso2) {
+    public SeccionParking(String id, String nombre, Punto punto, Ocupacion ocupacion, List<Punto> accesos) {
         super(id);
         this.nombre = nombre;
         this.punto = punto;
         this.ocupacion = ocupacion;
         this.accesos = new ArrayList<>();
-        this.accesos.add(acceso1);
-        this.accesos.add(acceso2);
+        this.accesos = accesos;
     }
 
     /**

@@ -1,5 +1,6 @@
 package rest.seccionesparking;
 
+import rest.common.Punto;
 import rest.seccionesparking.SeccionParking;
 
 import java.util.List;
@@ -16,5 +17,7 @@ public interface RepositorioSeccionParking {
     void liberarPlaza(String id) throws Exception;
 
     SeccionParking findById(String id);
+
+    List<Punto>  obtenerPuntosAcceso();
 
 }
