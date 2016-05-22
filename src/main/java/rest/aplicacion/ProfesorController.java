@@ -26,14 +26,20 @@ public class ProfesorController {
     }
 
     @RequestMapping(value = "/profesores/{planta}", method = RequestMethod.GET)
-    public ResponseEntity greeting(@PathVariable("planta") int planta) {
+    public ResponseEntity findByFloor(@PathVariable("planta") int planta) {
         RepositorioProfesoresImpl repProf = new RepositorioProfesoresImpl();
 
         return new ResponseEntity<JsonArrayDTO>(new JsonArrayDTO(false, "Información de Profesores por planta", repProf.findFloor(planta)),
                                     HttpStatus.OK);
     }
+    @RequestMapping(value = "/profesores/{nombre}", method = RequestMethod.GET)
+    public ResponseEntity findByName(@PathVariable("nombre") String nombre) {
+        RepositorioProfesoresImpl repProf = new RepositorioProfesoresImpl();
+        return new ResponseEntity<JsonArrayDTO>(new JsonArrayDTO(false, "Información de Profesores por nombre", repProf.fuzzyFind(nombre)),
+                HttpStatus.OK);
+    }
 
-    @RequestMapping(value = "/profesores/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/profesores/{id}/cambiarDisponibilidad", method = RequestMethod.PUT)
     public void switchAvailability(@PathVariable("id") String id) {
         RepositorioProfesoresImpl repProf = new RepositorioProfesoresImpl();
         repProf.modificarDisponibilidad(id);
