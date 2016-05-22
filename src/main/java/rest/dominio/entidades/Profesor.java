@@ -5,7 +5,7 @@ import rest.dominio.objetosvalor.Despacho;
 import java.util.Observable;
 import java.util.Observer;
 
-public class Profesor extends Entidad implements Observer {
+public class Profesor extends Entidad {
 
     private String nombre;
     private boolean disponibilidad;
@@ -39,9 +39,7 @@ public class Profesor extends Entidad implements Observer {
         return nombre;
     }
 
-    public boolean isDisponibilidad() {
-        return disponibilidad;
-    }
+    public boolean isAvailable() { return disponibilidad; }
 
     public String getInfo() {
         return info;
@@ -49,19 +47,6 @@ public class Profesor extends Entidad implements Observer {
 
     public Despacho getDespacho() {
         return despacho;
-    }
-
-    @Override
-    //TODO: Cambiar try catch por throws. Esto es solo para probar
-    public void update(Observable o, Object arg) {
-        String actualizar = (String) arg;
-        if (actualizar.contains("ENTRAR")) {
-            disponibilidad = true;
-            System.out.println("El profesor [" + nombre + "] está disponible.");
-        } else {
-            disponibilidad = false;
-            System.out.println("El profesor [" + nombre + "] está ocupado.");
-        }
     }
 
 }
