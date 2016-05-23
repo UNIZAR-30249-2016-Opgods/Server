@@ -16,6 +16,6 @@ public interface RepositorioCafeterias {
 
     void liberarPlaza(String id) throws Exception;
 
-    SeccionParking findById(String id);
+    Cafeteria findById(String id);
 
 }

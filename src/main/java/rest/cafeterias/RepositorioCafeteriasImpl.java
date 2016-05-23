@@ -21,63 +21,60 @@ public class RepositorioCafeteriasImpl implements RepositorioCafeterias {
 
 
     @Override
-    public SeccionParking findById(String id) {
-        SeccionParking seccionParking = null;
+    public Cafeteria findById(String id) {
+        Cafeteria cafeteria = null;
         try {
-            String sql = "SELECT p.id_1 AS id_seccion, id_centro, ST_Y(ST_PointOnSurface(geom)) AS LOCATIONX, ST_X(ST_PointOnSurface(geom)) AS LOCATIONY," +
-                    " numplazas, plazasocupadas FROM proyecto.plazas p, proyecto.seccion_parking sp WHERE p.id_1=sp.id AND p.id_1='" + id + "'";
+            String sql = "SELECT p.id_4 AS id_cafeteria, ST_Y(ST_PointOnSurface(geom)) AS LOCATIONX, ST_X(ST_PointOnSurface(geom)) AS LOCATIONY," +
+                    " numplazas, plazasocupadas FROM proyecto.cafeteria c, proyecto.planta_0 p WHERE p.id_4=c.id AND p.id_4='" + id + "'";
             Statement stmt = conexion.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
-                SeccionParking sptemp = new SeccionParking(
-                        rs.getString("id_seccion"),
-                        rs.getString("id_centro"),
+                cafeteria = new Cafeteria(
+                        rs.getString("id_Cafeteria"),
+                        "cafeteria",
                         new Punto(rs.getDouble("LOCATIONX"), rs.getDouble("LOCATIONY")),
-                        new Ocupacion(rs.getInt("numplazas"), rs.getInt("plazasocupadas")),
-                        puntosDeAcceso);
-                seccionParking = sptemp;
+                        new Ocupacion(rs.getInt("numplazas"), rs.getInt("plazasocupadas")));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return seccionParking;
+        return cafeteria;
     }
 
     @Override
     public List<Cafeteria> obtenerCafeterias() {
-        List<Cafeteria> secciones = new ArrayList<>();
+        List<Cafeteria> cafeterias = new ArrayList<>();
 
         try {
-            String sql = "SELECT p.id_1 AS id_seccion, id_centro, ST_Y(ST_PointOnSurface(geom)) AS LOCATIONX, ST_X(ST_PointOnSurface(geom)) AS LOCATIONY," +
-                    " numplazas, plazasocupadas FROM proyecto.plazas p, proyecto.seccion_parking sp WHERE p.id_1=sp.id";
+            String sql = "SELECT p.id_4 AS id_cafeteria, ST_Y(ST_PointOnSurface(geom)) AS LOCATIONX, ST_X(ST_PointOnSurface(geom)) AS LOCATIONY," +
+            " numplazas, plazasocupadas FROM proyecto.cafeteria c, proyecto.planta_0 p WHERE c.id=p.id_4";
             Statement stmt = conexion.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
-//            while (rs.next()) {
-//                SeccionParking sptemp = new SeccionParking(
-//                        rs.getString("id_seccion"),
-//                        rs.getString("id_centro"),
-//                        new Punto(rs.getDouble("LOCATIONX"), rs.getDouble("LOCATIONY")),
-//                        new Ocupacion(rs.getInt("numplazas"), rs.getInt("plazasocupadas")),
-//                        puntosDeAcceso);
-//                secciones.add(sptemp);
-//            }
+            while (rs.next()) {
+                Cafeteria cafeteria = new Cafeteria(
+                        rs.getString("id_Cafeteria"),
+                        "cafeteria",
+                        new Punto(rs.getDouble("LOCATIONX"), rs.getDouble("LOCATIONY")),
+                        new Ocupacion(rs.getInt("numplazas"), rs.getInt("plazasocupadas")));
+                cafeterias.add(cafeteria);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
         //Collections.sort(secciones);
-        return secciones;
+        return cafeterias;
     }
 
     @Override
     public void ocuparPlaza(String id) throws Exception {
-        SeccionParking seccionParking = findById(id);
-        if(seccionParking != null) {
-            seccionParking.ocuparPlaza();
+        Cafeteria cafeteria = findById(id);
+        if(cafeteria != null) {
+            cafeteria.ocuparPlaza();
 
             PreparedStatement preparedStmt;
-            String query = "UPDATE proyecto.seccion_parking SET plazasocupadas = '"
-                    + seccionParking.obtenerOcupacion().getOcupadas() + "' where id = '" + id + "'";
+            String query = "UPDATE proyecto.cafeteria SET plazasocupadas = '"
+                    + cafeteria.getOcupacion().getOcupadas() + "' where id = '" + id + "'";
 
             preparedStmt = conexion.prepareStatement(query);
             preparedStmt.executeUpdate();
@@ -86,13 +83,13 @@ public class RepositorioCafeteriasImpl implements RepositorioCafeterias {
 
     @Override
     public void liberarPlaza(String id) throws Exception {
-        SeccionParking seccionParking = findById(id);
-        if(seccionParking != null) {
-            seccionParking.liberarPlaza();
+        Cafeteria cafeteria = findById(id);
+        if(cafeteria != null) {
+            cafeteria.liberarPlaza();
 
             PreparedStatement preparedStmt;
-            String query = "UPDATE proyecto.seccion_parking SET plazasocupadas = '"
-                    + seccionParking.obtenerOcupacion().getOcupadas() + "' where id = '" + id + "'";
+            String query = "UPDATE proyecto.cafeteria SET plazasocupadas = '"
+                    + cafeteria.getOcupacion().getOcupadas() + "' where id = '" + id + "'";
 
             preparedStmt = conexion.prepareStatement(query);
             preparedStmt.executeUpdate();

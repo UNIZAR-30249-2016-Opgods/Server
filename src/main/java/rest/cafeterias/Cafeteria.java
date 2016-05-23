@@ -3,11 +3,15 @@ package rest.cafeterias;
 import rest.common.Entidad;
 import rest.common.Ocupacion;
 import rest.common.Punto;
+import rest.seccionesparking.RepositorioSeccionParkingImpl;
+
+import java.util.Observable;
+import java.util.Observer;
 
 /**
  * Created by phyrion on 23/05/16.
  */
-public class Cafeteria extends Entidad {
+public class Cafeteria extends Entidad implements Observer{
     private String nombre;
     private Punto punto;
     private Ocupacion ocupacion;
@@ -47,5 +51,49 @@ public class Cafeteria extends Entidad {
 
     public void setOcupacion(Ocupacion ocupacion) {
         this.ocupacion = ocupacion;
+    }
+
+    /**
+     * Pre: Debe haber un número de plazas libres mayor que 0
+     * Post: ocupa una plaza en la seccion del parking.
+     * @throws Exception en caso de no haber plazas libres.
+     */
+    public void ocuparPlaza() throws Exception {
+        if(ocupacion.getLibres() == 0)
+            throw new Exception("No quedan plazas libres.");
+
+        ocupacion.ocuparPlaza();
+    }
+
+    /**
+     * Pre: El parking no debe estar vacío
+     * Post: libera una plaza la seccion del parking.
+     * @throws Exception en caso de que el parking esté vacío.
+     */
+    public void liberarPlaza() throws Exception {
+        if(ocupacion.getOcupadas() == 0)
+            throw new Exception("El parking ya estaba vacío.");
+
+        ocupacion.liberarPlaza();
+    }
+    @Override
+    public void update(Observable o, Object arg) {
+        String actualizar = (String) arg;
+        RepositorioSeccionParkingImpl repo = new RepositorioSeccionParkingImpl();
+        if(actualizar.contains("ENTRAR")) {
+            try {
+                repo.ocuparPlaza(getId());
+                System.out.println("Se han ocupado una plaza del parking [" + nombre + "].");
+            } catch (Exception e) {
+                System.err.println(e.getMessage());
+            }
+        } else {
+            try {
+                repo.liberarPlaza(getId());
+                System.out.println("Se han liberado una plaza del parking [" + nombre + "].");
+            } catch (Exception e) {
+                System.err.println(e.getMessage());
+            }
+        }
     }
 }
