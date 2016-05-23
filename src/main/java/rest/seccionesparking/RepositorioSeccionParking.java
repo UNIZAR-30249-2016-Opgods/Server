@@ -18,6 +18,6 @@ public interface RepositorioSeccionParking {
 
     SeccionParking findById(String id);
 
-    List<Punto>  obtenerPuntosAcceso();
+    List<Punto> obtenerPuntosAcceso();
 
 }

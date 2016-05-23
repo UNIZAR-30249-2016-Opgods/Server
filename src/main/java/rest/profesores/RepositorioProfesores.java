@@ -7,6 +7,8 @@ import java.util.List;
  */
 public interface RepositorioProfesores {
 
+    List<Profesor> findAll();
+
     List<Profesor> fuzzyFind(String nombre);
 
     List<Profesor> findFloor(int UTCplanta);

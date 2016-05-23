@@ -3,9 +3,11 @@ package rest.profesores;
 import rest.common.ConexionBBDD;
 import rest.common.Localizacion;
 import rest.common.Punto;
+import rest.simulacion.SimularProfesores;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -15,6 +17,32 @@ public class RepositorioProfesoresImpl implements RepositorioProfesores {
 
     public RepositorioProfesoresImpl() {
         conexion = ConexionBBDD.conectar();
+    }
+
+    @Override
+    public List<Profesor> findAll() {
+        List<Profesor> profesores = new ArrayList<>();
+        try {
+            // List<Profesor> profesoresParcial = new ArrayList<>();
+            for (int i = 0; i < 5; i++) {
+                String sql = "SELECT p.id AS id_profesor, nombre, info, id_centro, ST_Y(ST_PointOnSurface(geom)) AS LOCATIONX, " +
+                        "ST_X(ST_PointOnSurface(geom)) AS LOCATIONY FROM proyecto.profesor p, proyecto.planta_" + i + " pl WHERE p.utcdespacho=pl.id_utc";
+                Statement stmt = conexion.createStatement();
+                ResultSet rs = stmt.executeQuery(sql);
+                while (rs.next()) {
+                    Profesor profesorTemp = new Profesor(rs.getString("id_profesor"),
+                            rs.getString("nombre"),
+                            false,
+                            rs.getString("info"),
+                            new Despacho(new Localizacion(new Punto(1, rs.getDouble("LocationX"), rs.getDouble("LOCATIONY")), i, 2), rs.getString("id_centro")));
+                    profesores.add(profesorTemp);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        Collections.sort(profesores);
+        return profesores;
     }
 
     @Override
@@ -30,7 +58,7 @@ public class RepositorioProfesoresImpl implements RepositorioProfesores {
                 while (rs.next()) {
                     Profesor profesorTemp = new Profesor(rs.getString("id_profesor"),
                             rs.getString("nombre"),
-                            rs.getBoolean("disponibilidad"),
+                            SimularProfesores.obtenerListaProfesores().get(Integer.parseInt(rs.getString("id_profesor"))).isDisponibilidad(),
                             rs.getString("info"),
                             new Despacho(new Localizacion(new Punto(1, rs.getDouble("LocationX"), rs.getDouble("LOCATIONY")), i, 2), rs.getString("id_centro")));
                     if (profesorTemp.getNombre().toUpperCase().contains(nombre.toUpperCase()))

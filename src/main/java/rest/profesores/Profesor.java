@@ -2,7 +2,10 @@ package rest.profesores;
 
 import rest.common.Entidad;
 
-public class Profesor extends Entidad {
+import java.util.Observable;
+import java.util.Observer;
+
+public class Profesor extends Entidad implements Observer, Comparable {
 
     private String nombre;
     private boolean disponibilidad;
@@ -48,5 +51,22 @@ public class Profesor extends Entidad {
         return despacho;
     }
 
+    @Override
+    //TODO: Cambiar try catch por throws. Esto es solo para probar
+    public void update(Observable o, Object arg) {
+        String actualizar = (String) arg;
+        if (actualizar.contains("ENTRAR")) {
+            disponibilidad = true;
+            System.out.println("El profesor [" + nombre + "] está disponible.");
+        } else {
+            disponibilidad = false;
+            System.out.println("El profesor [" + nombre + "] está ocupado.");
+        }
+    }
 
+    @Override
+    public int compareTo(Object o) {
+        int comparacion = Integer.parseInt(((Profesor) o).getId());
+        return Integer.parseInt(this.getId())-comparacion;
+    }
 }
