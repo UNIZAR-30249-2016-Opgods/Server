@@ -20,8 +20,8 @@ public class RepositorioSeccionParkingImpl implements RepositorioSeccionParking 
 
     private void inicializarAccesos() {
         this.puntosDeAcceso.clear();
-        this.puntosDeAcceso.add(new Punto(1, 41.681002, -0.889112));
-        this.puntosDeAcceso.add(new Punto(1, 41.682468, -0.889666));
+        this.puntosDeAcceso.add(new Punto(41.681002, -0.889112));
+        this.puntosDeAcceso.add(new Punto(41.682468, -0.889666));
     }
 
     @Override
@@ -36,7 +36,7 @@ public class RepositorioSeccionParkingImpl implements RepositorioSeccionParking 
                 SeccionParking sptemp = new SeccionParking(
                         rs.getString("id_seccion"),
                         rs.getString("id_centro"),
-                        new Punto(1, rs.getDouble("LOCATIONX"), rs.getDouble("LOCATIONY")),
+                        new Punto(rs.getDouble("LOCATIONX"), rs.getDouble("LOCATIONY")),
                         new Ocupacion(rs.getInt("numplazas"), rs.getInt("plazasocupadas")),
                         puntosDeAcceso);
                 seccionParking = sptemp;
@@ -60,7 +60,7 @@ public class RepositorioSeccionParkingImpl implements RepositorioSeccionParking 
                 SeccionParking sptemp = new SeccionParking(
                         rs.getString("id_seccion"),
                         rs.getString("id_centro"),
-                        new Punto(1, rs.getDouble("LOCATIONX"), rs.getDouble("LOCATIONY")),
+                        new Punto(rs.getDouble("LOCATIONX"), rs.getDouble("LOCATIONY")),
                         new Ocupacion(rs.getInt("numplazas"), rs.getInt("plazasocupadas")),
                         puntosDeAcceso);
                 secciones.add(sptemp);

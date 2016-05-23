@@ -1,18 +1,12 @@
 package rest.common;
 
 public class Punto {
-    private int SRC = 4237;
     private double latitud;
     private double longitud;
 
-    public Punto(int SRC, double latitud, double longitud) {
-        this.SRC = SRC;
+    public Punto(double latitud, double longitud) {
         this.latitud = latitud;
         this.longitud = longitud;
-    }
-
-    public int getSRC() {
-        return SRC;
     }
 
     public double getLatitud() {
