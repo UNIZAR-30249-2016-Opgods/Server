@@ -11,7 +11,8 @@ import org.junit.runners.Suite;
         {
                 AppliactionTest.class,
                 OcupacionTest.class,
+                ProfesorControllerTest.class,
                 ProfesoresTest.class,
-                RepositorioProfesoresTest.class,
+                RepositorioProfesoresTest.class
         })
 public class AllTests {}
