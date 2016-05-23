@@ -62,7 +62,7 @@ public class RepositorioCafeteriasImpl implements RepositorioCafeterias {
             e.printStackTrace();
         }
 
-        //Collections.sort(secciones);
+        Collections.sort(cafeterias);
         return cafeterias;
     }
 

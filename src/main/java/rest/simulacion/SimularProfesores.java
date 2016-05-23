@@ -27,7 +27,7 @@ public class SimularProfesores implements Runnable{
     }
 
     /**
-     * Bucle indefinido que cada un tiempo entre 0 y 5 segundo cambia la disponibilidad
+     * Bucle indefinido que cada un tiempo entre 2 y 517 segundo cambia la disponibilidad
      * de un profesor. Se presupone que cada profesor posee un sensor distinto.
      */
     @Override

@@ -11,7 +11,7 @@ import java.util.Observer;
 /**
  * Created by phyrion on 23/05/16.
  */
-public class Cafeteria extends Entidad implements Observer{
+public class Cafeteria extends Entidad implements Observer, Comparable{
     private String nombre;
     private Punto punto;
     private Ocupacion ocupacion;
@@ -79,21 +79,27 @@ public class Cafeteria extends Entidad implements Observer{
     @Override
     public void update(Observable o, Object arg) {
         String actualizar = (String) arg;
-        RepositorioSeccionParkingImpl repo = new RepositorioSeccionParkingImpl();
+        RepositorioCafeteriasImpl repo = new RepositorioCafeteriasImpl();
         if(actualizar.contains("ENTRAR")) {
             try {
                 repo.ocuparPlaza(getId());
-                System.out.println("Se han ocupado una plaza del parking [" + nombre + "].");
+                System.out.println("Se han ocupado una plaza de la cafeteria.");
             } catch (Exception e) {
                 System.err.println(e.getMessage());
             }
         } else {
             try {
                 repo.liberarPlaza(getId());
-                System.out.println("Se han liberado una plaza del parking [" + nombre + "].");
+                System.out.println("Se han liberado una plaza de la cafeteria.");
             } catch (Exception e) {
                 System.err.println(e.getMessage());
             }
         }
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        int comparacion = Integer.parseInt(((Cafeteria) o).getId());
+        return Integer.parseInt(this.getId())-comparacion;
     }
 }

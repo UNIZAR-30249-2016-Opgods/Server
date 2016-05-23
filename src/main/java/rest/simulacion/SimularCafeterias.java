@@ -1,8 +1,8 @@
 package rest.simulacion;
 
+import rest.cafeterias.Cafeteria;
+import rest.cafeterias.RepositorioCafeteriasImpl;
 import rest.common.Sensor;
-import rest.profesores.Profesor;
-import rest.profesores.RepositorioProfesoresImpl;
 import rest.seccionesparking.RepositorioSeccionParkingImpl;
 import rest.seccionesparking.SeccionParking;
 
@@ -10,27 +10,27 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class SimularSeccionesParking implements Runnable{
+public class SimularCafeterias implements Runnable{
 
     private static ArrayList<Sensor> sensores;
-    private static List<SeccionParking> secciones;
+    private static List<Cafeteria> cafeterias;
 
-    public SimularSeccionesParking() {
-        RepositorioSeccionParkingImpl repo = new RepositorioSeccionParkingImpl();
-        secciones = repo.obtenerSecciones();
+    public SimularCafeterias() {
+        RepositorioCafeteriasImpl repo = new RepositorioCafeteriasImpl();
+        cafeterias = repo.obtenerCafeterias();
 
         sensores = new ArrayList<>();
 
-        for(SeccionParking seccion : secciones) {
+        for(Cafeteria cafeteria : cafeterias) {
             Sensor sensor = new Sensor();
             sensores.add(sensor);
-            sensor.addObserver(seccion);
+            sensor.addObserver(cafeteria);
         }
     }
 
     /**
      * Bucle indefinido que cada un tiempo entre 5 y 20 segundos rellena o vacia 10 huecos
-     * de secciones distintas. Se presupone que cada seccion posee un sensor distinto.
+     * de cafeterias distintas. Se presupone que cada cafeteria posee un sensor distinto.
      */
     @Override
     public void run() {
@@ -40,9 +40,9 @@ public class SimularSeccionesParking implements Runnable{
             for(int i = 0; i < 10; i++) {
                 int queSensor = random.nextInt(sensores.size());
                 if(random.nextInt(11) > 5)
-                    ocuparPlaza(sensores.get(queSensor));
+                    ocuparCafeteria(sensores.get(queSensor));
                 else
-                    liberarPlaza(sensores.get(queSensor));
+                    liberarCafeteria(sensores.get(queSensor));
             }
 
             long waitInMillis = random.nextInt(15000);
@@ -54,9 +54,9 @@ public class SimularSeccionesParking implements Runnable{
         }
     }
 
-    public static void ocuparPlaza(Sensor sensor) { sensor.entrar(); }
+    public static void ocuparCafeteria(Sensor sensor) { sensor.entrar(); }
 
-    public static void liberarPlaza(Sensor sensor) {
+    public static void liberarCafeteria(Sensor sensor) {
         sensor.salir();
     }
 
