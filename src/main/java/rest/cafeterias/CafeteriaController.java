@@ -18,7 +18,7 @@ public class CafeteriaController {
     public ResponseEntity listCafeterias() {
         RepositorioCafeteriasImpl rcaf = new RepositorioCafeteriasImpl();
 
-        return new ResponseEntity<JsonArrayDTO>(new JsonArrayDTO(false, "Información de Profesores por planta", rcaf.obtenerCafeterias()),
+        return new ResponseEntity<JsonArrayDTO>(new JsonArrayDTO(false, "Información cafeterias", rcaf.obtenerCafeterias()),
                                     HttpStatus.OK);
     }
 }
