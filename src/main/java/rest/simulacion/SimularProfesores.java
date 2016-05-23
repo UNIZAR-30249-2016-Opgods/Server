@@ -50,15 +50,7 @@ public class SimularProfesores implements Runnable{
         }
     }
 
-    public static List<Profesor> obtenerListaProfesores() {
-        return profesorList;
-    }
-
-    public static List<Sensor> obtenerListaSensores() { return sensores; }
-
-    public static void cambiarADisponible(Sensor sensor) {
-        sensor.entrar();
-    }
+    public static void cambiarADisponible(Sensor sensor) { sensor.entrar(); }
 
     public static void cambiarANoDisponible(Sensor sensor) {
         sensor.salir();

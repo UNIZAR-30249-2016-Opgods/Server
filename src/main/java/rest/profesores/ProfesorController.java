@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import rest.common.JsonArrayDTO;
+import rest.simulacion.SimularProfesores;
 
 @RestController
 public class ProfesorController {
@@ -32,12 +33,6 @@ public class ProfesorController {
         RepositorioProfesoresImpl repProf = new RepositorioProfesoresImpl();
         return new ResponseEntity<JsonArrayDTO>(new JsonArrayDTO(false, "Información de Profesores por nombre", repProf.fuzzyFind(nombre)),
                 HttpStatus.OK);
-    }
-//
-    @RequestMapping(value = "/profesores/cambiarDisponibilidad/{id}", method = RequestMethod.PUT)
-    public void switchAvailability(@PathVariable("id") String id) {
-        RepositorioProfesoresImpl repProf = new RepositorioProfesoresImpl();
-        repProf.modificarDisponibilidad(id);
     }
 
 }

@@ -1,6 +1,7 @@
 package rest.profesores;
 
 import rest.common.Entidad;
+import rest.seccionesparking.RepositorioSeccionParking;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -62,6 +63,9 @@ public class Profesor extends Entidad implements Observer, Comparable {
             disponibilidad = false;
             System.out.println("El profesor [" + nombre + "] está ocupado.");
         }
+        // Llama al repositorio para modificar la disponibilidad
+        RepositorioProfesoresImpl repo = new RepositorioProfesoresImpl();
+        repo.modificarDisponibilidad(getId());
     }
 
     @Override
