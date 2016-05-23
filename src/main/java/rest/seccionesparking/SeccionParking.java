@@ -33,6 +33,22 @@ public class SeccionParking extends Entidad implements Observer {
         this.accesos = accesos;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public Punto getPunto() {
+        return punto;
+    }
+
+    public Ocupacion getOcupacion() {
+        return ocupacion;
+    }
+
+    public List<Punto> getAccesos() {
+        return accesos;
+    }
+
     /**
      * Pre: Debe haber un número de plazas libres mayor que 0
      * Post: ocupa una plaza en la seccion del parking.
