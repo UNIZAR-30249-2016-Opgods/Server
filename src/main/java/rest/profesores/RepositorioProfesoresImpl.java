@@ -34,7 +34,7 @@ public class RepositorioProfesoresImpl implements RepositorioProfesores {
                             rs.getString("nombre"),
                             false,
                             rs.getString("info"),
-                            new Despacho(new Localizacion(new Punto(1, rs.getDouble("LocationX"), rs.getDouble("LOCATIONY")), i, 2), rs.getString("id_centro")));
+                            new Despacho(new Localizacion(new Punto(rs.getDouble("LocationX"), rs.getDouble("LOCATIONY")), i, 2), rs.getString("id_centro")));
                     profesores.add(profesorTemp);
                 }
             }
