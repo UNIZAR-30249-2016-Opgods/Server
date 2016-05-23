@@ -3,6 +3,7 @@ package rest.profesores;
 import rest.common.ConexionBBDD;
 import rest.common.Localizacion;
 import rest.common.Punto;
+import rest.common.Sensor;
 import rest.simulacion.SimularProfesores;
 
 import java.sql.*;
@@ -101,10 +102,13 @@ public class RepositorioProfesoresImpl implements RepositorioProfesores {
     @Override
     public void modificarDisponibilidad(String id) {
         int idProf = Integer.parseInt(id);
-        if (SimularProfesores.obtenerListaProfesores().get(idProf).isDisponibilidad())
-            SimularProfesores.cambiarANoDisponible(SimularProfesores.obtenerListaSensores().get(idProf));
+        List<Profesor> profesores = SimularProfesores.obtenerListaProfesores();
+        List<Sensor> sensores = SimularProfesores.obtenerListaSensores();
+
+        if (profesores.get(idProf).isDisponibilidad())
+            SimularProfesores.cambiarANoDisponible(sensores.get(idProf));
         else
-            SimularProfesores.cambiarANoDisponible(SimularProfesores.obtenerListaSensores().get(idProf));
+            SimularProfesores.cambiarANoDisponible(sensores.get(idProf));
     }
 //        boolean disponibilidad = false;
 //        try {
