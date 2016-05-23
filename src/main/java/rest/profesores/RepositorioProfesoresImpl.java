@@ -60,7 +60,7 @@ public class RepositorioProfesoresImpl implements RepositorioProfesores {
                             rs.getString("nombre"),
                             SimularProfesores.obtenerListaProfesores().get(Integer.parseInt(rs.getString("id_profesor"))).isDisponibilidad(),
                             rs.getString("info"),
-                            new Despacho(new Localizacion(new Punto(1, rs.getDouble("LocationX"), rs.getDouble("LOCATIONY")), i, 2), rs.getString("id_centro")));
+                            new Despacho(new Localizacion(new Punto(rs.getDouble("LocationX"), rs.getDouble("LOCATIONY")), i, 2), rs.getString("id_centro")));
                     if (profesorTemp.getNombre().toUpperCase().contains(nombre.toUpperCase()))
                         profesores.add(profesorTemp);
                 }
@@ -88,7 +88,7 @@ public class RepositorioProfesoresImpl implements RepositorioProfesores {
                             rs.getString("nombre"),
                             rs.getBoolean("disponibilidad"),
                             rs.getString("info"),
-                            new Despacho(new Localizacion(new Punto(1, rs.getDouble("LocationX"), rs.getDouble("LOCATIONY")), utcPlanta, 2), rs.getString("id_centro")));
+                            new Despacho(new Localizacion(new Punto(rs.getDouble("LocationX"), rs.getDouble("LOCATIONY")), utcPlanta, 2), rs.getString("id_centro")));
                     profesores.add(profesorTemp);
                 }
             } catch (SQLException e) {
