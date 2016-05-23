@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class RepositorioProfesoresImpl implements RepositorioProfesores {
+    private static final String  PLANTA = "planta_";
     private Connection conexion;
 
     public RepositorioProfesoresImpl() {
@@ -45,45 +46,26 @@ public class RepositorioProfesoresImpl implements RepositorioProfesores {
     @Override
     public List<Profesor> findFloor(int utcPlanta) {
         List<Profesor> profesores = new ArrayList<>();
-        String planta = "";
-        switch (utcPlanta) {
-            case 0:
-                planta = "planta_0";
-                break;
-            case 1:
-                planta = "planta_1";
-                break;
-            case 2:
-                planta = "planta_2";
-                break;
-            case 3:
-                planta = "planta_3";
-                break;
-            case 4:
-                planta = "planta_4";
-                break;
-            default:
-                return null;
-        }
-        if (utcPlanta == 0) {
-            planta = "planta_0";
-        }
-        // EXAMPLE
-        //SELECT * FROM proyecto.profesor p, proyecto.planta_0 pl WHERE p.utcdespacho=pl.id_utc
-        try {
-            String sql = "SELECT p.id AS id_profesor, nombre, disponibilidad, info, id_centro, ST_Y(ST_PointOnSurface(geom)) AS LOCATIONX, ST_X(ST_PointOnSurface(geom)) AS LOCATIONY FROM proyecto.profesor p, proyecto." + planta + " pl WHERE p.utcdespacho=pl.id_utc";
-            Statement stmt = conexion.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
-            while (rs.next()) {
-                Profesor profesorTemp = new Profesor(rs.getString("id_profesor"),
-                        rs.getString("nombre"),
-                        rs.getBoolean("disponibilidad"),
-                        rs.getString("info"),
-                        new Despacho(new Localizacion(new Punto(1, rs.getDouble("LocationX"), rs.getDouble("LOCATIONY")), utcPlanta, 2), rs.getString("id_centro")));
-                profesores.add(profesorTemp);
+        String planta;
+        if (utcPlanta >= 0 && utcPlanta <= 4) {
+            planta = PLANTA + utcPlanta;
+            // EXAMPLE
+            //SELECT * FROM proyecto.profesor p, proyecto.planta_0 pl WHERE p.utcdespacho=pl.id_utc
+            try {
+                String sql = "SELECT p.id AS id_profesor, nombre, disponibilidad, info, id_centro, ST_Y(ST_PointOnSurface(geom)) AS LOCATIONX, ST_X(ST_PointOnSurface(geom)) AS LOCATIONY FROM proyecto.profesor p, proyecto." + planta + " pl WHERE p.utcdespacho=pl.id_utc";
+                Statement stmt = conexion.createStatement();
+                ResultSet rs = stmt.executeQuery(sql);
+                while (rs.next()) {
+                    Profesor profesorTemp = new Profesor(rs.getString("id_profesor"),
+                            rs.getString("nombre"),
+                            rs.getBoolean("disponibilidad"),
+                            rs.getString("info"),
+                            new Despacho(new Localizacion(new Punto(1, rs.getDouble("LocationX"), rs.getDouble("LOCATIONY")), utcPlanta, 2), rs.getString("id_centro")));
+                    profesores.add(profesorTemp);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
         return profesores;
     }
