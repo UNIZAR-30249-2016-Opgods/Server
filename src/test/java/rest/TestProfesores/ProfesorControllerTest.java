@@ -1,4 +1,4 @@
-package rest;
+package rest.TestProfesores;
 
 import org.junit.Before;
 import org.junit.Test;
