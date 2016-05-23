@@ -10,7 +10,7 @@ import java.util.Random;
 
 public class SimularProfesores implements Runnable{
 
-    private ArrayList<Sensor> sensores;
+    private static ArrayList<Sensor> sensores;
     private static List<Profesor> profesorList;
 
     public SimularProfesores() {
@@ -54,11 +54,13 @@ public class SimularProfesores implements Runnable{
         return profesorList;
     }
 
-    private void cambiarADisponible(Sensor sensor) {
+    public static List<Sensor> obtenerListaSensores() { return sensores; }
+
+    public static void cambiarADisponible(Sensor sensor) {
         sensor.entrar();
     }
 
-    private void cambiarANoDisponible(Sensor sensor) {
+    public static void cambiarANoDisponible(Sensor sensor) {
         sensor.salir();
     }
 

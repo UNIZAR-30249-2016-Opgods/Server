@@ -9,6 +9,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 public class RepositorioProfesoresImpl implements RepositorioProfesores {
@@ -77,8 +78,7 @@ public class RepositorioProfesoresImpl implements RepositorioProfesores {
         String planta;
         if (utcPlanta >= 0 && utcPlanta <= 4) {
             planta = PLANTA + utcPlanta;
-            // EXAMPLE
-            //SELECT * FROM proyecto.profesor p, proyecto.planta_0 pl WHERE p.utcdespacho=pl.id_utc
+
             try {
                 String sql = "SELECT p.id AS id_profesor, nombre, disponibilidad, info, id_centro, ST_Y(ST_PointOnSurface(geom)) AS LOCATIONX, ST_X(ST_PointOnSurface(geom)) AS LOCATIONY FROM proyecto.profesor p, proyecto." + planta + " pl WHERE p.utcdespacho=pl.id_utc";
                 Statement stmt = conexion.createStatement();
@@ -86,7 +86,7 @@ public class RepositorioProfesoresImpl implements RepositorioProfesores {
                 while (rs.next()) {
                     Profesor profesorTemp = new Profesor(rs.getString("id_profesor"),
                             rs.getString("nombre"),
-                            rs.getBoolean("disponibilidad"),
+                            SimularProfesores.obtenerListaProfesores().get(Integer.parseInt(rs.getString("id_profesor"))).isDisponibilidad(),
                             rs.getString("info"),
                             new Despacho(new Localizacion(new Punto(rs.getDouble("LocationX"), rs.getDouble("LOCATIONY")), utcPlanta, 2), rs.getString("id_centro")));
                     profesores.add(profesorTemp);
@@ -100,24 +100,29 @@ public class RepositorioProfesoresImpl implements RepositorioProfesores {
 
     @Override
     public void modificarDisponibilidad(String id) {
-        boolean disponibilidad = false;
-        try {
-            String sql = "SELECT disponibilidad FROM proyecto.profesor WHERE id = '" + id + "'";
-            Statement stmt = conexion.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
-            while (rs.next()) {
-                disponibilidad = rs.getBoolean("disponibilidad");
-            }
-            int disponibilidadInt = disponibilidad ? 0 : 1;
-
-            PreparedStatement preparedStmt;
-            String query = "UPDATE proyecto.profesor SET disponibilidad = '" + disponibilidadInt + "' where id = '" + id + "'";
-
-            preparedStmt = conexion.prepareStatement(query);
-            preparedStmt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        if (SimularProfesores.obtenerListaProfesores().get(Integer.parseInt(id)).isDisponibilidad())
+            SimularProfesores.cambiarANoDisponible(SimularProfesores.obtenerListaSensores().get(Integer.parseInt(id)));
+        else
+            SimularProfesores.cambiarANoDisponible(SimularProfesores.obtenerListaSensores().get(Integer.parseInt(id)));
     }
+//        boolean disponibilidad = false;
+//        try {
+//            String sql = "SELECT disponibilidad FROM proyecto.profesor WHERE id = '" + id + "'";
+//            Statement stmt = conexion.createStatement();
+//            ResultSet rs = stmt.executeQuery(sql);
+//            while (rs.next()) {
+//                disponibilidad = rs.getBoolean("disponibilidad");
+//            }
+//            int disponibilidadInt = disponibilidad ? 0 : 1;
+//
+//            PreparedStatement preparedStmt;
+//            String query = "UPDATE proyecto.profesor SET disponibilidad = '" + disponibilidadInt + "' where id = '" + id + "'";
+//
+//            preparedStmt = conexion.prepareStatement(query);
+//            preparedStmt.executeUpdate();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
 }
