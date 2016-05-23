@@ -57,10 +57,10 @@ public class Profesor extends Entidad implements Observer, Comparable {
         String actualizar = (String) arg;
         if (actualizar.contains("ENTRAR")) {
             disponibilidad = true;
-            System.out.println("El profesor [" + nombre + "] está disponible.");
+           // System.out.println("El profesor [" + nombre + "] está disponible.");
         } else {
             disponibilidad = false;
-            System.out.println("El profesor [" + nombre + "] está ocupado.");
+           // System.out.println("El profesor [" + nombre + "] está ocupado.");
         }
         // Llama al repositorio para modificar la disponibilidad
         RepositorioProfesoresImpl repo = new RepositorioProfesoresImpl();
