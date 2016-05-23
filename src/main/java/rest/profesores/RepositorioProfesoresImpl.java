@@ -100,10 +100,11 @@ public class RepositorioProfesoresImpl implements RepositorioProfesores {
 
     @Override
     public void modificarDisponibilidad(String id) {
-        if (SimularProfesores.obtenerListaProfesores().get(Integer.parseInt(id)).isDisponibilidad())
-            SimularProfesores.cambiarANoDisponible(SimularProfesores.obtenerListaSensores().get(Integer.parseInt(id)));
+        int idProf = Integer.parseInt(id);
+        if (SimularProfesores.obtenerListaProfesores().get(idProf).isDisponibilidad())
+            SimularProfesores.cambiarANoDisponible(SimularProfesores.obtenerListaSensores().get(idProf));
         else
-            SimularProfesores.cambiarANoDisponible(SimularProfesores.obtenerListaSensores().get(Integer.parseInt(id)));
+            SimularProfesores.cambiarANoDisponible(SimularProfesores.obtenerListaSensores().get(idProf));
     }
 //        boolean disponibilidad = false;
 //        try {
