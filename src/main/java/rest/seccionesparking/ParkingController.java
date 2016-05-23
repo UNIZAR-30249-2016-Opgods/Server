@@ -31,25 +31,4 @@ public class ParkingController {
                 HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/parking/{id}/ocuparPlaza", method = RequestMethod.PUT)
-    public ResponseEntity ocuparPlaza(@PathVariable("id") String id) {
-        RepositorioSeccionParkingImpl repo = new RepositorioSeccionParkingImpl();
-        try {
-            repo.liberarPlaza(id);
-        } catch(Exception e) {
-
-        }
-        return null;
-    }
-
-    @RequestMapping(value = "/parking/{id}/liberarPlaza", method = RequestMethod.PUT)
-    public void liberarPlaza(@PathVariable("id") String id) {
-        RepositorioSeccionParkingImpl repo = new RepositorioSeccionParkingImpl();
-        try {
-            repo.ocuparPlaza(id);
-        } catch(Exception e) {
-
-        }
-    }
-
 }

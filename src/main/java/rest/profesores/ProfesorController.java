@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import rest.common.JsonArrayDTO;
-import rest.simulacion.SimularProfesores;
 
 @RestController
 public class ProfesorController {

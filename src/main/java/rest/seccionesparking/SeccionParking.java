@@ -9,13 +9,14 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
-public class SeccionParking extends Entidad implements Observer {
+public class SeccionParking extends Entidad implements Observer, Comparable {
 
     private String nombre;
     private Punto punto;
     private Ocupacion ocupacion;
     private List<Punto> accesos;
 
+    // Inserciones en la BBDD y JSON
     public SeccionParking(String nombre, Punto punto, Ocupacion ocupacion, List<Punto> accesos) {
         this.nombre = nombre;
         this.punto = punto;
@@ -78,26 +79,30 @@ public class SeccionParking extends Entidad implements Observer {
     }
 
     @Override
-    //TODO: Cambiar try catch por throws. Esto es solo para probar
     public void update(Observable o, Object arg) {
         String actualizar = (String) arg;
+        RepositorioSeccionParkingImpl repo = new RepositorioSeccionParkingImpl();
         if(actualizar.contains("ENTRAR")) {
             try {
-                ocuparPlaza();
-                System.out.println("Se han ocupado una plaza del parking [" + nombre + "]. " +
-                        "Hay " + ocupacion.getOcupadas() + " plazas ocupadas." );
+                repo.ocuparPlaza(getId());
+                System.out.println("Se han ocupado una plaza del parking [" + nombre + "].");
             } catch (Exception e) {
                 System.err.println(e.getMessage());
             }
         } else {
             try {
-                liberarPlaza();
-                System.out.println("Se han liberado una plaza del parking [" + nombre + "]. " +
-                        "Hay " + ocupacion.getLibres() + " plazas libres." );
+                repo.liberarPlaza(getId());
+                System.out.println("Se han liberado una plaza del parking [" + nombre + "].");
             } catch (Exception e) {
                 System.err.println(e.getMessage());
             }
         }
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        int comparacion = Integer.parseInt(((SeccionParking) o).getId());
+        return Integer.parseInt(this.getId())-comparacion;
     }
 
 }

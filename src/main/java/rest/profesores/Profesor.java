@@ -13,7 +13,7 @@ public class Profesor extends Entidad implements Observer, Comparable {
     private String info;
     private Despacho despacho;
 
-    // Para inserciones en BBDD
+    // Para inserciones en BBDD y JSON
     public Profesor(String id, String nombre, boolean disponibilidad, String info) {
         super(id);
         this.nombre = nombre;
@@ -53,7 +53,6 @@ public class Profesor extends Entidad implements Observer, Comparable {
     }
 
     @Override
-    //TODO: Cambiar try catch por throws. Esto es solo para probar
     public void update(Observable o, Object arg) {
         String actualizar = (String) arg;
         if (actualizar.contains("ENTRAR")) {

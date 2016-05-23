@@ -6,6 +6,7 @@ import rest.common.Punto;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class RepositorioSeccionParkingImpl implements RepositorioSeccionParking {
@@ -68,6 +69,8 @@ public class RepositorioSeccionParkingImpl implements RepositorioSeccionParking 
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        Collections.sort(secciones);
         return secciones;
     }
 
