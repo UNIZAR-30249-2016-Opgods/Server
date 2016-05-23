@@ -36,7 +36,9 @@ public class Profesor extends Entidad {
         return nombre;
     }
 
-    public boolean isDisponibilidad() { return disponibilidad; }
+    public boolean isDisponibilidad() {
+        return disponibilidad;
+    }
 
     public String getInfo() {
         return info;
@@ -46,17 +48,5 @@ public class Profesor extends Entidad {
         return despacho;
     }
 
-//    @Override
-//    //TODO: Cambiar try catch por throws. Esto es solo para probar
-//    public void update(Observable o, Object arg) {
-//        String actualizar = (String) arg;
-//        if (actualizar.contains("ENTRAR")) {
-//            disponibilidad = true;
-//            System.out.println("El profesor [" + nombre + "] está disponible.");
-//        } else {
-//            disponibilidad = false;
-//            System.out.println("El profesor [" + nombre + "] está ocupado.");
-//        }
-//    }
 
 }

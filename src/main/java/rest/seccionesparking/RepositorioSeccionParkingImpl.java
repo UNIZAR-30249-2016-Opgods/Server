@@ -1,6 +1,7 @@
 package rest.seccionesparking;
 
 import rest.common.ConexionBBDD;
+import rest.common.Ocupacion;
 import rest.common.Punto;
 
 import java.sql.*;

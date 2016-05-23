@@ -1,5 +1,6 @@
 package rest.seccionesparking;
 
+import rest.common.Ocupacion;
 import rest.common.Punto;
 import rest.common.Entidad;
 

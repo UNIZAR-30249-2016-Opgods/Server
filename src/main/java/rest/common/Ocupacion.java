@@ -1,4 +1,4 @@
-package rest.seccionesparking;
+package rest.common;
 
 
 public class Ocupacion {

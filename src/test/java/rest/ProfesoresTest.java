@@ -9,4 +9,9 @@ public class ProfesoresTest {
     public void Profesor () {
         assertEquals(1,1);
     }
+
+    @Test
+    public void despachos(){
+
+    }
 }
