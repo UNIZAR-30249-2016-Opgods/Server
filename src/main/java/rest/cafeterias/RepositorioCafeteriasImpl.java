@@ -70,14 +70,17 @@ public class RepositorioCafeteriasImpl implements RepositorioCafeterias {
     public void ocuparPlaza(String id) throws Exception {
         Cafeteria cafeteria = findById(id);
         if(cafeteria != null) {
-            cafeteria.ocuparPlaza();
+            try {
+                cafeteria.ocuparPlaza();
+                PreparedStatement preparedStmt;
+                String query = "UPDATE proyecto.cafeteria SET plazasocupadas = '"
+                        + cafeteria.getOcupacion().getOcupadas() + "' where id = '" + id + "'";
 
-            PreparedStatement preparedStmt;
-            String query = "UPDATE proyecto.cafeteria SET plazasocupadas = '"
-                    + cafeteria.getOcupacion().getOcupadas() + "' where id = '" + id + "'";
-
-            preparedStmt = conexion.prepareStatement(query);
-            preparedStmt.executeUpdate();
+                preparedStmt = conexion.prepareStatement(query);
+                preparedStmt.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -85,14 +88,17 @@ public class RepositorioCafeteriasImpl implements RepositorioCafeterias {
     public void liberarPlaza(String id) throws Exception {
         Cafeteria cafeteria = findById(id);
         if(cafeteria != null) {
-            cafeteria.liberarPlaza();
+            try {
+                cafeteria.liberarPlaza();
+                PreparedStatement preparedStmt;
+                String query = "UPDATE proyecto.cafeteria SET plazasocupadas = '"
+                        + cafeteria.getOcupacion().getOcupadas() + "' where id = '" + id + "'";
 
-            PreparedStatement preparedStmt;
-            String query = "UPDATE proyecto.cafeteria SET plazasocupadas = '"
-                    + cafeteria.getOcupacion().getOcupadas() + "' where id = '" + id + "'";
-
-            preparedStmt = conexion.prepareStatement(query);
-            preparedStmt.executeUpdate();
+                preparedStmt = conexion.prepareStatement(query);
+                preparedStmt.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 

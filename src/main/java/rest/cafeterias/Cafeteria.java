@@ -83,14 +83,16 @@ public class Cafeteria extends Entidad implements Observer, Comparable{
         if(actualizar.contains("ENTRAR")) {
             try {
                 repo.ocuparPlaza(getId());
-                System.out.println("Se han ocupado una plaza de la cafeteria.");
+
+                //System.out.println("Se han ocupado una plaza de la cafeteria.");
             } catch (Exception e) {
                 System.err.println(e.getMessage());
             }
         } else {
             try {
                 repo.liberarPlaza(getId());
-                System.out.println("Se han liberado una plaza de la cafeteria.");
+
+                //System.out.println("Se han liberado una plaza de la cafeteria.");
             } catch (Exception e) {
                 System.err.println(e.getMessage());
             }

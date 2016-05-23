@@ -85,14 +85,14 @@ public class SeccionParking extends Entidad implements Observer, Comparable {
         if(actualizar.contains("ENTRAR")) {
             try {
                 repo.ocuparPlaza(getId());
-                System.out.println("Se han ocupado una plaza del parking [" + nombre + "].");
+                //System.out.println("Se han ocupado una plaza del parking [" + nombre + "].");
             } catch (Exception e) {
                 System.err.println(e.getMessage());
             }
         } else {
             try {
                 repo.liberarPlaza(getId());
-                System.out.println("Se han liberado una plaza del parking [" + nombre + "].");
+                //System.out.println("Se han liberado una plaza del parking [" + nombre + "].");
             } catch (Exception e) {
                 System.err.println(e.getMessage());
             }
