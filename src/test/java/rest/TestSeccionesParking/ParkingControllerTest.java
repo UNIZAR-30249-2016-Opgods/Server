@@ -1,6 +1,7 @@
 package rest.TestSeccionesParking;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,7 @@ public class ParkingControllerTest {
                 .andExpect(status().isOk());
     }
 
+    @Ignore
     @Test
     public void obtenerPuntosDeAcceso() throws Exception {
         this.mockMvc.perform(get("/parking/puntosDeAcceso"))
