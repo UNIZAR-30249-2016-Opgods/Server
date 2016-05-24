@@ -34,14 +34,14 @@ public class SimularProfesores implements Runnable{
     public void run() {
         while(true) {
             Random random = new Random();
-            int queSensor = random.nextInt(sensores.size());
-
-            if(profesores.get(queSensor).isDisponibilidad())
-                cambiarANoDisponible(sensores.get(queSensor));
-            else
-                cambiarADisponible(sensores.get(queSensor));
-
-            long waitInMillis = random.nextInt(15000);
+            for(int i = 0; i < 10; i++) {
+                int queSensor = random.nextInt(sensores.size());
+                if (profesores.get(queSensor).isDisponibilidad())
+                    cambiarANoDisponible(sensores.get(queSensor));
+                else
+                    cambiarADisponible(sensores.get(queSensor));
+            }
+                long waitInMillis = random.nextInt(15000);
             try {
                 Thread.sleep(2000+waitInMillis);
             } catch (InterruptedException e) {

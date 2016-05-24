@@ -38,7 +38,7 @@ public class SimularSeccionesParking implements Runnable{
 
             for(int i = 0; i < 10; i++) {
                 int queSensor = random.nextInt(sensores.size());
-                if(random.nextInt(101) > 46) // 54% probabilidad de ocupar, 46% de liberar
+                if(random.nextInt(101) > 49) // 54% probabilidad de ocupar, 46% de liberar
                     ocuparPlaza(sensores.get(queSensor));
                 else
                     liberarPlaza(sensores.get(queSensor));

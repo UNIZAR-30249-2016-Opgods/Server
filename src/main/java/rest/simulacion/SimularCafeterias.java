@@ -38,7 +38,7 @@ public class SimularCafeterias implements Runnable{
 
             for(int i = 0; i < 10; i++) {
                 int queSensor = random.nextInt(sensores.size());
-                if(random.nextInt(101) > 46) // 54% probabilidad de ocupar, 46% de liberar
+                if(random.nextInt(101) > 49) // 51% probabilidad de ocupar, 49% de liberar
                     ocuparCafeteria(sensores.get(queSensor));
                 else
                     liberarCafeteria(sensores.get(queSensor));

@@ -22,9 +22,7 @@ public class RepositorioProfesoresImpl implements RepositorioProfesores {
     @SuppressWarnings("unchecked")
     public List<Profesor> findAll() {
         List<Profesor> profesores = new ArrayList<>();
-        try {
-            // List<Profesor> profesoresParcial = new ArrayList<>();
-            for (int i = 0; i < 5; i++) {
+        try {for (int i = 0; i < 5; i++) {
                 String sql = "SELECT p.id AS id_profesor, nombre, disponibilidad, info, id_centro, ST_Y(ST_PointOnSurface(geom)) AS LOCATIONX, " +
                         "ST_X(ST_PointOnSurface(geom)) AS LOCATIONY FROM proyecto.profesor p, proyecto.planta_" + i + " pl WHERE p.utcdespacho=pl.id_utc";
                 Statement stmt = conexion.createStatement();
