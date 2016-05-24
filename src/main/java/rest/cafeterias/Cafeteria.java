@@ -34,16 +34,8 @@ public class Cafeteria extends Entidad implements Observer, Comparable{
         return punto;
     }
 
-    public void setPunto(Punto punto) {
-        this.punto = punto;
-    }
-
     public Ocupacion getOcupacion() {
         return ocupacion;
-    }
-
-    public void setOcupacion(Ocupacion ocupacion) {
-        this.ocupacion = ocupacion;
     }
 
     /**
