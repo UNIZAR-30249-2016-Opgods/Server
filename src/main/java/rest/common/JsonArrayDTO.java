@@ -18,24 +18,12 @@ public class JsonArrayDTO {
         return error;
     }
 
-    public void setError(boolean error) {
-        this.error = error;
-    }
-
     public String getInfo() {
         return info;
     }
 
-    public void setInfo(String info) {
-        this.info = info;
-    }
-
     public List<?> getDatos() {
         return datos;
-    }
-
-    public void setDatos(List<?> datos) {
-        this.datos = datos;
     }
 
 }

@@ -30,10 +30,6 @@ public class Cafeteria extends Entidad implements Observer, Comparable{
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public Punto getPunto() {
         return punto;
     }
