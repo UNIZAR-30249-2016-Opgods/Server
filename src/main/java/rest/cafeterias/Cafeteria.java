@@ -3,15 +3,12 @@ package rest.cafeterias;
 import rest.common.Entidad;
 import rest.common.Ocupacion;
 import rest.common.Punto;
-import rest.seccionesparking.RepositorioSeccionParkingImpl;
 
 import java.util.Observable;
 import java.util.Observer;
 
-/**
- * Created by phyrion on 23/05/16.
- */
 public class Cafeteria extends Entidad implements Observer, Comparable{
+
     private String nombre;
     private Punto punto;
     private Ocupacion ocupacion;
@@ -104,4 +101,5 @@ public class Cafeteria extends Entidad implements Observer, Comparable{
         int comparacion = Integer.parseInt(((Cafeteria) o).getId());
         return Integer.parseInt(this.getId())-comparacion;
     }
+
 }

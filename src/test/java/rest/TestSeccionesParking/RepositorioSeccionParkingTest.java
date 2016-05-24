@@ -57,5 +57,4 @@ public class RepositorioSeccionParkingTest {
         assertEquals(seccionParkingActualizada.getOcupacion().getOcupadas(), numOcupadasAntes-1);
     }
 
-
 }

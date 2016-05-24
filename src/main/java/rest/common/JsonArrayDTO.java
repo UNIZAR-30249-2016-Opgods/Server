@@ -2,10 +2,8 @@ package rest.common;
 
 import java.util.List;
 
-/**
- * Created by phyrion on 21/05/16.
- */
 public class JsonArrayDTO {
+
     private boolean error;
     private String info;
     private List<?> datos;
@@ -39,4 +37,5 @@ public class JsonArrayDTO {
     public void setDatos(List<?> datos) {
         this.datos = datos;
     }
+
 }

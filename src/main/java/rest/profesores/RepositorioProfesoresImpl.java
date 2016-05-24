@@ -10,6 +10,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class RepositorioProfesoresImpl implements RepositorioProfesores {
+
     private static final String  PLANTA = "planta_";
     private Connection conexion;
 
@@ -18,6 +19,7 @@ public class RepositorioProfesoresImpl implements RepositorioProfesores {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public List<Profesor> findAll() {
         List<Profesor> profesores = new ArrayList<>();
         try {

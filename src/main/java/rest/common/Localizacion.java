@@ -1,6 +1,7 @@
 package rest.common;
 
 public class Localizacion {
+
     private Punto punto;
     private int utcPlanta;
     private int utcEdificio;

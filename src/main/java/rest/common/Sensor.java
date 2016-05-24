@@ -18,5 +18,4 @@ public class Sensor extends Observable {
         notifyObservers("SALIR");
     }
 
-
 }

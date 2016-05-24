@@ -3,6 +3,7 @@ package rest.profesores;
 import rest.common.Localizacion;
 
 public class Despacho {
+
     private Localizacion localizacion;
     private String codigo;
 

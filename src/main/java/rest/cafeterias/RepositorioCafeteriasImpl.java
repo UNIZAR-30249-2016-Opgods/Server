@@ -3,7 +3,6 @@ package rest.cafeterias;
 import rest.common.ConexionBBDD;
 import rest.common.Ocupacion;
 import rest.common.Punto;
-import rest.seccionesparking.SeccionParking;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -13,12 +12,10 @@ import java.util.List;
 public class RepositorioCafeteriasImpl implements RepositorioCafeterias {
 
     private Connection conexion;
-    private final List<Punto> puntosDeAcceso = new ArrayList<>();
 
     public RepositorioCafeteriasImpl() {
         conexion = ConexionBBDD.conectar();
     }
-
 
     @Override
     public Cafeteria findById(String id) {
@@ -42,6 +39,7 @@ public class RepositorioCafeteriasImpl implements RepositorioCafeterias {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public List<Cafeteria> obtenerCafeterias() {
         List<Cafeteria> cafeterias = new ArrayList<>();
 

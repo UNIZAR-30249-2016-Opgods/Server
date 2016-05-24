@@ -12,7 +12,6 @@ import rest.common.JsonArrayDTO;
 @RestController
 public class ProfesorController {
 
-
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public JsonArrayDTO index() {
         RepositorioProfesoresImpl repProf = new RepositorioProfesoresImpl();
@@ -24,13 +23,14 @@ public class ProfesorController {
     public ResponseEntity findByFloor(@PathVariable("planta") int planta) {
         RepositorioProfesoresImpl repProf = new RepositorioProfesoresImpl();
 
-        return new ResponseEntity<JsonArrayDTO>(new JsonArrayDTO(false, "Información de Profesores por planta", repProf.findFloor(planta)),
+        return new ResponseEntity<>(new JsonArrayDTO(false, "Información de Profesores por planta", repProf.findFloor(planta)),
                                     HttpStatus.OK);
     }
+
     @RequestMapping(value = "/profesores/fuzzyFind/{nombre}", method = RequestMethod.GET)
     public ResponseEntity findByName(@PathVariable("nombre") String nombre) {
         RepositorioProfesoresImpl repProf = new RepositorioProfesoresImpl();
-        return new ResponseEntity<JsonArrayDTO>(new JsonArrayDTO(false, "Información de Profesores por nombre", repProf.fuzzyFind(nombre)),
+        return new ResponseEntity<>(new JsonArrayDTO(false, "Información de Profesores por nombre", repProf.fuzzyFind(nombre)),
                 HttpStatus.OK);
     }
 

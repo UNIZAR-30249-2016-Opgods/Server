@@ -35,13 +35,12 @@ public class RepositorioSeccionParkingImpl implements RepositorioSeccionParking 
             Statement stmt = conexion.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
-                SeccionParking sptemp = new SeccionParking(
+                seccionParking = new SeccionParking(
                         rs.getString("id_seccion"),
                         rs.getString("id_centro"),
                         new Punto(rs.getDouble("LOCATIONX"), rs.getDouble("LOCATIONY")),
                         new Ocupacion(rs.getInt("numplazas"), rs.getInt("plazasocupadas")),
                         puntosDeAcceso);
-                seccionParking = sptemp;
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -50,6 +49,7 @@ public class RepositorioSeccionParkingImpl implements RepositorioSeccionParking 
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public List<SeccionParking> obtenerSecciones() {
         List<SeccionParking> secciones = new ArrayList<>();
 
@@ -109,4 +109,5 @@ public class RepositorioSeccionParkingImpl implements RepositorioSeccionParking 
     public List<Punto> obtenerPuntosAcceso() {
         return puntosDeAcceso;
     }
+
 }

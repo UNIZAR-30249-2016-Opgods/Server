@@ -83,6 +83,4 @@ public class SeccionesParkingTest {
         seccionParkingVacia.liberarPlaza();
     }
 
-
-
 }

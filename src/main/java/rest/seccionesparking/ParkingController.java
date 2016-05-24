@@ -12,12 +12,11 @@ import rest.common.JsonArrayDTO;
 @RestController
 public class ParkingController {
 
-
     @RequestMapping(value = "/parking/secciones", method = RequestMethod.GET)
     public ResponseEntity getSeccionesParking() {
         RepositorioSeccionParkingImpl repParking = new RepositorioSeccionParkingImpl();
 
-        return new ResponseEntity<JsonArrayDTO>(new JsonArrayDTO(false,
+        return new ResponseEntity<>(new JsonArrayDTO(false,
                 "Información de secciones de parking", repParking.obtenerSecciones()),
                 HttpStatus.OK);
     }
@@ -26,7 +25,7 @@ public class ParkingController {
     public ResponseEntity getPuntosDeAcceso() {
         RepositorioSeccionParkingImpl repParking = new RepositorioSeccionParkingImpl();
 
-        return new ResponseEntity<JsonArrayDTO>(new JsonArrayDTO(false,
+        return new ResponseEntity<>(new JsonArrayDTO(false,
                 "Información de puntos de acceso", repParking.obtenerPuntosAcceso()),
                 HttpStatus.OK);
     }

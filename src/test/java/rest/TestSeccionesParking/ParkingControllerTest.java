@@ -9,7 +9,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import rest.cafeterias.CafeteriaController;
 import rest.seccionesparking.ParkingController;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -41,4 +40,5 @@ public class ParkingControllerTest {
         this.mockMvc.perform(get("/parking/puntosDeAcceso"))
                 .andExpect(status().isOk());
     }
+
 }

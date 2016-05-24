@@ -56,5 +56,4 @@ public class SimularProfesores implements Runnable{
         sensor.salir();
     }
 
-
 }

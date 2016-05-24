@@ -17,7 +17,6 @@ public class RepositorioCafeteriasTest {
         assertTrue(cafeteriaList.size()>0);
     }
 
-
     @Test
     public void ocuparPlaza () throws Exception {
         RepositorioCafeteriasImpl repo = new RepositorioCafeteriasImpl();
@@ -47,6 +46,5 @@ public class RepositorioCafeteriasTest {
         assertEquals(cafeteriaList.get(0).getId(), cafeteriaActualizada.getId());
         assertEquals(cafeteriaActualizada.getOcupacion().getOcupadas(), numOcupadasAntes-1);
     }
-
 
 }

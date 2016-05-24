@@ -17,4 +17,5 @@ public abstract class Entidad {
     public String getId () {
         return id;
     }
+
 }

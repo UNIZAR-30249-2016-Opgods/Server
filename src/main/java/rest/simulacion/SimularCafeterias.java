@@ -13,11 +13,10 @@ import java.util.Random;
 public class SimularCafeterias implements Runnable{
 
     private static ArrayList<Sensor> sensores;
-    private static List<Cafeteria> cafeterias;
 
     public SimularCafeterias() {
         RepositorioCafeteriasImpl repo = new RepositorioCafeteriasImpl();
-        cafeterias = repo.obtenerCafeterias();
+        List<Cafeteria> cafeterias = repo.obtenerCafeterias();
 
         sensores = new ArrayList<>();
 
@@ -59,6 +58,5 @@ public class SimularCafeterias implements Runnable{
     public static void liberarCafeteria(Sensor sensor) {
         sensor.salir();
     }
-
 
 }

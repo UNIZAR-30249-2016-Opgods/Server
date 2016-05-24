@@ -13,11 +13,10 @@ import java.util.Random;
 public class SimularSeccionesParking implements Runnable{
 
     private static ArrayList<Sensor> sensores;
-    private static List<SeccionParking> secciones;
 
     public SimularSeccionesParking() {
         RepositorioSeccionParkingImpl repo = new RepositorioSeccionParkingImpl();
-        secciones = repo.obtenerSecciones();
+        List<SeccionParking> secciones = repo.obtenerSecciones();
 
         sensores = new ArrayList<>();
 
@@ -59,6 +58,5 @@ public class SimularSeccionesParking implements Runnable{
     public static void liberarPlaza(Sensor sensor) {
         sensor.salir();
     }
-
 
 }

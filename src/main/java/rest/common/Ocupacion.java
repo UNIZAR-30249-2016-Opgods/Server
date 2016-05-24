@@ -2,6 +2,7 @@ package rest.common;
 
 
 public class Ocupacion {
+
     private int nPlazas;
     private int ocupadas;
 
@@ -21,14 +22,15 @@ public class Ocupacion {
     public int getLibres() { return nPlazas - ocupadas; }
 
     public void ocuparPlaza() {
-        if (ocupadas < nPlazas) {
+        if (ocupadas < nPlazas)
             ocupadas++;
-        }
+
     }
 
     public void liberarPlaza() {
-        if(ocupadas > 0) {
+        if(ocupadas > 0)
             ocupadas--;
-        }
+
     }
+
 }

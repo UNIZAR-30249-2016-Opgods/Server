@@ -32,4 +32,5 @@ public class CafeteriasControllerTest {
         this.mockMvc.perform(get("/cafeterias"))
                 .andExpect(status().isOk());
     }
+
 }
