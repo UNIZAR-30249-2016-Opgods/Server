@@ -21,8 +21,9 @@ public class RepositorioSeccionParkingImpl implements RepositorioSeccionParking 
 
     private void inicializarAccesos() {
         this.puntosDeAcceso.clear();
-        this.puntosDeAcceso.add(new Punto(41.681002, -0.889112));
-        this.puntosDeAcceso.add(new Punto(41.682468, -0.889666));
+        this.puntosDeAcceso.add(new Punto(41.680372, -0.889839));
+        this.puntosDeAcceso.add(new Punto(41.687105, -0.890865));
+        this.puntosDeAcceso.add(new Punto(41.688500, -0.883731));
     }
 
     @Override
