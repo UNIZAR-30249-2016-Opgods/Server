@@ -21,13 +21,4 @@ public class ParkingController {
                 HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/parking/puntosDeAcceso", method = RequestMethod.GET)
-    public ResponseEntity getPuntosDeAcceso() {
-        RepositorioSeccionParkingImpl repParking = new RepositorioSeccionParkingImpl();
-
-        return new ResponseEntity<>(new JsonArrayDTO(false,
-                "Información de puntos de acceso", repParking.obtenerPuntosAcceso()),
-                HttpStatus.OK);
-    }
-
 }

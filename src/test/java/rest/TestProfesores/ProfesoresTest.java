@@ -43,4 +43,10 @@ public class ProfesoresTest {
         assertNotEquals(0, profesorDisponible.compareTo(profesorOcupado));
     }
 
+    @Test
+    public void introducirProfesorSinDespacho() {
+        String id = "unID";
+        Profesor profesorTemp = new Profesor(id,"Nombre", false, "informacion");
+        assertEquals(id, profesorTemp.getId());
+    }
 }

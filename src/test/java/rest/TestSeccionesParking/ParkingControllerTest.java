@@ -33,12 +33,4 @@ public class ParkingControllerTest {
         this.mockMvc.perform(get("/parking/secciones"))
                 .andExpect(status().isOk());
     }
-
-    @Ignore
-    @Test
-    public void obtenerPuntosDeAcceso() throws Exception {
-        this.mockMvc.perform(get("/parking/puntosDeAcceso"))
-                .andExpect(status().isOk());
-    }
-
 }

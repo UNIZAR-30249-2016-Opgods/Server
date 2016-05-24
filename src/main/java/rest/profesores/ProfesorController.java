@@ -12,13 +12,6 @@ import rest.common.JsonArrayDTO;
 @RestController
 public class ProfesorController {
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public JsonArrayDTO index() {
-        RepositorioProfesoresImpl repProf = new RepositorioProfesoresImpl();
-
-        return new JsonArrayDTO(false, "Información de Profesores por planta", repProf.findFloor(0));
-    }
-
     @RequestMapping(value = "/profesores/{planta}", method = RequestMethod.GET)
     public ResponseEntity findByFloor(@PathVariable("planta") int planta) {
         RepositorioProfesoresImpl repProf = new RepositorioProfesoresImpl();

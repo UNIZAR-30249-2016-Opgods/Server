@@ -30,4 +30,10 @@ public class RepositorioProfesoresTest {
         }
     }
 
+    @Test
+    public void buscarTodosLosProfesores() {
+        RepositorioProfesoresImpl repo = new RepositorioProfesoresImpl();
+        assertEquals(76, repo.findAll().size());
+    }
+
 }
