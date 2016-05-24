@@ -38,4 +38,9 @@ public class ProfesoresTest {
         assertFalse(profesorDisponible.isDisponibilidad());
     }
 
+    @Test
+    public void compararProfesores() {
+        assertNotEquals(0, profesorDisponible.compareTo(profesorOcupado));
+    }
+
 }

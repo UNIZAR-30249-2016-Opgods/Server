@@ -69,7 +69,8 @@ public class Profesor extends Entidad implements Observer, Comparable {
 
     @Override
     public int compareTo(Object o) {
-        int comparacion = Integer.parseInt(((Profesor) o).getId());
-        return Integer.parseInt(this.getId())-comparacion;
+        return this.getId().compareTo(((Profesor) o).getId());
+//        int comparacion = Integer.parseInt(((Profesor) o).getId());
+//        return Integer.parseInt(this.getId())-comparacion;
     }
 }
