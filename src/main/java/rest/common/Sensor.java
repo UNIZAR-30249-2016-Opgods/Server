@@ -1,7 +1,5 @@
 package rest.common;
 
-import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
-
 import java.util.Observable;
 
 public class Sensor extends Observable {
