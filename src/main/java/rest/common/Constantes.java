@@ -10,4 +10,5 @@ public class Constantes {
     public static final String PASSWORD = "geoserver";
     public static final String ENTRAR = "ENTRAR";
     public static final String SALIR = "SALIR";
+
 }

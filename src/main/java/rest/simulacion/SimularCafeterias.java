@@ -53,9 +53,9 @@ public class SimularCafeterias implements Runnable{
         }
     }
 
-    public static void ocuparCafeteria(Sensor sensor) { sensor.entrar(); }
+    private static void ocuparCafeteria(Sensor sensor) { sensor.entrar(); }
 
-    public static void liberarCafeteria(Sensor sensor) {
+    private static void liberarCafeteria(Sensor sensor) {
         sensor.salir();
     }
 
