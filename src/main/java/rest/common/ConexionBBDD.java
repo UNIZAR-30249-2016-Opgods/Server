@@ -8,20 +8,17 @@ import java.sql.SQLException;
  * Clase que facilita la conexión con la base de datos
  */
 public class ConexionBBDD {
-    private static final String DRIVER = "org.postgresql.Driver";
-    private static final String HOST = "jdbc:postgresql://geoserver.cuobtic26knt.eu-west-1.rds.amazonaws.com:5432/proyectodb?sslmode=require";
-    private static final String USER = "labis";
-    private static final String PASSWORD = "geoserver";
+
     static Connection conexion = null;
 
     public static Connection conectar(){
         if (conexion == null) {
             try {
-                Class.forName(DRIVER);
+                Class.forName(Constantes.DRIVER);
                 conexion = DriverManager
-                        .getConnection(HOST,
-                                       USER,
-                                       PASSWORD);
+                        .getConnection(Constantes.HOST,
+                                        Constantes.USER,
+                                        Constantes.PASSWORD);
                 if (conexion != null) {
                     System.out.println("Conexión a base de datos  ... Ok");
                     return conexion;

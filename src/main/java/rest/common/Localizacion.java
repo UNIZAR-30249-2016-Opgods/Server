@@ -1,5 +1,7 @@
 package rest.common;
-
+/**
+ * Clase que representa una localización
+ */
 public class Localizacion {
 
     private Punto punto;
