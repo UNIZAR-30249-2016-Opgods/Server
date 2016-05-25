@@ -1,5 +1,7 @@
 package rest.common;
 
+import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
+
 import java.util.Observable;
 
 public class Sensor extends Observable {
@@ -8,14 +10,14 @@ public class Sensor extends Observable {
         // Marca el objeto observable como un objeto que ha cambiado
         setChanged();
         // Notificamos a los observadores y le enviamos el nuevo valor
-        notifyObservers("ENTRAR");
+        notifyObservers(Constantes.ENTRAR);
     }
 
     public void salir() {
         // Marca el objeto observable como un objeto que ha cambiado
         setChanged();
         // Notificamos a los observadores y le enviamos el nuevo valor
-        notifyObservers("SALIR");
+        notifyObservers(Constantes.SALIR);
     }
 
 }

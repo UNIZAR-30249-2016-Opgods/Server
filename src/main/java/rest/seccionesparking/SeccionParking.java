@@ -1,5 +1,6 @@
 package rest.seccionesparking;
 
+import rest.common.Constantes;
 import rest.common.Ocupacion;
 import rest.common.Punto;
 import rest.common.Entidad;
@@ -82,7 +83,7 @@ public class SeccionParking extends Entidad implements Observer, Comparable {
     public void update(Observable o, Object arg) {
         String actualizar = (String) arg;
         RepositorioSeccionParkingImpl repo = new RepositorioSeccionParkingImpl();
-        if(actualizar.contains("ENTRAR")) {
+        if(actualizar.contains(Constantes.ENTRAR)) {
             try {
                 repo.ocuparPlaza(getId());
                 //System.out.println("Se han ocupado una plaza del parking [" + nombre + "].");

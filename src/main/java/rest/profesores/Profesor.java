@@ -1,5 +1,6 @@
 package rest.profesores;
 
+import rest.common.Constantes;
 import rest.common.Entidad;
 import rest.seccionesparking.RepositorioSeccionParking;
 
@@ -55,7 +56,7 @@ public class Profesor extends Entidad implements Observer, Comparable {
     @Override
     public void update(Observable o, Object arg) {
         String actualizar = (String) arg;
-        if (actualizar.contains("ENTRAR")) {
+        if (actualizar.contains(Constantes.ENTRAR)) {
             disponibilidad = true;
            // System.out.println("El profesor [" + nombre + "] está disponible.");
         } else {

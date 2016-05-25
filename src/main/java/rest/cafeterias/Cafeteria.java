@@ -1,5 +1,6 @@
 package rest.cafeterias;
 
+import rest.common.Constantes;
 import rest.common.Entidad;
 import rest.common.Ocupacion;
 import rest.common.Punto;
@@ -65,7 +66,7 @@ public class Cafeteria extends Entidad implements Observer, Comparable{
     public void update(Observable o, Object arg) {
         String actualizar = (String) arg;
         RepositorioCafeteriasImpl repo = new RepositorioCafeteriasImpl();
-        if(actualizar.contains("ENTRAR")) {
+        if(actualizar.contains(Constantes.ENTRAR)) {
             try {
                 repo.ocuparPlaza(getId());
 
