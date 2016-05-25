@@ -50,9 +50,9 @@ public class SimularProfesores implements Runnable{
         }
     }
 
-    public static void cambiarADisponible(Sensor sensor) { sensor.entrar(); }
+    private static void cambiarADisponible(Sensor sensor) { sensor.entrar(); }
 
-    public static void cambiarANoDisponible(Sensor sensor) {
+    private static void cambiarANoDisponible(Sensor sensor) {
         sensor.salir();
     }
 

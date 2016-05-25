@@ -53,9 +53,9 @@ public class SimularSeccionesParking implements Runnable{
         }
     }
 
-    public static void ocuparPlaza(Sensor sensor) { sensor.entrar(); }
+    private static void ocuparPlaza(Sensor sensor) { sensor.entrar(); }
 
-    public static void liberarPlaza(Sensor sensor) {
+    private static void liberarPlaza(Sensor sensor) {
         sensor.salir();
     }
 
