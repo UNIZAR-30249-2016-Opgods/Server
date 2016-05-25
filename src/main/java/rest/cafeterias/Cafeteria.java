@@ -40,25 +40,25 @@ public class Cafeteria extends Entidad implements Observer, Comparable{
     }
 
     /**
-     * Pre: Debe haber un número de plazas libres mayor que 0
-     * Post: ocupa una plaza en la seccion del parking.
-     * @throws Exception en caso de no haber plazas libres.
+     * Pre: Debe haber un número de sitios libres mayor que 0
+     * Post: ocupa un sitio en la cafetería.
+     * @throws Exception en caso de no haber sitios libres.
      */
     public void ocuparPlaza() throws Exception {
         if(ocupacion.getLibres() == 0)
-            throw new Exception("No quedan plazas libres.");
+            throw new Exception("No quedan sitios libres.");
 
         ocupacion.ocuparPlaza();
     }
 
     /**
-     * Pre: El parking no debe estar vacío
-     * Post: libera una plaza la seccion del parking.
-     * @throws Exception en caso de que el parking esté vacío.
+     * Pre: La cafetería no debe estar vacío
+     * Post: libera un sitio de la cafetería.
+     * @throws Exception en caso de que la cafetería esté vacia.
      */
     public void liberarPlaza() throws Exception {
         if(ocupacion.getOcupadas() == 0)
-            throw new Exception("El parking ya estaba vacío.");
+            throw new Exception("La cafetería ya estaba vacío.");
 
         ocupacion.liberarPlaza();
     }
