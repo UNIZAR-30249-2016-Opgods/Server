@@ -18,10 +18,4 @@ public class BBDDTest {
         assertEquals(ConexionBBDD.conectar(), ConexionBBDD.conectar());
     }
 
-    @Test
-    public void igualConexionInclusoDesconectando(){
-        Connection conexion1 = ConexionBBDD.conectar();
-        ConexionBBDD.desconectar();
-        assertEquals(conexion1, ConexionBBDD.conectar());
-    }
 }
