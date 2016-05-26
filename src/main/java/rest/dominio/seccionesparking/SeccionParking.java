@@ -1,12 +1,10 @@
-package rest.seccionesparking;
+package rest.dominio.seccionesparking;
 
-import rest.common.Constantes;
-import rest.common.Ocupacion;
-import rest.common.Punto;
-import rest.common.Entidad;
+import rest.dominio.common.Constantes;
+import rest.dominio.common.Ocupacion;
+import rest.dominio.common.Punto;
+import rest.dominio.common.Entidad;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 

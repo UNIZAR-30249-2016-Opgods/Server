@@ -1,8 +1,8 @@
-package rest.seccionesparking;
+package rest.dominio.seccionesparking;
 
-import rest.common.ConexionBBDD;
-import rest.common.Ocupacion;
-import rest.common.Punto;
+import rest.infraestructura.ConexionBBDD;
+import rest.dominio.common.Ocupacion;
+import rest.dominio.common.Punto;
 
 import java.sql.*;
 import java.util.ArrayList;

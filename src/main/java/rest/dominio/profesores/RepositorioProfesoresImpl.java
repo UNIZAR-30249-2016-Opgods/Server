@@ -1,8 +1,8 @@
-package rest.profesores;
+package rest.dominio.profesores;
 
-import rest.common.ConexionBBDD;
-import rest.common.Localizacion;
-import rest.common.Punto;
+import rest.infraestructura.ConexionBBDD;
+import rest.dominio.common.Localizacion;
+import rest.dominio.common.Punto;
 
 import java.sql.*;
 import java.util.ArrayList;

@@ -1,4 +1,6 @@
-package rest.common;
+package rest.infraestructura;
+
+import rest.dominio.common.Constantes;
 
 import java.util.Observable;
 

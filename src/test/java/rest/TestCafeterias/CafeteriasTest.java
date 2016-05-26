@@ -2,10 +2,10 @@ package rest.TestCafeterias;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
-import rest.cafeterias.Cafeteria;
-import rest.common.Ocupacion;
-import rest.common.Punto;
-import rest.common.Sensor;
+import rest.dominio.cafeterias.Cafeteria;
+import rest.dominio.common.Ocupacion;
+import rest.dominio.common.Punto;
+import rest.infraestructura.Sensor;
 import static org.junit.Assert.*;
 
 public class CafeteriasTest {

@@ -1,8 +1,8 @@
 package rest.TestProfesores;
 
 import org.junit.Test;
-import rest.profesores.Profesor;
-import rest.profesores.RepositorioProfesoresImpl;
+import rest.dominio.profesores.Profesor;
+import rest.dominio.profesores.RepositorioProfesoresImpl;
 import java.util.List;
 import static org.junit.Assert.*;
 

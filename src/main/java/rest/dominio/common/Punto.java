@@ -1,4 +1,4 @@
-package rest.common;
+package rest.dominio.common;
 
 public class Punto {
 

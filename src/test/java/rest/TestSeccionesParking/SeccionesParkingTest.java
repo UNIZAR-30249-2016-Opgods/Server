@@ -2,12 +2,10 @@ package rest.TestSeccionesParking;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
-import rest.common.Ocupacion;
-import rest.common.Punto;
-import rest.common.Sensor;
-import rest.seccionesparking.SeccionParking;
-
-import java.util.ArrayList;
+import rest.dominio.common.Ocupacion;
+import rest.dominio.common.Punto;
+import rest.infraestructura.Sensor;
+import rest.dominio.seccionesparking.SeccionParking;
 
 import static org.junit.Assert.assertEquals;
 

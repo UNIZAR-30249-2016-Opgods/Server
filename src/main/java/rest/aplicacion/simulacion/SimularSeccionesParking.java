@@ -1,10 +1,8 @@
-package rest.simulacion;
+package rest.aplicacion.simulacion;
 
-import rest.common.Sensor;
-import rest.profesores.Profesor;
-import rest.profesores.RepositorioProfesoresImpl;
-import rest.seccionesparking.RepositorioSeccionParkingImpl;
-import rest.seccionesparking.SeccionParking;
+import rest.infraestructura.Sensor;
+import rest.dominio.seccionesparking.RepositorioSeccionParkingImpl;
+import rest.dominio.seccionesparking.SeccionParking;
 
 import java.util.ArrayList;
 import java.util.List;

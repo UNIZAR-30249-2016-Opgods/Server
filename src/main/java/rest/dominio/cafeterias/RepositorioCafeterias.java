@@ -1,4 +1,4 @@
-package rest.cafeterias;
+package rest.dominio.cafeterias;
 
 import java.util.List;
 

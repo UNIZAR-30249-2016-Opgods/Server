@@ -3,11 +3,11 @@ package rest.TestProfesores;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import rest.common.Localizacion;
-import rest.common.Punto;
-import rest.common.Sensor;
-import rest.profesores.Despacho;
-import rest.profesores.Profesor;
+import rest.dominio.common.Localizacion;
+import rest.dominio.common.Punto;
+import rest.infraestructura.Sensor;
+import rest.dominio.profesores.Despacho;
+import rest.dominio.profesores.Profesor;
 
 public class ProfesoresTest {
 

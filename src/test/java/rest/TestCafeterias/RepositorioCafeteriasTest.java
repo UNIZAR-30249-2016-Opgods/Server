@@ -1,9 +1,8 @@
 package rest.TestCafeterias;
 
 import org.junit.Test;
-import rest.cafeterias.Cafeteria;
-import rest.cafeterias.RepositorioCafeterias;
-import rest.cafeterias.RepositorioCafeteriasImpl;
+import rest.dominio.cafeterias.Cafeteria;
+import rest.dominio.cafeterias.RepositorioCafeteriasImpl;
 
 import java.util.List;
 

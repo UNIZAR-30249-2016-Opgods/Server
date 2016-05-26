@@ -1,4 +1,4 @@
-package rest.profesores;
+package rest.dominio.profesores;
 
 import java.util.List;
 

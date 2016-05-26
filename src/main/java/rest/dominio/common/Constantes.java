@@ -1,4 +1,4 @@
-package rest.common;
+package rest.dominio.common;
 
 /**
  * Created by phyrion on 25/05/16.

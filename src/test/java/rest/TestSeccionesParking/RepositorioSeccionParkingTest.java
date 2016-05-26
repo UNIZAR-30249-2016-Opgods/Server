@@ -1,9 +1,9 @@
 package rest.TestSeccionesParking;
 
 import org.junit.Test;
-import rest.common.Punto;
-import rest.seccionesparking.RepositorioSeccionParkingImpl;
-import rest.seccionesparking.SeccionParking;
+import rest.dominio.common.Punto;
+import rest.dominio.seccionesparking.RepositorioSeccionParkingImpl;
+import rest.dominio.seccionesparking.SeccionParking;
 import java.util.List;
 import static org.junit.Assert.*;
 

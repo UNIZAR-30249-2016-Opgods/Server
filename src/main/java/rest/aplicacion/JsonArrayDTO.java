@@ -1,4 +1,4 @@
-package rest.common;
+package rest.aplicacion;
 
 import java.util.List;
 

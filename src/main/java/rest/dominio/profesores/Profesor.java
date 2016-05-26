@@ -1,8 +1,7 @@
-package rest.profesores;
+package rest.dominio.profesores;
 
-import rest.common.Constantes;
-import rest.common.Entidad;
-import rest.seccionesparking.RepositorioSeccionParking;
+import rest.dominio.common.Constantes;
+import rest.dominio.common.Entidad;
 
 import java.util.Observable;
 import java.util.Observer;

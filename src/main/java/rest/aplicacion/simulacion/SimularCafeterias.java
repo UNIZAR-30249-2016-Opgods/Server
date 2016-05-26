@@ -1,10 +1,8 @@
-package rest.simulacion;
+package rest.aplicacion.simulacion;
 
-import rest.cafeterias.Cafeteria;
-import rest.cafeterias.RepositorioCafeteriasImpl;
-import rest.common.Sensor;
-import rest.seccionesparking.RepositorioSeccionParkingImpl;
-import rest.seccionesparking.SeccionParking;
+import rest.dominio.cafeterias.Cafeteria;
+import rest.dominio.cafeterias.RepositorioCafeteriasImpl;
+import rest.infraestructura.Sensor;
 
 import java.util.ArrayList;
 import java.util.List;

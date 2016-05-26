@@ -1,6 +1,6 @@
-package rest.seccionesparking;
+package rest.dominio.seccionesparking;
 
-import rest.common.Punto;
+import rest.dominio.common.Punto;
 
 import java.util.List;
 

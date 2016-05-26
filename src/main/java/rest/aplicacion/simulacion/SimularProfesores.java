@@ -1,8 +1,8 @@
-package rest.simulacion;
+package rest.aplicacion.simulacion;
 
-import rest.common.Sensor;
-import rest.profesores.Profesor;
-import rest.profesores.RepositorioProfesoresImpl;
+import rest.infraestructura.Sensor;
+import rest.dominio.profesores.Profesor;
+import rest.dominio.profesores.RepositorioProfesoresImpl;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,9 +1,9 @@
-package rest.cafeterias;
+package rest.dominio.cafeterias;
 
-import rest.common.Constantes;
-import rest.common.Entidad;
-import rest.common.Ocupacion;
-import rest.common.Punto;
+import rest.dominio.common.Constantes;
+import rest.dominio.common.Entidad;
+import rest.dominio.common.Ocupacion;
+import rest.dominio.common.Punto;
 
 import java.util.Observable;
 import java.util.Observer;

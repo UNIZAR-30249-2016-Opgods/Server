@@ -1,14 +1,12 @@
-package rest.infraestructura;
+package rest.aplicacion;
 
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import rest.common.JsonArrayDTO;
-import rest.seccionesparking.RepositorioSeccionParkingImpl;
+import rest.dominio.seccionesparking.RepositorioSeccionParkingImpl;
 
 @RestController
 public class ParkingEndPoint {

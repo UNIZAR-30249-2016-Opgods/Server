@@ -1,4 +1,4 @@
-package rest.infraestructura;
+package rest.aplicacion;
 
 
 import org.springframework.http.HttpStatus;
@@ -6,8 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import rest.cafeterias.RepositorioCafeteriasImpl;
-import rest.common.JsonArrayDTO;
+import rest.dominio.cafeterias.RepositorioCafeteriasImpl;
 
 @RestController
 public class CafeteriaEndPoint {

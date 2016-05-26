@@ -2,7 +2,7 @@ package rest.TestCommon;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
-import rest.common.Ocupacion;
+import rest.dominio.common.Ocupacion;
 
 import static org.junit.Assert.assertEquals;
 

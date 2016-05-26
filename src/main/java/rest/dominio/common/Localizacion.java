@@ -1,4 +1,4 @@
-package rest.common;
+package rest.dominio.common;
 /**
  * Clase que representa una localización
  */

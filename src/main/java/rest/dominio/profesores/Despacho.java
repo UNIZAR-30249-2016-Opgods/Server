@@ -1,6 +1,6 @@
-package rest.profesores;
+package rest.dominio.profesores;
 
-import rest.common.Localizacion;
+import rest.dominio.common.Localizacion;
 
 public class Despacho {
 
