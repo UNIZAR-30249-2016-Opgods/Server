@@ -1,4 +1,4 @@
-package rest.TestSeccionesParking;
+package rest.TestCafeterias;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -8,34 +8,29 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import rest.seccionesparking.ParkingController;
+import rest.infraestructura.CafeteriaEndPoint;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes=ParkingController.class)
-public class ParkingControllerTest {
+@ContextConfiguration(classes= CafeteriaEndPoint.class)
+public class CafeteriasEndPointTest {
 
     private MockMvc mockMvc;
 
     @Autowired
-    private ParkingController parkingController;
+    private CafeteriaEndPoint cafeteriaController;
 
     @Before
     public void setUp() {
-        mockMvc = MockMvcBuilders.standaloneSetup(parkingController).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(cafeteriaController).build();
     }
 
     @Test
-    public void obtenerSecciones() throws Exception {
-        this.mockMvc.perform(get("/parking/secciones"))
+    public void obtenerCafeterias() throws Exception {
+        this.mockMvc.perform(get("/cafeterias"))
                 .andExpect(status().isOk());
     }
 
-    @Test
-    public void obtenerPuntosDeAcceso() throws Exception {
-        this.mockMvc.perform(get("/parking/puntosDeAcceso"))
-                .andExpect(status().isOk());
-    }
 }

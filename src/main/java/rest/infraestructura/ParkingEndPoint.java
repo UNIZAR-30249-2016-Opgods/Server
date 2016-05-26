@@ -1,4 +1,4 @@
-package rest.seccionesparking;
+package rest.infraestructura;
 
 
 import org.springframework.http.HttpStatus;
@@ -8,9 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import rest.common.JsonArrayDTO;
+import rest.seccionesparking.RepositorioSeccionParkingImpl;
 
 @RestController
-public class ParkingController {
+public class ParkingEndPoint {
 
     @RequestMapping(value = "/parking/secciones", method = RequestMethod.GET)
     public ResponseEntity getSeccionesParking() {

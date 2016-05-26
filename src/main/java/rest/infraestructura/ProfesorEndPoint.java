@@ -1,4 +1,4 @@
-package rest.profesores;
+package rest.infraestructura;
 
 
 import org.springframework.http.HttpStatus;
@@ -8,9 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import rest.common.JsonArrayDTO;
+import rest.profesores.RepositorioProfesoresImpl;
 
 @RestController
-public class ProfesorController {
+public class ProfesorEndPoint {
 
     @RequestMapping(value = "/profesores/{planta}", method = RequestMethod.GET)
     public ResponseEntity findByFloor(@PathVariable("planta") int planta) {

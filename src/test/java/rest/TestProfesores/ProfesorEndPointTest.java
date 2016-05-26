@@ -8,18 +8,18 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import rest.profesores.ProfesorController;
+import rest.infraestructura.ProfesorEndPoint;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes=ProfesorController.class)
-public class ProfesorControllerTest {
+@ContextConfiguration(classes= ProfesorEndPoint.class)
+public class ProfesorEndPointTest {
 
     private MockMvc mockMvc;
 
     @Autowired
-    private ProfesorController profesorController;
+    private ProfesorEndPoint profesorController;
 
     @Before
     public void setUp() {
