@@ -18,27 +18,6 @@ public class RepositorioCafeteriasImpl implements RepositorioCafeterias {
     }
 
     @Override
-    public Cafeteria findById(String id) {
-        Cafeteria cafeteria = null;
-        try {
-            String sql = "SELECT p.id_4 AS id_cafeteria, ST_Y(ST_PointOnSurface(geom)) AS LOCATIONX, ST_X(ST_PointOnSurface(geom)) AS LOCATIONY," +
-                    " numplazas, plazasocupadas FROM proyecto.cafeteria c, proyecto.planta_0 p WHERE p.id_4=c.id AND p.id_4='" + id + "'";
-            Statement stmt = conexion.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
-            while (rs.next()) {
-                cafeteria = new Cafeteria(
-                        rs.getString("id_Cafeteria"),
-                        "cafeteria",
-                        new Punto(rs.getDouble("LOCATIONX"), rs.getDouble("LOCATIONY")),
-                        new Ocupacion(rs.getInt("numplazas"), rs.getInt("plazasocupadas")));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return cafeteria;
-    }
-
-    @Override
     @SuppressWarnings("unchecked")
     public List<Cafeteria> obtenerCafeterias() {
         List<Cafeteria> cafeterias = new ArrayList<>();
@@ -65,39 +44,17 @@ public class RepositorioCafeteriasImpl implements RepositorioCafeterias {
     }
 
     @Override
-    public void ocuparPlaza(String id) throws Exception {
-        Cafeteria cafeteria = findById(id);
+    public boolean actualizarCafeteria(Cafeteria cafeteria) throws Exception {
         if(cafeteria != null) {
-            try {
-                cafeteria.ocuparPlaza();
-                PreparedStatement preparedStmt;
-                String query = "UPDATE proyecto.cafeteria SET plazasocupadas = '"
-                        + cafeteria.getOcupacion().getOcupadas() + "' where id = '" + id + "'";
+            int ocupacion = cafeteria.getOcupacion().getOcupadas();
+            PreparedStatement preparedStmt;
+            String query = "UPDATE proyecto.cafeteria SET plazasocupadas = '"
+                    + ocupacion + "' where id = '" + cafeteria.getId() + "'";
 
-                preparedStmt = conexion.prepareStatement(query);
-                preparedStmt.executeUpdate();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    @Override
-    public void liberarPlaza(String id) throws Exception {
-        Cafeteria cafeteria = findById(id);
-        if(cafeteria != null) {
-            try {
-                cafeteria.liberarPlaza();
-                PreparedStatement preparedStmt;
-                String query = "UPDATE proyecto.cafeteria SET plazasocupadas = '"
-                        + cafeteria.getOcupacion().getOcupadas() + "' where id = '" + id + "'";
-
-                preparedStmt = conexion.prepareStatement(query);
-                preparedStmt.executeUpdate();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
+            preparedStmt = conexion.prepareStatement(query);
+            preparedStmt.executeUpdate();
+            return true;
+        } else return false;
     }
 
 }

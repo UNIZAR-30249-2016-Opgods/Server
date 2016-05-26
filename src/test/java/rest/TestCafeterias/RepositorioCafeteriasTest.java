@@ -2,6 +2,7 @@ package rest.TestCafeterias;
 
 import org.junit.Test;
 import rest.cafeterias.Cafeteria;
+import rest.cafeterias.RepositorioCafeterias;
 import rest.cafeterias.RepositorioCafeteriasImpl;
 
 import java.util.List;
@@ -18,33 +19,12 @@ public class RepositorioCafeteriasTest {
     }
 
     @Test
-    public void ocuparPlaza () throws Exception {
+    public void actualizarCafeteria () throws Exception {
         RepositorioCafeteriasImpl repo = new RepositorioCafeteriasImpl();
+        List<Cafeteria> parkingList = repo.obtenerCafeterias();
+        boolean exito = repo.actualizarCafeteria(parkingList.get(0));
 
-        List<Cafeteria> cafeteriaList = repo.obtenerCafeterias();
-        int numOcupadasAntes = cafeteriaList.get(0).getOcupacion().getOcupadas();
-        String id = cafeteriaList.get(0).getId();
-
-        repo.ocuparPlaza(id);
-        Cafeteria cafeteriaActualizada = repo.findById(id);
-
-        assertEquals(cafeteriaList.get(0).getId(), cafeteriaActualizada.getId());
-        assertEquals(cafeteriaActualizada.getOcupacion().getOcupadas(), numOcupadasAntes+1);
-    }
-
-    @Test
-    public void liberarPlaza () throws Exception {
-        RepositorioCafeteriasImpl repo = new RepositorioCafeteriasImpl();
-
-        List<Cafeteria> cafeteriaList = repo.obtenerCafeterias();
-        int numOcupadasAntes = cafeteriaList.get(0).getOcupacion().getOcupadas();
-        String id = cafeteriaList.get(0).getId();
-
-        repo.liberarPlaza(id);
-        Cafeteria cafeteriaActualizada = repo.findById(id);
-
-        assertEquals(cafeteriaList.get(0).getId(), cafeteriaActualizada.getId());
-        assertEquals(cafeteriaActualizada.getOcupacion().getOcupadas(), numOcupadasAntes-1);
+        assertTrue(exito);
     }
 
 }

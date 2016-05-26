@@ -13,6 +13,6 @@ public interface RepositorioProfesores {
 
     List<Profesor> findFloor(int UTCplanta);
 
-    void modificarDisponibilidad(String id);
+    boolean modificarDisponibilidad(Profesor profesor);
 
 }

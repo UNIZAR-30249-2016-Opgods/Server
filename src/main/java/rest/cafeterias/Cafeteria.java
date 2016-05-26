@@ -62,26 +62,24 @@ public class Cafeteria extends Entidad implements Observer, Comparable{
 
         ocupacion.liberarPlaza();
     }
+
     @Override
     public void update(Observable o, Object arg) {
         String actualizar = (String) arg;
         RepositorioCafeteriasImpl repo = new RepositorioCafeteriasImpl();
-        if(actualizar.contains(Constantes.ENTRAR)) {
-            try {
-                repo.ocuparPlaza(getId());
-
+        try {
+            if(actualizar.contains(Constantes.ENTRAR)) {
+                ocuparPlaza();
+                repo.actualizarCafeteria(this);
                 //System.out.println("Se han ocupado una plaza de la cafeteria.");
-            } catch (Exception e) {
-                System.err.println(e.getMessage());
-            }
-        } else {
-            try {
-                repo.liberarPlaza(getId());
 
+            } else {
+                liberarPlaza();
+                repo.actualizarCafeteria(this);
                 //System.out.println("Se han liberado una plaza de la cafeteria.");
-            } catch (Exception e) {
-                System.err.println(e.getMessage());
             }
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
         }
     }
 

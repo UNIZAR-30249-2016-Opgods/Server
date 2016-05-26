@@ -4,11 +4,8 @@ import org.junit.Test;
 import rest.common.Punto;
 import rest.seccionesparking.RepositorioSeccionParkingImpl;
 import rest.seccionesparking.SeccionParking;
-
 import java.util.List;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class RepositorioSeccionParkingTest {
 
@@ -26,35 +23,21 @@ public class RepositorioSeccionParkingTest {
         assertTrue(puntosAcceso.size()>0);
     }
 
-
     @Test
-    public void ocuparPlaza () throws Exception {
+    public void actualizarParking () throws Exception {
         RepositorioSeccionParkingImpl repo = new RepositorioSeccionParkingImpl();
+        List<SeccionParking> parkingList = repo.obtenerSecciones();
+        boolean exito = repo.actualizarParking(parkingList.get(0));
 
-        List<SeccionParking> seccionParkingList = repo.obtenerSecciones();
-        int numOcupadasAntes = seccionParkingList.get(0).getOcupacion().getOcupadas();
-        String id = seccionParkingList.get(0).getId();
-
-        repo.ocuparPlaza(id);
-        SeccionParking seccionParkingActualizada = repo.findById(id);
-
-        assertEquals(seccionParkingList.get(0).getId(), seccionParkingActualizada.getId());
-        assertEquals(seccionParkingActualizada.getOcupacion().getOcupadas(), numOcupadasAntes+1);
+        assertTrue(exito);
     }
 
     @Test
-    public void liberarPlaza () throws Exception {
+    public void actualizarParkingNull () throws Exception {
         RepositorioSeccionParkingImpl repo = new RepositorioSeccionParkingImpl();
+        boolean exito = repo.actualizarParking(null);
 
-        List<SeccionParking> seccionParkingList = repo.obtenerSecciones();
-        int numOcupadasAntes = seccionParkingList.get(0).getOcupacion().getOcupadas();
-        String id = seccionParkingList.get(0).getId();
-
-        repo.liberarPlaza(id);
-        SeccionParking seccionParkingActualizada = repo.findById(id);
-
-        assertEquals(seccionParkingList.get(0).getId(), seccionParkingActualizada.getId());
-        assertEquals(seccionParkingActualizada.getOcupacion().getOcupadas(), numOcupadasAntes-1);
+        assertFalse(exito);
     }
 
 }

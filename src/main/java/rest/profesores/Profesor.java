@@ -65,13 +65,13 @@ public class Profesor extends Entidad implements Observer, Comparable {
         }
         // Llama al repositorio para modificar la disponibilidad
         RepositorioProfesoresImpl repo = new RepositorioProfesoresImpl();
-        repo.modificarDisponibilidad(getId());
+        repo.modificarDisponibilidad(this);
     }
 
     @Override
     public int compareTo(Object o) {
         return this.getId().compareTo(((Profesor) o).getId());
-//        int comparacion = Integer.parseInt(((Profesor) o).getId());
-//        return Integer.parseInt(this.getId())-comparacion;
+        //int comparacion = Integer.parseInt(((Profesor) o).getId());
+        //return Integer.parseInt(this.getId())-comparacion;
     }
 }

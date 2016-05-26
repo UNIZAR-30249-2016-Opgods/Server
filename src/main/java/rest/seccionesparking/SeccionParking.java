@@ -15,24 +15,19 @@ public class SeccionParking extends Entidad implements Observer, Comparable {
     private String nombre;
     private Punto punto;
     private Ocupacion ocupacion;
-    private List<Punto> accesos;
 
     // Inserciones en la BBDD y JSON
-    public SeccionParking(String nombre, Punto punto, Ocupacion ocupacion, List<Punto> accesos) {
+    public SeccionParking(String nombre, Punto punto, Ocupacion ocupacion) {
         this.nombre = nombre;
         this.punto = punto;
         this.ocupacion = ocupacion;
-        this.accesos = new ArrayList<>();
-        this.accesos = accesos;
     }
 
-    public SeccionParking(String id, String nombre, Punto punto, Ocupacion ocupacion, List<Punto> accesos) {
+    public SeccionParking(String id, String nombre, Punto punto, Ocupacion ocupacion) {
         super(id);
         this.nombre = nombre;
         this.punto = punto;
         this.ocupacion = ocupacion;
-        this.accesos = new ArrayList<>();
-        this.accesos = accesos;
     }
 
     public String getNombre() {
@@ -45,10 +40,6 @@ public class SeccionParking extends Entidad implements Observer, Comparable {
 
     public Ocupacion getOcupacion() {
         return ocupacion;
-    }
-
-    public List<Punto> getAccesos() {
-        return accesos;
     }
 
     /**
@@ -75,28 +66,23 @@ public class SeccionParking extends Entidad implements Observer, Comparable {
         ocupacion.liberarPlaza();
     }
 
-    public Ocupacion obtenerOcupacion() {
-        return ocupacion;
-    }
-
     @Override
     public void update(Observable o, Object arg) {
         String actualizar = (String) arg;
         RepositorioSeccionParkingImpl repo = new RepositorioSeccionParkingImpl();
-        if(actualizar.contains(Constantes.ENTRAR)) {
-            try {
-                repo.ocuparPlaza(getId());
+        try {
+            if(actualizar.contains(Constantes.ENTRAR)) {
+                ocuparPlaza();
+                repo.actualizarParking(this);
                 //System.out.println("Se han ocupado una plaza del parking [" + nombre + "].");
-            } catch (Exception e) {
-                System.err.println(e.getMessage());
-            }
-        } else {
-            try {
-                repo.liberarPlaza(getId());
+
+            } else {
+                liberarPlaza();
+                repo.actualizarParking(this);
                 //System.out.println("Se han liberado una plaza del parking [" + nombre + "].");
-            } catch (Exception e) {
-                System.err.println(e.getMessage());
             }
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
         }
     }
 

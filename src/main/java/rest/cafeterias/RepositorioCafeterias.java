@@ -6,10 +6,6 @@ public interface RepositorioCafeterias {
 
     List<Cafeteria> obtenerCafeterias();
 
-    void ocuparPlaza(String id) throws Exception;
-
-    void liberarPlaza(String id) throws Exception;
-
-    Cafeteria findById(String id);
+    boolean actualizarCafeteria(Cafeteria cafeteria) throws Exception;
 
 }

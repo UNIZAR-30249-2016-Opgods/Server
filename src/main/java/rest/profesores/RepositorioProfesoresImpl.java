@@ -11,7 +11,7 @@ import java.util.List;
 
 public class RepositorioProfesoresImpl implements RepositorioProfesores {
 
-    private static final String  PLANTA = "planta_";
+    private static final String PLANTA = "planta_";
     private Connection conexion;
 
     public RepositorioProfesoresImpl() {
@@ -22,7 +22,8 @@ public class RepositorioProfesoresImpl implements RepositorioProfesores {
     @SuppressWarnings("unchecked")
     public List<Profesor> findAll() {
         List<Profesor> profesores = new ArrayList<>();
-        try {for (int i = 0; i < 5; i++) {
+        try {
+            for (int i = 0; i < 5; i++) {
                 String sql = "SELECT p.id AS id_profesor, nombre, disponibilidad, info, id_centro, ST_Y(ST_PointOnSurface(geom)) AS LOCATIONX, " +
                         "ST_X(ST_PointOnSurface(geom)) AS LOCATIONY FROM proyecto.profesor p, proyecto.planta_" + i + " pl WHERE p.utcdespacho=pl.id_utc";
                 Statement stmt = conexion.createStatement();
@@ -95,25 +96,22 @@ public class RepositorioProfesoresImpl implements RepositorioProfesores {
     }
 
     @Override
-    public void modificarDisponibilidad(String id) {
-        boolean disponibilidad = false;
-        try {
-            String sql = "SELECT disponibilidad FROM proyecto.profesor WHERE id = '" + id + "'";
-            Statement stmt = conexion.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
-            while (rs.next()) {
-                disponibilidad = rs.getBoolean("disponibilidad");
+    public boolean modificarDisponibilidad(Profesor profesor) {
+        if (profesor != null) {
+            try {
+                int disponibilidadInt = profesor.isDisponibilidad() ? 0 : 1;
+
+                PreparedStatement preparedStmt;
+                String query = "UPDATE proyecto.profesor SET disponibilidad = '" + disponibilidadInt + "' where id = '" + profesor.getId() + "'";
+
+                preparedStmt = conexion.prepareStatement(query);
+                preparedStmt.executeUpdate();
+                return true;
+            } catch (SQLException e) {
+                e.printStackTrace();
+                return false;
             }
-            int disponibilidadInt = disponibilidad ? 0 : 1;
-
-            PreparedStatement preparedStmt;
-            String query = "UPDATE proyecto.profesor SET disponibilidad = '" + disponibilidadInt + "' where id = '" + id + "'";
-
-            preparedStmt = conexion.prepareStatement(query);
-            preparedStmt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        } else return false;
     }
 
 }

@@ -20,28 +20,28 @@ public class SeccionesParkingTest {
 
     @BeforeClass
     public static void beforeClass() {
-        seccionParking = new SeccionParking("Nombre", new Punto(1.0,2.0), new Ocupacion(60, 30), new ArrayList<>());
-        seccionParkingVacia = new SeccionParking("Nombre", new Punto(1.0,2.0), new Ocupacion(60, 0), new ArrayList<>());
-        seccionParkingLlena = new SeccionParking("Nombre", new Punto(1.0,2.0), new Ocupacion(60, 60),  new ArrayList<>());
+        seccionParking = new SeccionParking("Nombre", new Punto(1.0,2.0), new Ocupacion(60, 30));
+        seccionParkingVacia = new SeccionParking("Nombre", new Punto(1.0,2.0), new Ocupacion(60, 0));
+        seccionParkingLlena = new SeccionParking("Nombre", new Punto(1.0,2.0), new Ocupacion(60, 60));
         sensor = new Sensor();
     }
 
-    //TODO: estos dos test fallan porque el repositorio llama al metodo.
-//    @Test
-//    public void sensorOcupaSitioDeParking () {
-//        sensor.addObserver(seccionParking);
-//        int ocupadosAntes = seccionParking.getOcupacion().getOcupadas();
-//        sensor.entrar();
-//        assertEquals(seccionParking.getOcupacion().getOcupadas(), ocupadosAntes+1);
-//    }
-//
-//    @Test
-//    public void sensorLiberaSitioDeParking () {
-//        sensor.addObserver(seccionParking);
-//        int ocupadosAntes = seccionParking.getOcupacion().getOcupadas();
-//        sensor.salir();
-//        assertEquals(seccionParking.getOcupacion().getOcupadas(), ocupadosAntes-1);
-//    }
+
+    @Test
+    public void sensorOcupaSitioDeParking () {
+        sensor.addObserver(seccionParking);
+        int ocupadosAntes = seccionParking.getOcupacion().getOcupadas();
+        sensor.entrar();
+        assertEquals(seccionParking.getOcupacion().getOcupadas(), ocupadosAntes+1);
+    }
+
+    @Test
+    public void sensorLiberaSitioDeParking () {
+        sensor.addObserver(seccionParking);
+        int ocupadosAntes = seccionParking.getOcupacion().getOcupadas();
+        sensor.salir();
+        assertEquals(seccionParking.getOcupacion().getOcupadas(), ocupadosAntes-1);
+    }
 
     @Test
     public void sensorOcupaSitioDeParkingLleno () {

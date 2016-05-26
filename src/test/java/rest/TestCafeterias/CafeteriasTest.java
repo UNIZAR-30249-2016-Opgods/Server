@@ -23,22 +23,21 @@ public class CafeteriasTest {
         sensor = new Sensor();
     }
 
-    //TODO: estos dos test fallan porque el repositorio llama al metodo.
-//    @Test
-//    public void sensorOcupaSitioDeCafeteria () {
-//        sensor.addObserver(cafeteria);
-//        int ocupadosAntes = cafeteria.getOcupacion().getOcupadas();
-//        sensor.entrar();
-//        assertEquals(cafeteria.getOcupacion().getOcupadas(), ocupadosAntes+1);
-//    }
+    @Test
+    public void sensorOcupaSitioDeCafeteria () {
+        sensor.addObserver(cafeteria);
+        int ocupadosAntes = cafeteria.getOcupacion().getOcupadas();
+        sensor.entrar();
+        assertEquals(cafeteria.getOcupacion().getOcupadas(), ocupadosAntes+1);
+    }
 
-//    @Test
-//    public void sensorLiberaSitioDeCafeteria () {
-//        sensor.addObserver(cafeteria);
-//        int ocupadosAntes = cafeteria.getOcupacion().getOcupadas();
-//        sensor.salir();
-//        assertEquals(cafeteria.getOcupacion().getOcupadas(), ocupadosAntes-1);
-//    }
+    @Test
+    public void sensorLiberaSitioDeCafeteria () {
+        sensor.addObserver(cafeteria);
+        int ocupadosAntes = cafeteria.getOcupacion().getOcupadas();
+        sensor.salir();
+        assertEquals(cafeteria.getOcupacion().getOcupadas(), ocupadosAntes-1);
+    }
 
     @Test
     public void sensorOcupaSitioDeCafeteriaLlena () {

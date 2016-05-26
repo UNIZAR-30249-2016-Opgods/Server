@@ -17,17 +17,12 @@ public class RepositorioProfesoresTest {
     }
 
     @Test
-    public void modificarDisponibilidad () {
+    public void actualizarProfesor () throws Exception {
         RepositorioProfesoresImpl repo = new RepositorioProfesoresImpl();
         List<Profesor> profesorList = repo.fuzzyFind("Rubén Béjar Hernández");
-        boolean disponibilidadAntes = profesorList.get(0).isDisponibilidad();
-        repo.modificarDisponibilidad(profesorList.get(0).getId());
-        profesorList = repo.fuzzyFind("Rubén Béjar Hernández");
-        if (disponibilidadAntes) {
-            assertFalse(profesorList.get(0).isDisponibilidad());
-        } else {
-            assertTrue(profesorList.get(0).isDisponibilidad());
-        }
+        boolean exito = repo.modificarDisponibilidad(profesorList.get(0));
+
+        assertTrue(exito);
     }
 
     @Test

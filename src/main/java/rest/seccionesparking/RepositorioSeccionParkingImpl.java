@@ -27,28 +27,6 @@ public class RepositorioSeccionParkingImpl implements RepositorioSeccionParking 
     }
 
     @Override
-    public SeccionParking findById(String id) {
-        SeccionParking seccionParking = null;
-        try {
-            String sql = "SELECT p.id_1 AS id_seccion, id_centro, ST_Y(ST_PointOnSurface(geom)) AS LOCATIONX, ST_X(ST_PointOnSurface(geom)) AS LOCATIONY," +
-                    " numplazas, plazasocupadas FROM proyecto.plazas p, proyecto.seccion_parking sp WHERE p.id_1=sp.id AND p.id_1='" + id + "'";
-            Statement stmt = conexion.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
-            while (rs.next()) {
-                seccionParking = new SeccionParking(
-                        rs.getString("id_seccion"),
-                        rs.getString("id_centro"),
-                        new Punto(rs.getDouble("LOCATIONX"), rs.getDouble("LOCATIONY")),
-                        new Ocupacion(rs.getInt("numplazas"), rs.getInt("plazasocupadas")),
-                        puntosDeAcceso);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return seccionParking;
-    }
-
-    @Override
     @SuppressWarnings("unchecked")
     public List<SeccionParking> obtenerSecciones() {
         List<SeccionParking> secciones = new ArrayList<>();
@@ -63,8 +41,7 @@ public class RepositorioSeccionParkingImpl implements RepositorioSeccionParking 
                         rs.getString("id_seccion"),
                         rs.getString("id_centro"),
                         new Punto(rs.getDouble("LOCATIONX"), rs.getDouble("LOCATIONY")),
-                        new Ocupacion(rs.getInt("numplazas"), rs.getInt("plazasocupadas")),
-                        puntosDeAcceso);
+                        new Ocupacion(rs.getInt("numplazas"), rs.getInt("plazasocupadas")));
                 secciones.add(sptemp);
             }
         } catch (SQLException e) {
@@ -76,33 +53,18 @@ public class RepositorioSeccionParkingImpl implements RepositorioSeccionParking 
     }
 
     @Override
-    public void ocuparPlaza(String id) throws Exception {
-        SeccionParking seccionParking = findById(id);
-        if(seccionParking != null) {
-            seccionParking.ocuparPlaza();
-
+    public boolean actualizarParking(SeccionParking parking) throws Exception {
+        if(parking != null) {
+            int ocupacion = parking.getOcupacion().getOcupadas();
             PreparedStatement preparedStmt;
             String query = "UPDATE proyecto.seccion_parking SET plazasocupadas = '"
-                    + seccionParking.obtenerOcupacion().getOcupadas() + "' where id = '" + id + "'";
+                    + ocupacion + "' where id = '" + parking.getId() + "'";
 
             preparedStmt = conexion.prepareStatement(query);
             preparedStmt.executeUpdate();
-        }
-    }
-
-    @Override
-    public void liberarPlaza(String id) throws Exception {
-        SeccionParking seccionParking = findById(id);
-        if(seccionParking != null) {
-            seccionParking.liberarPlaza();
-
-            PreparedStatement preparedStmt;
-            String query = "UPDATE proyecto.seccion_parking SET plazasocupadas = '"
-                    + seccionParking.obtenerOcupacion().getOcupadas() + "' where id = '" + id + "'";
-
-            preparedStmt = conexion.prepareStatement(query);
-            preparedStmt.executeUpdate();
-        }
+            return true;
+        } else
+            return false;
     }
 
     @Override
